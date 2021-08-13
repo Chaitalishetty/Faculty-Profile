@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,10 +59,10 @@
                   <li><h3><i class="fa fa-book"></i>&nbsp;Publications</h3></li>
                   <li><a href="#" onclick=chapter(); id="chapter">Book Chapter</a></li>
                   <li><a href="#" onclick=publication();>Book Publications</a></li> 
-                  <li><a href="#">Patent</a></li> 
-                  <li><a href="#">Copyright</a></li>
-                  <li><a href="#">Journal</a></li> 
-                  <li><a href="#">Conference</a></li>
+                  <li><a href="#" onclick=patent();>Patent</a></li> 
+                  <li><a href="#" onclick=copyright();>Copyright</a></li>
+                  <li><a href="#" onclick=journal();>Journal</a></li> 
+                  <li><a href="#" onclick=conference();>Conference</a></li>
                   <li><a href="#">Show all records</a></li>    
              </ul>
             </div>
@@ -176,20 +177,18 @@
           <canvas id="chart_faculty_details"></canvas>
           <?php include 'faculty_details.php'; ?> 
         </div>
-
-
-
-
-
-
-
-
-
-
-
       </div>
     </div>
   </div>
+  <!-- changes -->
+  
+  <?php
+      include 'publication.php';
+  ?>
+  <script type="text/javascript" src="patent.js"></script>
+  <script type="text/javascript" src="copyright.js"></script>
+  <script type="text/javascript" src="journal.js"></script>
+  <script type="text/javascript" src="conference.js"></script>
 </body>
 <script>
 function openNav() {
@@ -207,5 +206,19 @@ function closeNav() {
     document.querySelector(".dashboard_container").style.width = "100vw";
   }
 }
+</script>
+<script type="text/javascript">
+let fac_name = '<?php echo $fac_name?>';
+let fac_sdrn = '<?php echo $fac_sdrn ?>';
+</script>
+<!-- changes -->
+<script type="text/javascript">
+let bookChapter = <?php echo json_encode($book_chapter);?>;
+let bookJournal = <?php echo json_encode($journal); ?>;
+let bookConf = <?php echo json_encode($conference); ?>;
+let bookPublication = <?php echo json_encode($publication);?>;
+let bookPatent = <?php echo json_encode($patent);?>;
+let bookCopy = <?php echo json_encode($copyright);?>;
+
 </script>
 </html>
