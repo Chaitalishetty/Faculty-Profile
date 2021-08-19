@@ -201,7 +201,7 @@
             </div>
             <div class="col-sm-4">
               <label>Score</label>
-              <input type="password" class="form-control" id="ug_score" placeholder="UG Score" name="ug_score">
+              <input type="text" class="form-control" id="ug_score" placeholder="UG Score" name="ug_score">
             </div>
           </div>
           <div class="row">
@@ -211,7 +211,7 @@
             </div>
             <div class="col-sm-12">
               <label>College</label>
-              <input type="password" class="form-control" id="ug_college" placeholder="UG College" name="ug_college">
+              <input type="text" class="form-control" id="ug_college" placeholder="UG College" name="ug_college">
             </div>
           </div>
           <br><hr>
@@ -223,7 +223,7 @@
             </div>
             <div class="col-sm-4">
               <label>Score</label>
-              <input type="password" class="form-control" id="pg_score" placeholder="PG Score" name="pg_score">
+              <input type="text" class="form-control" id="pg_score" placeholder="PG Score" name="pg_score">
             </div>
           </div>
           <div class="row">
@@ -233,7 +233,7 @@
             </div>
             <div class="col-sm-12">
               <label>College</label>
-              <input type="password" class="form-control" id="pg_college" placeholder="PG College" name="pg_college">
+              <input type="text" class="form-control" id="pg_college" placeholder="PG College" name="pg_college">
             </div>
           </div>
           <br><hr>
@@ -245,7 +245,7 @@
             </div>
             <div class="col-sm-4">
               <label>Score</label>
-              <input type="password" class="form-control" id="phd_score" placeholder="PHD Score" name="phd_score">
+              <input type="text" class="form-control" id="phd_score" placeholder="PHD Score" name="phd_score">
             </div>
           </div>
           <div class="row">
@@ -255,7 +255,7 @@
             </div>
             <div class="col-sm-12">
               <label>College</label>
-              <input type="password" class="form-control" id="phd_college" placeholder="PHD College" name="phd_college">
+              <input type="text" class="form-control" id="phd_college" placeholder="PHD College" name="phd_college">
             </div>
           </div>
           <br><hr>
@@ -267,7 +267,7 @@
             </div>
             <div class="col-sm-4">
               <label>Score</label>
-              <input type="password" class="form-control" id="other_score" placeholder="Other Score" name="other_score">
+              <input type="text" class="form-control" id="other_score" placeholder="Other Score" name="other_score">
             </div>
           </div>
           <div class="row">
@@ -277,7 +277,7 @@
             </div>
             <div class="col-sm-12">
               <label>College</label>
-              <input type="password" class="form-control" id="other_college" placeholder="Other College" name="other_college">
+              <input type="text" class="form-control" id="other_college" placeholder="Other College" name="other_college">
             </div>
           </div>
 

@@ -3,7 +3,7 @@
 	if (isset($_SESSION['sdrn'])){
 		$sdrn = $_SESSION['sdrn'];
 	}
-	$sdrn='811';
+	// $sdrn='811';
 	// Database Connection 
 	$conn = mysqli_connect("localhost", "root", "","test");
 	if ($conn->connect_error)  {
