@@ -5,6 +5,8 @@
 
     $Sdrn = mysqli_real_escape_string($conn, $_POST['sdrn_no']);
     $full_name = mysqli_real_escape_string($conn, $_POST['full_name']);
+    $full_namee = array();
+    $full_namee = (explode(" ",$full_name));
     $phone_no = mysqli_real_escape_string($conn, $_POST['phone_no']);
     $email_id = mysqli_real_escape_string($conn, $_POST['email_id']);
     $marrital_status = mysqli_real_escape_string($conn, $_POST['marrital_status']);
@@ -40,7 +42,6 @@
     $other_experience = mysqli_real_escape_string($conn, $_POST['other_experience']);
     $industry_experience = mysqli_real_escape_string($conn, $_POST['industry_experience']);
 
-    // `Sdrn`, `First_name`, `Middle_name`, `Last_name`, `DOB`, `Department`,`Qualification`, `Desig`, 
 
     $image = $_FILES['profile_photo']['tmp_name'];
     $image = base64_encode(file_get_contents(addslashes($image)));
@@ -49,25 +50,32 @@
     $aadhar_card = $_FILES['aadhar_card']['tmp_name'];
     $aadhar_card_name = addslashes($_FILES['aadhar_card']['name']);
     $extension = pathinfo($aadhar_card_name, PATHINFO_EXTENSION);
-    $file_new_name = $Sdrn. "aadhar_card_" . date('YmjHis') . "." . $extension;
+    $file_new_name = $Sdrn. "_aadhar_card_" . date('YmjHis') . "." . $extension;
     move_uploaded_file($aadhar_card, "../uploaded_documents/" . $file_new_name);
 
 
     $pan_card = $_FILES['pan_card']['tmp_name'];
     $pan_card_name = addslashes($_FILES['pan_card']['name']);
     $extension = pathinfo($pan_card_name, PATHINFO_EXTENSION);
-    $file_new_name = $Sdrn. "pan_card" . date('YmjHis') . "." . $extension;
-    move_uploaded_file($pan_card, "../uploaded_documents/" . $file_new_name);
+    $pan_card_new_name = $Sdrn. "_pan_card_" . date('YmjHis') . "." . $extension;
+    move_uploaded_file($pan_card, "../uploaded_documents/" . $pan_card_new_name);
 
-
-    $final_query= "INSERT INTO `faculty` SET `First_name`='$file_new_name', `Contact_no`='', `Addr`='', `Email`='', `Doj`='',`Password`='', `profile_photo`='$image',`image_type`='$image_type' ";
+    $final_query= "INSERT INTO `faculty` SET `Sdrn`='$Sdrn', `First_name`='$full_namee[0]', `Middle_name`='$full_namee[1]', `Last_name`='$full_namee[2]', `Contact_no`='$phone_no', `p_address`='$p_address', `r_address`='$r_address', `Email`='$email_id', `Doj`='$date_of_joining',`Password`='$password', `profile_photo`='$image',`image_type`='$image_type',`aadhar_card`='$file_new_name', `pan_card`='$pan_card_new_name', `bank_acc_no`='$bank_acc_no',`bank_ifsc_code`='$bank_ifsc_code' ";
     if (!$result = mysqli_query($conn,$final_query)) {
         exit(mysqli_error());     
     }else{
+        $final_query= "INSERT INTO `faculty_education` SET `sdrn`='$Sdrn', `edu_type`='UG', `program`='$ug_program', `score`='$ug_score', `university`='$ug_university',`college`='$ug_college', `modified_by`='".$_SESSION['Sdrn']."' ";
+        $result = mysqli_query($conn,$final_query);
+        $final_query= "INSERT INTO `faculty_education` SET `sdrn`='$Sdrn', `edu_type`='PG', `program`='$pg_program', `score`='$pg_score', `university`='$pg_university',`college`='$pg_college', `modified_by`='".$_SESSION['Sdrn']."' ";
+        $result = mysqli_query($conn,$final_query);
+        $final_query= "INSERT INTO `faculty_education` SET `sdrn`='$Sdrn', `edu_type`='PHD', `program`='$phd_program', `score`='$phd_score', `university`='$phd_university',`college`='$phd_college', `modified_by`='".$_SESSION['Sdrn']."' ";
+        $result = mysqli_query($conn,$final_query);
+        $final_query= "INSERT INTO `faculty_education` SET `sdrn`='$Sdrn', `edu_type`='Others', `program`='$other_program', `score`='$other_score', `university`='$other_university',`college`='$other_college', `modified_by`='".$_SESSION['Sdrn']."' ";
+        $result = mysqli_query($conn,$final_query);
         echo '
             <script type="text/javascript">
             alert("Signup Successful. Please Login.");
-            window.open("../login.php", "_self");
+            window.open("../fac_login.php", "_self");
             </script> 
         ';
         exit();
