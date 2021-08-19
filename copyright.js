@@ -4,7 +4,7 @@ copyright= () =>{
  <!-- Categories -->
   <div class="row">
     <br>
-    <h1 class="text-center">Copyright</h1>
+    <h1 class="text-center">Copyright</br></br></h1>
     <h3 class="col">
     </h3>
   </div>`
@@ -18,13 +18,25 @@ if (bookCopy==""){
   document.querySelector(".col").innerHTML ="No data available ";
 }
 for(var i=0;i<len;i++){
-  document.querySelector(".col").innerHTML +="["+(i+1)+"] ";
-  for(var j=0;j<8;j++){
-    if(bookCopy[i][j]!=""){
-      document.querySelector(".col").innerHTML +=`"` +bookCopy[i][j]+`",`;
-    }
+  document.querySelector(".col").innerHTML +="["+(i+1)+"]  ";
+for(var j=0;j<4;j++){
+  if(bookCopy[i][j]!=""){
+    var title=' " '+bookCopy[i][4]+` " .`;
+    document.querySelector(".col").innerHTML +=bookCopy[i][j]+` , `;
   }
-  document.querySelector(".col").innerHTML+=`</br></br>`;
 }
+
+document.querySelector(".col").innerHTML +=title;
+document.querySelector(".col").innerHTML+=`</br></br>`;
+}
+// for(var i=0;i<len;i++){
+//   document.querySelector(".col").innerHTML +="["+(i+1)+"] ";
+//   for(var j=0;j<5;j++){
+//     if(bookCopy[i][j]!=""){
+//       document.querySelector(".col").innerHTML +=`"` +bookCopy[i][j]+`",`;
+//     }
+//   }
+//   document.querySelector(".col").innerHTML+=`</br></br>`;
+// }
 
 }
