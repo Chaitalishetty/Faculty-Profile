@@ -4,8 +4,10 @@
     if ($conn->connect_error)  {
       die("Connection failed: " . $conn->connect_error);
     }
+
     $fac_name = $_SESSION['full_name'];
     $fac_sdrn = $_SESSION['Sdrn'];
+
     // chapter fetch
     $query1="SELECT * FROM book_chapter where (sdrn = '$fac_sdrn' OR faculty_name LIKE '%$fac_name%' OR author1 LIKE '%$fac_name%' OR author2 LIKE '%$fac_name%' OR author3 LIKE '%$fac_name%' OR author4 LIKE '%$fac_name%')";
     $book_chapter=array(); 
@@ -61,25 +63,26 @@
   <?php
    
    // chapter fetch
-   $query2="SELECT * FROM patent where sdrn = '$fac_sdrn' OR faculty_name LIKE '%$fac_name%' OR author1 LIKE '%$fac_name%' OR author2 LIKE '%$fac_name%' OR author3 LIKE '%$fac_name%' OR author4 LIKE '%$fac_name%' ";
+
+   $query1="SELECT * FROM patent where sdrn = '$fac_sdrn' OR faculty_name='$fac_name' OR author1 = '$fac_name' OR author2 = '$fac_name' 
+   OR author3 = '$fac_name' OR author4 = '$fac_name' ";
    $pat=array() ; 
    $patent=array();
-   $result2 = mysqli_query($conn, $query2);   
-   if(mysqli_num_rows($result2) <=0) {
+   $result = mysqli_query($conn, $query1);   
+   if(mysqli_num_rows($result) <=0) {
        $patent="";  
    }
    else{
-     while ($row2 = @mysqli_fetch_array($result2)) {
-      $faculty_name=$row["faculty_name"];
-      $auth1=$row["author1"];
-      $auth2=$row2["author2"];
-      $auth3=$row2["author3"];
-      $auth4=$row2["author4"];
-      $title=$row2["title"];
-      $year=$row2["patent"];
-      $pat=array($faculty_name,$auth1,$auth2,$auth3,$auth4,$title,$year);
-        // $chapter=$auth1." ".$auth2.", ".$auth3.", ".$auth4.", \"".$chapter_name."\" ,".$book_name.", ".$pub_name;
-      array_push($patent,$pat);
+     while ($row2 = @mysqli_fetch_array($result)) {
+       $auth1=$row2["author1"];
+       $auth2=$row2["author2"];
+       $auth3=$row2["author3"];
+       $auth4=$row2["author4"];
+       $title=$row2["title"];
+       $year=$row2["patent"];
+       $pat=array($auth1,$auth2,$auth3,$auth4,$title,$year);
+         // $chapter=$auth1." ".$auth2.", ".$auth3.", ".$auth4.", \"".$chapter_name."\" ,".$book_name.", ".$pub_name;
+       array_push($patent,$pat);
 }
    } 
  ?>
@@ -87,7 +90,9 @@
  <?php
    
    // chapter fetch
-   $query1="SELECT * FROM copyright where sdrn = '$fac_sdrn' OR faculty_name LIKE '%$fac_name%' OR author1 LIKE '%$fac_name%' OR author2 LIKE '%$fac_name%' OR author3 LIKE '%$fac_name%' OR author4 LIKE '%$fac_name%' ";
+   $query1="SELECT * FROM copyright where sdrn = '$fac_sdrn' OR faculty_name='$fac_name' OR author1 = '$fac_name' OR author2 = '$fac_name' 
+   OR author3 = '$fac_name' OR author4 = '$fac_name' ";
+
    $copy=array(); 
    $copyright=array();
    $result = mysqli_query($conn, $query1);   
@@ -112,11 +117,15 @@
 <?php
     
     // chapter fetch
-    $query1="SELECT * FROM journal where sdrn = '$fac_sdrn' OR faculty_name LIKE '%$fac_name%' OR author1 LIKE '%$fac_name%' OR author2 LIKE '%$fac_name%' OR author3 LIKE '%$fac_name%' OR author4 LIKE '%$fac_name%' ";
+    $query1="SELECT * FROM journal where sdrn = '$fac_sdrn' OR faculty_name='$fac_name' OR author1 = '$fac_name' OR author2 = '$fac_name' 
+    OR author3 = '$fac_name' OR author4 = '$fac_name' ";
     $jour=array() ; 
     $journal=array();
     $result = mysqli_query($conn, $query1);   
     if(mysqli_num_rows($result) <= 0) {
+        $journal="";
+      }
+    else{
       while ($row = @mysqli_fetch_array($result)) {
         $faculty_name=$row["faculty_name"];
         $auth1=$row["author1"];
@@ -130,17 +139,16 @@
         $jour=array($faculty_name,$auth1,$auth2,$auth3,$auth4,$title,$journal_name,$volume_no,$pub_date);
           // $chapter=$auth1." ".$auth2.", ".$auth3.", ".$auth4.", \"".$chapter_name."\" ,".$book_name.", ".$pub_name;
         array_push($journal,$jour);
-      }
     }
-    else{
-      $journal="";
-    } 
+  } 
   ?>
 <!-- Conference -->
   <?php
     
     // chapter fetch
-    $query1="SELECT * FROM conference where sdrn = '$fac_sdrn' OR faculty_name LIKE '%$fac_name%' OR author1 LIKE '%$fac_name%' OR author2 LIKE '%$fac_name%' OR author3 LIKE '%$fac_name%' OR author4 LIKE '%$fac_name%' ";
+    $query1="SELECT * FROM conference where sdrn = '$fac_sdrn' OR faculty_name='$fac_name' OR author1 = '$fac_name' OR author2 = '$fac_name' 
+    OR author3 = '$fac_name' OR author4 = '$fac_name' ";
+
     $conf=array() ; 
     $conference=array();
     $result = mysqli_query($conn, $query1);   
