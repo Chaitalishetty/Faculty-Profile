@@ -27,7 +27,7 @@
 	$xaxis = array();
 
 	for($i=4; $i>=0; $i--){
-	$query = "SELECT COUNT(id),YEAR(now())-$i FROM book_chapter where (sdrn = '$sdrn' OR author1 = '$faculty_name' OR author2 = '$faculty_name' OR author3 = '$faculty_name' OR author4 = '$faculty_name') AND YEAR(publication_year)=YEAR(now())-$i ";
+	$query = "SELECT COUNT(id),YEAR(now())-$i FROM book_chapter where (sdrn = '$sdrn' OR faculty_name LIKE '%$faculty_name%' OR author1 LIKE '%$faculty_name%' OR author2 LIKE '%$faculty_name%' OR author3 LIKE '%$faculty_name%' OR author4 LIKE '%$faculty_name%') AND YEAR(publication_year)=YEAR(now())-$i ";
 		$result = mysqli_query($conn, $query);
 		if(mysqli_num_rows($result) > 0) {
 			while ($row = @mysqli_fetch_array($result)) {
@@ -39,7 +39,7 @@
 
 
 	for($i=4; $i>=0; $i--){
-    $query = "SELECT COUNT(id) FROM book_publication where (sdrn = '$sdrn' OR author1 = '$faculty_name' OR author2 = '$faculty_name' OR author3 = '$faculty_name' OR author4 = '$faculty_name') AND YEAR(year)=YEAR(now())-$i ";
+    $query = "SELECT COUNT(id) FROM book_publication where (sdrn = '$sdrn' OR faculty_name LIKE '%$faculty_name%' OR author1 LIKE '%$faculty_name%' OR author2 LIKE '%$faculty_name%' OR author3 LIKE '%$faculty_name%' OR author4 LIKE '%$faculty_name%') AND YEAR(year)=YEAR(now())-$i ";
 		$result = mysqli_query($conn, $query);
 		if(mysqli_num_rows($result) > 0) {
 			while ($row = @mysqli_fetch_array($result)) {
@@ -50,7 +50,7 @@
 
 
 	for($i=4; $i>=0; $i--){
-    $query = "SELECT COUNT(id) FROM patent where (sdrn = '$sdrn' OR author1 = '$faculty_name' OR author2 = '$faculty_name' OR author3 = '$faculty_name' OR author4 = '$faculty_name') AND YEAR(reg_date)=YEAR(now())-$i ";
+    $query = "SELECT COUNT(id) FROM patent where (sdrn = '$sdrn' OR faculty_name LIKE '%$faculty_name%' OR author1 LIKE '%$faculty_name%' OR author2 LIKE '%$faculty_name%' OR author3 LIKE '%$faculty_name%' OR author4 LIKE '%$faculty_name%') AND YEAR(reg_date)=YEAR(now())-$i ";
 		$result = mysqli_query($conn, $query);
 		if(mysqli_num_rows($result) > 0) {
 			while ($row = @mysqli_fetch_array($result)) {
@@ -61,7 +61,7 @@
 
 
 	for($i=4; $i>=0; $i--){
-    $query = "SELECT COUNT(id) FROM conference where (sdrn = '$sdrn' OR author1 = '$faculty_name' OR author2 = '$faculty_name' OR author3 = '$faculty_name' OR author4 = '$faculty_name') AND YEAR(con_date)=YEAR(now())-$i ";
+    $query = "SELECT COUNT(id) FROM conference where (sdrn = '$sdrn' OR faculty_name LIKE '%$faculty_name%' OR author1 LIKE '%$faculty_name%' OR author2 LIKE '%$faculty_name%' OR author3 LIKE '%$faculty_name%' OR author4 LIKE '%$faculty_name%')) AND YEAR(con_date)=YEAR(now())-$i ";
 		$result = mysqli_query($conn, $query);
 		if(mysqli_num_rows($result) > 0) {
 			while ($row = @mysqli_fetch_array($result)) {
@@ -72,7 +72,7 @@
 
 
 	for($i=4; $i>=0; $i--){
-    $query = "SELECT COUNT(id) FROM copyright where (sdrn = '$sdrn' OR author1 = '$faculty_name' OR author2 = '$faculty_name' OR author3 = '$faculty_name' OR author4 = '$faculty_name') AND YEAR(reg_date)=YEAR(now())-$i ";
+    $query = "SELECT COUNT(id) FROM copyright where (sdrn = '$sdrn' OR faculty_name LIKE '%$faculty_name%' OR author1 LIKE '%$faculty_name%' OR author2 LIKE '%$faculty_name%' OR author3 LIKE '%$faculty_name%' OR author4 LIKE '%$faculty_name%') AND YEAR(reg_date)=YEAR(now())-$i ";
 		$result = mysqli_query($conn, $query);
 		if(mysqli_num_rows($result) > 0) {
 			while ($row = @mysqli_fetch_array($result)) {
@@ -83,7 +83,7 @@
 
 
 	for($i=4; $i>=0; $i--){
-    $query = "SELECT COUNT(id) FROM journal where (sdrn = '$sdrn' OR author1 = '$faculty_name' OR author2 = '$faculty_name' OR author3 = '$faculty_name' OR author4 = '$faculty_name') AND YEAR(year)=YEAR(now())-$i ";
+    $query = "SELECT COUNT(id) FROM journal where (sdrn = '$sdrn' OR faculty_name LIKE '%$faculty_name%' OR author1 LIKE '%$faculty_name%' OR author2 LIKE '%$faculty_name%' OR author3 LIKE '%$faculty_name%' OR author4 LIKE '%$faculty_name%') AND YEAR(year)=YEAR(now())-$i ";
 		$result = mysqli_query($conn, $query);
 		if(mysqli_num_rows($result) > 0) {
 			while ($row = @mysqli_fetch_array($result)) {
