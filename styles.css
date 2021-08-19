@@ -32,12 +32,7 @@
     border-radius: 8px;
     overflow: visible;
 }
-.nav_dashboard li h3{
-    font-size: 1.4em;
-    margin: 20px;
-    color: var(--dy_red);
-    font-weight: bold;
-}
+
 .nav_dashboard li a:hover{
     background-color: var(--dy_red);
     color: white;
@@ -52,10 +47,24 @@
     font-weight: bold;
     text-decoration: none;
     color: #333;
-    width: 100vw;
+    width: 200px;
     padding: 10px;
-    margin: 0 10px;
     border-radius: 5px;
+}
+.nav_dashboard .sub_menu{
+    display:inline-block;
+}
+.nav_dashboard .sub_menu ul{
+    width:200px;
+    padding-left: 0 !important;
+    background-color: white;
+}
+.nav_dashboard .sub_menu h3{
+    font-size: 1.4em;
+    margin: 10px;
+    color: var(--dy_red);
+    font-weight: bold;
+    cursor: pointer;
 }
 .dashboard_container{
     width: 90vw;

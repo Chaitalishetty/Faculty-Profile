@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="styles.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -56,14 +56,17 @@
                 <ul>
                   <li><a href="dashboard.php" id="home">Home</a></li>
                   <li><a href="#" onclick=profile(); id="profile">Profile</a></li>
-                  <li><h3><i class="fa fa-book"></i>&nbsp;Publications</h3></li>
-                  <li><a href="#" onclick=chapter(); id="chapter">Book Chapter</a></li>
-                  <li><a href="#" onclick=publication();>Book Publications</a></li> 
-                  <li><a href="#" onclick=patent();>Patent</a></li> 
-                  <li><a href="#" onclick=copyright();>Copyright</a></li>
-                  <li><a href="#" onclick=journal();>Journal</a></li> 
-                  <li><a href="#" onclick=conference();>Conference</a></li>
-                  <li><a href="#">Show all records</a></li>    
+                  <li class="sub_menu"><h3><i class="fa fa-book"></i>&nbsp;Publications&nbsp;<div class='fa fa-caret-down right'></div></h3>
+                    <ul>
+                      <li><a href="#" onclick=chapter(); id="chapter">Book Chapter</a></li>
+                      <li><a href="#" onclick=publication();>Book Publications</a></li> 
+                      <li><a href="#" onclick=patent();>Patent</a></li> 
+                      <li><a href="#" onclick=copyright();>Copyright</a></li>
+                      <li><a href="#" onclick=journal();>Journal</a></li> 
+                      <li><a href="#" onclick=conference();>Conference</a></li>
+                      <li><a href="#">Show all records</a></li>
+                    </ul>  
+                  </li>  
              </ul>
             </div>
     </nav>
@@ -189,7 +192,15 @@
   <script type="text/javascript" src="copyright.js"></script>
   <script type="text/javascript" src="journal.js"></script>
   <script type="text/javascript" src="conference.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </body>
+<script>
+$('.sub_menu ul').hide();
+$(".sub_menu h3").click(function () {
+	$(this).parent(".sub_menu").children("ul").slideToggle("50");
+	$(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
+});
+</script>
 <script>
 function openNav() {
   const mediaQuery=window.matchMedia("(max-width:970px)");
@@ -207,6 +218,7 @@ function closeNav() {
   }
 }
 </script>
+
 <script type="text/javascript">
 let fac_name = '<?php echo $fac_name?>';
 let fac_sdrn = '<?php echo $fac_sdrn ?>';
