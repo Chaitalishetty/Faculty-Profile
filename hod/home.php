@@ -50,12 +50,12 @@
       <div class="dashboard_header">
         <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span><!--hamburger icon-->
         <h2>Dashboard</h2>
+        <a class="btn btn-light" href="../logout.php" style="margin-left:70%">Logout</a>
       </div>
       <div class="dashboard_content" style="width:90%; background-color:#fff; margin-left:1rem; margin-top:0">
 
-
-      <div class="col-sm-6" style="border-left:2px solid grey; border-radius:20px">
-        <p class="heading" style="text-decoration: underline;"><b>Distribution of data present</b></p>
+      <p class="heading" style="text-decoration: underline;"><b>Distribution of data present</b></p>
+      <div class="col-sm-6" id="chart_canvas">
           <canvas id="chart_faculty_details"></canvas>
           <?php include 'hod_chart.php'; ?> 
         </div>

@@ -2,12 +2,11 @@ patent= () =>{
     var dash_content=document.querySelector(".dashboard_content");
     dash_content.innerHTML = ` 
    <!-- Categories -->
-    <div class="row">
-      <br>
-      <h1 class="text-center">Patent</br></br></h1>
-      <h3 class="col">
-      </h3>
-    </div>`
+   <div class="patent">
+   <h1 class="text-center">Publication</br></br></h1>
+   <h3 class="col">
+   </h3>
+ </div>`
   const mediaQuery = window.matchMedia("(max-width:970px)");
   if (mediaQuery.matches) {
     document.querySelector(".nav_dashboard").style.width = "0";

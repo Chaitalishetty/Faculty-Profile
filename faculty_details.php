@@ -1,7 +1,7 @@
 <?php
 	@session_start();
-	if (isset($_SESSION['sdrn'])){
-		$sdrn = $_SESSION['sdrn'];
+	if (isset($_SESSION['Sdrn'])){
+		$sdrn = $_SESSION['Sdrn'];
 	}
 	// $sdrn='811';
 	// Database Connection 
@@ -61,7 +61,7 @@
 
 
 	for($i=4; $i>=0; $i--){
-    $query = "SELECT COUNT(id) FROM conference where (sdrn = '$sdrn' OR faculty_name LIKE '%$faculty_name%' OR author1 LIKE '%$faculty_name%' OR author2 LIKE '%$faculty_name%' OR author3 LIKE '%$faculty_name%' OR author4 LIKE '%$faculty_name%')) AND YEAR(con_date)=YEAR(now())-$i ";
+    $query = "SELECT COUNT(id) FROM conference where (sdrn = '$sdrn' OR faculty_name LIKE '%$faculty_name%' OR author1 LIKE '%$faculty_name%' OR author2 LIKE '%$faculty_name%' OR author3 LIKE '%$faculty_name%' OR author4 LIKE '%$faculty_name%') AND YEAR(con_date)=YEAR(now())-$i ";
 		$result = mysqli_query($conn, $query);
 		if(mysqli_num_rows($result) > 0) {
 			while ($row = @mysqli_fetch_array($result)) {

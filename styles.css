@@ -86,8 +86,19 @@
     display:flex;
     padding:20px;
 }
+.hod_form{
+    display: flex;
+    width: 100%;
+justify-content: space-around;
+}
 #author-input input{
     margin-top:20px;
+}
+#chart_canvas{
+    border-radius: 20px;
+    box-shadow: 1px 1px 6px -3px;
+    background-color: #f4f4f4;
+    padding:10px;
 }
 @media (max-width:970px) {
     .dashboard span{

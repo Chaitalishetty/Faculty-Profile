@@ -16,7 +16,6 @@ navbar=()=>{
                     <li><a href="copyright.php">Copyright</a></li>
                     <li><a href="journal.php">Journal</a></li> 
                     <li><a href="conference.php">Conference</a></li>
-                    <li><a href="#">Show all records</a></li>
                   </ul>  
                 </li>  
            </ul>

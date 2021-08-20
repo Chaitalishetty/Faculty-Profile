@@ -2,8 +2,7 @@ publication= () =>{
   var dash_content=document.querySelector(".dashboard_content");
   dash_content.innerHTML = ` 
  <!-- Categories -->
-  <div class="row">
-    <br>
+  <div class="publication">
     <h1 class="text-center">Publication</br></br></h1>
     <h3 class="col">
     </h3>

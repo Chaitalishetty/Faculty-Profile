@@ -24,8 +24,6 @@
 	$conference=array();
 	$copyright=array();
 	$journal=array();
-	$xaxis = array();
-
 	$query = "SELECT COUNT(*) FROM book_chapter WHERE faculty_name IN (SELECT CONCAT(First_name ,' ', COALESCE(Middle_name, ' '),' ',COALESCE(Last_name, ' ')) FROM faculty WHERE Department='COMP')";	
     $result = mysqli_query($conn, $query);
 		if(mysqli_num_rows($result) > 0) {
@@ -33,8 +31,6 @@
 				array_push($book_chapter,$row[0]);
 			}
 		}
-
-
     $query = "SELECT COUNT(*) FROM book_publication";
 		$result = mysqli_query($conn, $query);
 		if(mysqli_num_rows($result) > 0) {
@@ -42,21 +38,13 @@
 				array_push($book_publications,$row[0]);
 			}
 		} 
-	
-
-
-	
     $query = "SELECT COUNT(*) FROM patent";
 		$result = mysqli_query($conn, $query);
 		if(mysqli_num_rows($result) > 0) {
 			while ($row = @mysqli_fetch_array($result)) {
 				array_push($patent,$row[0]);
 			}
-		} 
-
-
-
-	
+		} 	
     $query = "SELECT COUNT(*) FROM conference";
 		$result = mysqli_query($conn, $query);
 		if(mysqli_num_rows($result) > 0) {
@@ -64,10 +52,6 @@
 				array_push($conference,$row[0]);
 			}
 		} 
-	
-
-
-	
     $query = "SELECT COUNT(*) FROM copyright";
 		$result = mysqli_query($conn, $query);
 		if(mysqli_num_rows($result) > 0) {
@@ -75,10 +59,6 @@
 				array_push($copyright,$row[0]);
 			}
 		} 
-	
-
-
-	
     $query = "SELECT COUNT(*) FROM journal ";
 		$result = mysqli_query($conn, $query);
 		if(mysqli_num_rows($result) > 0) {
@@ -86,15 +66,8 @@
 				array_push($journal,$row[0]);
 			}
 		} 
-	
-
-
-
 ?>
-
-
 <script>
-    
 	var ctx = document.getElementById('chart_faculty_details').getContext('2d');
 
 	var book_chapter = [<?php echo join(',',$book_chapter); ?>];
@@ -104,13 +77,8 @@
 	var copyright = [<?php echo join(',',$copyright); ?>];
 	var journal = [<?php echo join(',',$journal); ?>];
 
-	var xaxis = [<?php echo join(',',$xaxis); ?>];
-	for(var i=0;i<xaxis.length;i++){
-		xaxis[i]="YEAR: "+xaxis[i];
-	}
-
 	var myChart = new Chart(ctx, {
-        type: 'pie',
+        type: 'doughnut',
     data: {
         labels: ["book_chapter", "book_publications","patent","conference","copyright","journal"],
         datasets: [
@@ -129,11 +97,12 @@
     options: {
         title: {
             display: true,
-            text: 'Pie Chart'
+            text: 'Publications'
         },
 		responsive: true,
-maintainAspectRatio: true,
-    },
+		maintainAspectRatio: true,
+		
+	},
 	});
  
 </script>

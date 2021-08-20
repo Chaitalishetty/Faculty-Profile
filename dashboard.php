@@ -1,11 +1,13 @@
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="styles.css" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link href="styles.css" type="text/css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -26,6 +28,7 @@
   <!-- Bootstrap Links  -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <script src="js/plugins/popper/popper.min.js" ></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="js/plugins/bootstrap/js/bootstrap.min.js"></script>
   <!-- Chart JS Link  -->
   <script src="js/plugins/chart.js/Chart.min.js"></script>
@@ -37,37 +40,37 @@
   <!-- dashboard -->
   <div class="dashboard">
     <!-- side navigation bar -->
-    <nav class="nav_dashboard" style="clear:left">  
+    <nav class="nav_dashboard">  
       <span style="font-size:40px;cursor:pointer;margin: 10px;" onclick="closeNav()">&times;</span><!--cross icon-->
-            <div class="nav_img" style="text-align:center;margin: 20px 0px;">
-              <img src="logo.png" style="width:60px"/>
-            </div>
-            <div>
-                <ul>
-                  <li><a href="dashboard.php" id="home">Home</a></li>
-                  <li><a href="#" onclick=profile(); id="profile">Profile</a></li>
-                  <li class="sub_menu"><h3><i class="fa fa-book"></i>&nbsp;Publications&nbsp;<div class='fa fa-caret-down right'></div></h3>
-                    <ul>
-                      <li><a href="#" onclick=chapter(); id="chapter">Book Chapter</a></li>
-                      <li><a href="#" onclick=publication();>Book Publications</a></li> 
-                      <li><a href="#" onclick=patent();>Patent</a></li> 
-                      <li><a href="#" onclick=copyright();>Copyright</a></li>
-                      <li><a href="#" onclick=journal();>Journal</a></li> 
-                      <li><a href="#" onclick=conference();>Conference</a></li>
-                      <li><a href="#">Show all records</a></li>
-                    </ul>  
-                  </li>  
-             </ul>
-            </div>
+        <div class="nav_img" style="text-align:center;margin: 20px 0px;">
+          <img src="logo.png" style="width:60px"/>
+        </div>
+        <div style="margin-left: 25px;">
+          <ul>
+            <li><a href="dashboard.php" id="home">Home</a></li>
+            <li><a href="#" onclick=profile(); id="profile">Profile</a></li>
+            <li class="sub_menu"><h3><i class="fa fa-book"></i>&nbsp;Publications&nbsp;<div class='fa fa-caret-down right'></div></h3>
+            <ul>
+              <li><a href="#" onclick=chapter(); id="chapter">Book Chapter</a></li>
+              <li><a href="#" onclick=publication();>Book Publications</a></li> 
+              <li><a href="#" onclick=patent();>Patent</a></li> 
+              <li><a href="#" onclick=copyright();>Copyright</a></li>
+              <li><a href="#" onclick=journal();>Journal</a></li> 
+              <li><a href="#" onclick=conference();>Conference</a></li>
+            </ul>
+            <!-- <li><a href="#">Show all records</a></li>     -->
+            </li> 
+          </ul>
+        </div>
     </nav>
     <!--dashboard content-->
     <div class="dashboard_container">
       <div class="dashboard_header">
         <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span><!--hamburger icon-->
         <h2>Dashboard</h2>
+        <a class="btn btn-light" href="logout.php" style="margin-left:70%">Logout</a>
       </div>
       <div class="dashboard_content" style="width:90%; background-color:#fff; margin-left:0rem; margin-top:0">
-      
       <div class="row">
           <div class="col-lg-3 col-6">
             <!-- small box -->
@@ -180,7 +183,10 @@
   <script type="text/javascript" src="copyright.js"></script>
   <script type="text/javascript" src="journal.js"></script>
   <script type="text/javascript" src="conference.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script type="text/javascript" src="publication.js"></script>
+  <script type="text/javascript" src="home.js"></script>
+  <script type="text/javascript" src="chapter.js"></script>
+  <script type="text/javascript" src="profile.js"></script>
 </body>
 <script>
 $('.sub_menu ul').hide();
@@ -206,7 +212,6 @@ function closeNav() {
   }
 }
 </script>
-
 <script type="text/javascript">
 let fac_name = '<?php echo $fac_name?>';
 let fac_sdrn = '<?php echo $fac_sdrn ?>';
