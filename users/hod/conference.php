@@ -7,23 +7,23 @@ if (isset($_SESSION['sdrn'])){
 $sdrn=150;
 $i=0;
 $output="<h4>";
-$sql =  "SELECT * from book_publication" ; 
+$sql =  "SELECT * from conference" ; 
 $result = mysqli_query($conn, $sql); 
 while($row = mysqli_fetch_array($result)){
   $i=$i+1;
   $authors=implode(", ",array_filter([$row["faculty_name"],$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
-  $output .= "[".$i."]  ".$authors.', "'.$row["book_name"].'", '.$row["publisher_name"].", ".$row["isbn_no"].", ".$row["year"].", ".$row["opt1"]. ". </br></br>";    
+  $output .= "[".$i."]  ".$authors.', "'.$row["paper_title"].'", '.$row["con_name"].', '.$row["con_place"].", ".$row["con_date"].", ".$row["indexed_in"].", ".$row["opt1"] .". </br></br>";  
 }
 $output.="</h4>";
  if(isset($_POST["gen_report"])){
   $i=0;
    $output="<h4 class='text-center'>Reports showing  ";
    $filter_query="";
-  $select="SELECT * from book_publication where faculty_name!='' ";
+  $select="SELECT * from conference where faculty_name!='' ";
    if(isset($_POST["date_from"]) &&$_POST["date_to"] && $_POST["date_from"]!="" && $_POST["date_to"]!=""){
      $from=date('Y-m-d',strtotime($_POST['date_from']));
        $to=date('Y-m-d',strtotime($_POST['date_to']));
-       $filter_query.="AND year between '$from' and '$to'";
+       $filter_query.="AND con_date between '$from' and '$to'";
         $output.="from ".$from." to ".$to;
    }
    if(isset($_POST["fac_name"]) && $_POST["fac_name"]!=""){
@@ -35,9 +35,10 @@ $output.="</h4>";
      $sql =   $select.$filter_query; 
      $result = mysqli_query($conn, $sql);  
      while($row = mysqli_fetch_array($result)){
-      $i=$i+1;
-      $authors=implode(", ",array_filter([$row["faculty_name"],$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
-      $output .= "[".$i."]  ".$authors.', "'.$row["book_name"].'", '.$row["publisher_name"].", ".$row["isbn_no"].", ".$row["year"].", ".$row["opt1"]. ". </br></br>";    
+       $i=$i+1;
+       $authors=implode(", ",array_filter([$row["faculty_name"],$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
+  $output .= "[".$i."]  ".$authors.', "'.$row["paper_title"].'", '.$row["con_name"].', '.$row["con_place"].", ".$row["con_date"].", ".$row["indexed_in"].", ".$row["opt1"] .". </br></br>";  
+ 
     }
     $output.='</h4>';
  }
@@ -48,18 +49,10 @@ $output.="</h4>";
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="../styles.css" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="../../css/styles.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="navbar.js"></script>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <!-- Bootstrap Links  -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
-    <title>Publication</title>
+    <?php include('../scripts.php');?>
+    <title>Chapter</title>
 </head>
 <body>
   <!-- dashboard -->
@@ -71,7 +64,7 @@ $output.="</h4>";
     <script>header();</script>
       <div class="dashboard_content" style="width:100%; background-color:#fff;  margin:0">
       <div class="chapter">
-        <h1 class="text-center">Publications</h1>
+        <h1 class="text-center">Conference</h1>
         
             <form action="" method="post">
             <div class="hod_form">
@@ -86,7 +79,7 @@ $output.="</h4>";
                 </label>
                 <datalist id="faculty_names">
                   <?php 
-                    $sql="SELECT * from book_publication";
+                    $sql="SELECT * from conference";
                     $result1 = mysqli_query($conn, $sql);
                     while($row = mysqli_fetch_array($result1)){?>
                       '<option value="<?php echo $row['faculty_name']?>"></option>';
@@ -103,9 +96,8 @@ $output.="</h4>";
             </div>
             </form>
         </br></br>
-        <div style='width:93%;' >
             <?php echo $output;?>
-        <div>
+        
       </div>
     </div>
   </div>

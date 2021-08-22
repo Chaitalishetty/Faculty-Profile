@@ -56,7 +56,7 @@
             $Sdrn = mysqli_real_escape_string($conn, $_POST['Sdrn']);
             $Password = mysqli_real_escape_string($conn, $_POST['Password']);
 
-            $sql = "SELECT *, concat(First_name,' ',Last_name) AS full_name from `faculty` WHERE `Sdrn` = '$Sdrn' AND `Password` = '$Password';";
+            $sql = "SELECT *, concat(First_name,' ',Last_name),Desig AS full_name from `faculty` WHERE `Sdrn` = '$Sdrn' AND `Password` = '$Password';";
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0) {
                 session_start();
@@ -64,8 +64,17 @@
                 $_SESSION['Sdrn'] = $row['Sdrn'];
                 $_SESSION['full_name'] = $row['full_name'];
                 $_SESSION['designation'] = $row['Desig'];
-                header("location:dashboard.php");
-                exit();
+                switch (strtolower($_SESSION['designation'])) {
+                    case 'hod' :
+                        header("location:users/hod/home.php");
+                        exit();
+                    case 'principal':
+                        header("location:users/principal/home.php");
+                        exit();
+                    default:
+                        header("location:users/faculty/dashboard.php");
+                        exit();
+                }
             }else{
                 echo '
                     <script type="text/javascript">
@@ -82,7 +91,7 @@
     <div class="row">
 
         <div class="col text-center">
-            <form class="form-horizontal" id="login_form" action="fac_login.php" method="post">
+            <form class="form-horizontal" id="login_form" action="index.php" method="post">
                 <div class="form-group">
                     <p>
                     <h2 style="color: rgba(0, 0, 255, 0.568);"><b>Login</b></h2>
