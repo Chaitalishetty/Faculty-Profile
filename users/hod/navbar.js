@@ -1,8 +1,8 @@
-navbar=()=>{
-    document.querySelector(".dashboard").innerHTML=`<nav class="nav_dashboard">  
+navbar = () => {
+  document.querySelector(".dashboard").innerHTML = `<nav class="nav_dashboard">  
     <span style="font-size:40px;cursor:pointer;margin: 10px;" onclick="closeNav()">&times;</span><!--cross icon-->
           <div class="nav_img" style="text-align:center;margin: 20px 0px;">
-            <img src="../logo.png" style="width:60px"/>
+            <img src="../../logo.png" style="width:60px"/>
           </div>
           <div>
               <ul>
@@ -22,24 +22,24 @@ navbar=()=>{
           </div>
   </nav>`;
 };
-header=()=>{
-    document.querySelector(".dashboard_container").innerHTML=`<div class="dashboard_header">
+header = () => {
+  document.querySelector(".dashboard_container").innerHTML = `<div class="dashboard_header">
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span><!--hamburger icon-->
   <h2>Dashboard</h2>
 </div>`
 }
 function openNav() {
-    const mediaQuery=window.matchMedia("(max-width:970px)");
-    if (mediaQuery.matches){
-      document.querySelector('.nav_dashboard').style.width = "250px";
-    }
+  const mediaQuery = window.matchMedia("(max-width:970px)");
+  if (mediaQuery.matches) {
+    document.querySelector('.nav_dashboard').style.width = "250px";
   }
-  
-  function closeNav() {
-    const mediaQuery=window.matchMedia("(max-width:970px)");
-    if (mediaQuery.matches){
-      document.querySelector(".nav_dashboard").style.width = "0";
-      document.querySelector(".dashboard_container").style.marginLeft= "0";
-      document.querySelector(".dashboard_container").style.width = "100vw";
-    }
+}
+
+function closeNav() {
+  const mediaQuery = window.matchMedia("(max-width:970px)");
+  if (mediaQuery.matches) {
+    document.querySelector(".nav_dashboard").style.width = "0";
+    document.querySelector(".dashboard_container").style.marginLeft = "0";
+    document.querySelector(".dashboard_container").style.width = "100vw";
   }
+}

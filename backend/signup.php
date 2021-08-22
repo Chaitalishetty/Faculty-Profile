@@ -75,7 +75,7 @@
         echo '
             <script type="text/javascript">
             alert("Signup Successful. Please Login.");
-            window.open("../fac_login.php", "_self");
+            window.open("../index.php", "_self");
             </script> 
         ';
         exit();
