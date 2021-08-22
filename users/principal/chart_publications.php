@@ -24,7 +24,7 @@
 	$conference=array();
 	$copyright=array();
 	$journal=array();
-	$query = "SELECT COUNT(*) FROM book_chapter WHERE faculty_name IN (SELECT CONCAT(First_name ,' ', COALESCE(Middle_name, ' '),' ',COALESCE(Last_name, ' ')) FROM faculty WHERE Department='COMP')";	
+	$query = "SELECT COUNT(*) FROM book_chapter";	
     $result = mysqli_query($conn, $query);
 		if(mysqli_num_rows($result) > 0) {
 			while ($row = @mysqli_fetch_array($result)) {

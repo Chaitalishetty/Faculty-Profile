@@ -7,7 +7,7 @@ if (isset($_SESSION['sdrn'])){
 $sdrn=150;
 $i=0;
 $output="<h4>";
-$sql =  "SELECT * from patent" ; 
+$sql =  "SELECT * from patent where sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP')" ; 
 $result = mysqli_query($conn, $sql); 
 while($row = mysqli_fetch_array($result)){
   $i=$i+1;

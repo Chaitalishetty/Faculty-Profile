@@ -96,7 +96,9 @@ $output.="</h4>";
             </div>
             </form>
         </br></br>
+        <div style='width:93%;' >
             <?php echo $output;?>
+        <div>
         
       </div>
     </div>
