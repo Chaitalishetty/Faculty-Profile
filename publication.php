@@ -26,7 +26,7 @@
           $book_name=$row["book_name"];
           $pub_name=$row["publisher_name"];
           $year=$row["publication_year"];
-          $chapter=array($faculty_name,$auth1,$auth2,$auth3,$auth4,$chapter_name,$book_name,$pub_name,$year);
+          $chapter=array($auth1,$auth2,$auth3,$auth4,$chapter_name,$book_name,$pub_name,$year);
           // $chapter=$auth1." ".$auth2.", ".$auth3.", ".$auth4.", \"".$chapter_name."\" ,".$book_name.", ".$pub_name;
           array_push($book_chapter,$chapter);
      }

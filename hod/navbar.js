@@ -26,6 +26,7 @@ header=()=>{
     document.querySelector(".dashboard_container").innerHTML=`<div class="dashboard_header">
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span><!--hamburger icon-->
   <h2>Dashboard</h2>
+  <a class="btn btn-light" href="../logout.php" style="margin-left:70%">Logout</a>
 </div>`
 }
 function openNav() {

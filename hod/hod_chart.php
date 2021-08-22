@@ -24,42 +24,42 @@
 	$conference=array();
 	$copyright=array();
 	$journal=array();
-	$query = "SELECT COUNT(*) FROM book_chapter WHERE faculty_name IN (SELECT CONCAT(First_name ,' ', COALESCE(Middle_name, ' '),' ',COALESCE(Last_name, ' ')) FROM faculty WHERE Department='COMP')";	
+	$query = "SELECT COUNT(*) FROM book_chapter WHERE sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP')";	
     $result = mysqli_query($conn, $query);
 		if(mysqli_num_rows($result) > 0) {
 			while ($row = @mysqli_fetch_array($result)) {
 				array_push($book_chapter,$row[0]);
 			}
 		}
-    $query = "SELECT COUNT(*) FROM book_publication";
+    $query = "SELECT COUNT(*) FROM book_publication WHERE sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP') ";
 		$result = mysqli_query($conn, $query);
 		if(mysqli_num_rows($result) > 0) {
 			while ($row = @mysqli_fetch_array($result)) {
 				array_push($book_publications,$row[0]);
 			}
 		} 
-    $query = "SELECT COUNT(*) FROM patent";
+    $query = "SELECT COUNT(*) FROM patent WHERE sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP')";
 		$result = mysqli_query($conn, $query);
 		if(mysqli_num_rows($result) > 0) {
 			while ($row = @mysqli_fetch_array($result)) {
 				array_push($patent,$row[0]);
 			}
 		} 	
-    $query = "SELECT COUNT(*) FROM conference";
+    $query = "SELECT COUNT(*) FROM conference WHERE sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP')";
 		$result = mysqli_query($conn, $query);
 		if(mysqli_num_rows($result) > 0) {
 			while ($row = @mysqli_fetch_array($result)) {
 				array_push($conference,$row[0]);
 			}
 		} 
-    $query = "SELECT COUNT(*) FROM copyright";
+    $query = "SELECT COUNT(*) FROM copyright WHERE sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP')";
 		$result = mysqli_query($conn, $query);
 		if(mysqli_num_rows($result) > 0) {
 			while ($row = @mysqli_fetch_array($result)) {
 				array_push($copyright,$row[0]);
 			}
 		} 
-    $query = "SELECT COUNT(*) FROM journal ";
+    $query = "SELECT COUNT(*) FROM journal WHERE sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP')";
 		$result = mysqli_query($conn, $query);
 		if(mysqli_num_rows($result) > 0) {
 			while ($row = @mysqli_fetch_array($result)) {
@@ -101,8 +101,152 @@
         },
 		responsive: true,
 		maintainAspectRatio: true,
+		legend: { position: 'right' },
 		
 	},
 	});
  
+</script>
+<?php
+$book_chapter=array();
+$book_publications=array();
+$patent=array();
+$conference=array();
+$copyright=array();
+$journal=array();
+$xaxis=array();
+for($i=4; $i>=0; $i--){
+$query = "SELECT COUNT(*),YEAR(now())-$i FROM book_chapter WHERE sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP') AND YEAR(publication_year)=YEAR(now())-$i";	
+$result = mysqli_query($conn, $query);
+	if(mysqli_num_rows($result) > 0) {
+		while ($row = @mysqli_fetch_array($result)) {
+			array_push($book_chapter,$row[0]);
+			array_push($xaxis,$row[1]);
+		}
+	}
+}
+for($i=4; $i>=0; $i--){
+$query = "SELECT COUNT(*) FROM book_publication WHERE sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP') AND YEAR(year)=YEAR(now())-$i";
+	$result = mysqli_query($conn, $query);
+	if(mysqli_num_rows($result) > 0) {
+		while ($row = @mysqli_fetch_array($result)) {
+			array_push($book_publications,$row[0]);
+		}
+	} 
+}
+for($i=4; $i>=0; $i--){
+$query = "SELECT COUNT(*) FROM patent WHERE sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP') AND YEAR(patent)=YEAR(now())-$i";
+	$result = mysqli_query($conn, $query);
+	if(mysqli_num_rows($result) > 0) {
+		while ($row = @mysqli_fetch_array($result)) {
+			array_push($patent,$row[0]);
+		}
+	} 
+}
+for($i=4; $i>=0; $i--){	
+$query = "SELECT COUNT(*) FROM conference WHERE sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP') AND YEAR(con_date)=YEAR(now())-$i";
+	$result = mysqli_query($conn, $query);
+	if(mysqli_num_rows($result) > 0) {
+		while ($row = @mysqli_fetch_array($result)) {
+			array_push($conference,$row[0]);
+		}
+	} 
+}
+for($i=4; $i>=0; $i--){
+$query = "SELECT COUNT(*) FROM copyright WHERE sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP') AND YEAR(reg_date)=YEAR(now())-$i";
+	$result = mysqli_query($conn, $query);
+	if(mysqli_num_rows($result) > 0) {
+		while ($row = @mysqli_fetch_array($result)) {
+			array_push($copyright,$row[0]);
+		}
+	} 
+}
+for($i=4; $i>=0; $i--){
+$query = "SELECT COUNT(*) FROM journal WHERE sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP') AND YEAR(publication_date)=YEAR(now())-$i";
+	$result = mysqli_query($conn, $query);
+	if(mysqli_num_rows($result) > 0) {
+		while ($row = @mysqli_fetch_array($result)) {
+			array_push($journal,$row[0]);
+		}
+	} 
+}
+?>
+<script>
+
+
+var ctx = document.getElementById("chart_faculty_details_2").getContext('2d');
+var book_chapter = [<?php echo join(',',$book_chapter); ?>];
+	var book_publications = [<?php echo join(',',$book_publications); ?>];
+	var patent = [<?php echo join(',',$patent); ?>];
+	var conference = [<?php echo join(',',$conference); ?>];
+	var copyright = [<?php echo join(',',$copyright); ?>];
+	var journal = [<?php echo join(',',$journal); ?>];
+	var xaxis = [<?php echo join(',',$xaxis); ?>];
+	for(var i=0;i<xaxis.length;i++){
+		xaxis[i]="YEAR: "+xaxis[i];
+	}
+var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels:xaxis,
+    datasets: [{
+      label: 'Chapter',
+      backgroundColor: "#caf270",
+      data: book_chapter,
+    }, {
+      label: 'Publications',
+      backgroundColor: "#45c490",
+      data: book_publications,
+    }, {
+      label: 'Patent',
+      backgroundColor: "#2aba95",
+      data: patent,
+    }, {
+      label: 'Conference',
+      backgroundColor: "#009897",
+      data:conference,
+    },{
+      label: 'Copyright',
+      backgroundColor: "#077687",
+      data:copyright,
+    },{
+      label: 'Journal',
+      backgroundColor: "#2e5468",
+      data:journal,
+    }],
+  },
+options: {
+	title:{
+		display:true,
+		text:"Publication Past 5 years",
+	},
+    tooltips: {
+      displayColors: true,
+      callbacks:{
+        mode: 'x',
+      },
+    },
+    scales: {
+      xAxes: [{
+        stacked: true,
+        gridLines: {
+          display: false,
+        }
+      }],
+      yAxes: [{
+        stacked: true,
+        ticks: {
+          beginAtZero: true,
+        },
+        type: 'linear',
+      }]
+    },
+    responsive: true,
+    maintainAspectRatio: true,
+    legend: { position: 'bottom' },
+  }
+});
+
+
+
 </script>

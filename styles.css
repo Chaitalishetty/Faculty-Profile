@@ -89,7 +89,7 @@
 .hod_form{
     display: flex;
     width: 100%;
-justify-content: space-around;
+    justify-content: space-evenly;
 }
 #author-input input{
     margin-top:20px;

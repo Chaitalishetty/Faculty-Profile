@@ -3,55 +3,45 @@
 $conn = mysqli_connect("localhost", "root", "", "test");
 if (isset($_SESSION['sdrn'])){
     $sdrn = $_SESSION['sdrn'];
-    
 }
 $sdrn=150;
-$output = "";
-if(isset($_POST["gen_report_date"])){
-    $from=date('Y-m-d',strtotime($_POST['date_from']));
-      $to=date('Y-m-d',strtotime($_POST['date_to']));
-    $sql =   "SELECT * from patent where patent between '$from' and '$to'"; 
-    $result = mysqli_query($conn, $sql);  
-    $output.="<h4 class='text-center'>Reports showing from ".$from." to ".$to."</h4></br><table>";
-    while($row = mysqli_fetch_array($result)){
-      $output .= '<tr> 
-    <td>'.$row["sdrn"].'</td>  
-    <td>'.$row["faculty_name"].'</td>  
-    <td>'.$row["author1"].'</td>  
-    <td>'.$row["author2"].'</td>  
-    <td>'.$row["author3"].'</td>  
-    <td>'.$row["author4"].'</td>  
-    <td>'.$row["title"].'</td>  
-    <td>'.$row["application_no"].'</td>  
-    <td>'.$row["patent"].'</td> 
-    <td>'.$row["status"].'</td>
-    <td>'.$row["opt1"].'</td>   
-  </tr> ';  
-    }
-    $output.='</table>';
+$i=0;
+$output="<h4>";
+$sql =  "SELECT * from patent" ; 
+$result = mysqli_query($conn, $sql); 
+while($row = mysqli_fetch_array($result)){
+  $i=$i+1;
+  $authors=implode(", ",array_filter([$row["faculty_name"],$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
+  $output .= "[".$i."]  ".$authors.', '.$row["patent"].', "'.$row["title"].'", '.$row["opt1"]. ". </br></br>";     
 }
-if(isset($_POST["gen_report_name"])){
-  $fac_name=mysqli_escape_string($conn,$_POST["fac_name"]);
-  $sql1 =   "SELECT * FROM patent where (faculty_name LIKE '%$fac_name%' OR author1 LIKE '%$fac_name%' OR author2 LIKE '%$fac_name%' OR author3 LIKE '%$fac_name%' OR author4 LIKE '%$fac_name%')"; 
-  $result1 = mysqli_query($conn, $sql1);  
-  $output.="<h4 class='text-center'>Reports showing for ".$fac_name."</h4></br><table>";
-  while($row = mysqli_fetch_array($result1)){
-    $output .= '<tr> 
-    <td>'.$row["sdrn"].'</td>  
-    <td>'.$row["faculty_name"].'</td>  
-    <td>'.$row["author1"].'</td>  
-    <td>'.$row["author2"].'</td>  
-    <td>'.$row["author3"].'</td>  
-    <td>'.$row["author4"].'</td>  
-    <td>'.$row["title"].'</td>  
-    <td>'.$row["application_no"].'</td>  
-    <td>'.$row["patent"].'</td> 
-    <td>'.$row["status"].'</td>
-    <td>'.$row["opt1"].'</td>   
-  </tr> ';  
-  }
-  $output.='</table>';
-}    
+$output.="</h4>";
+ if(isset($_POST["gen_report"])){
+  $i=0;
+   $output="<h4 class='text-center'>Reports showing  ";
+   $filter_query="";
+  $select="SELECT * from patent where faculty_name!='' ";
+   if(isset($_POST["date_from"]) &&$_POST["date_to"] && $_POST["date_from"]!="" && $_POST["date_to"]!=""){
+     $from=date('Y-m-d',strtotime($_POST['date_from']));
+       $to=date('Y-m-d',strtotime($_POST['date_to']));
+       $filter_query.="AND patent between '$from' and '$to'";
+        $output.="from ".$from." to ".$to;
+   }
+   if(isset($_POST["fac_name"]) && $_POST["fac_name"]!=""){
+     $fac_name=mysqli_escape_string($conn,$_POST["fac_name"]);
+     $filter_query.="AND (faculty_name LIKE '%$fac_name%' OR author1 LIKE '%$fac_name%' OR author2 LIKE '%$fac_name%' OR author3 LIKE '%$fac_name%' OR author4 LIKE '%$fac_name%')";
+     $output.=" for ".$fac_name; 
+    }
+    $output.="</h4><h4>";
+     $sql =   $select.$filter_query; 
+     $result = mysqli_query($conn, $sql);  
+     while($row = mysqli_fetch_array($result)){
+       $i=$i+1;
+       $authors=implode(", ",array_filter([$row["faculty_name"],$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
+       $output .= "[".$i."]  ".$authors.', "'.$row["patent"].'", '.$row["title"].", ".$row["opt1"]. ". </br></br>";     
+     }
+    $output.='</h4>';
+ }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,7 +59,7 @@ if(isset($_POST["gen_report_name"])){
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
-    <title>Chapter</title>
+    <title>Patent</title>
 </head>
 <body>
   <!-- dashboard -->
@@ -79,29 +69,43 @@ if(isset($_POST["gen_report_name"])){
     <!--dashboard content-->
     <div class="dashboard_container">
     <script>header();</script>
-      <div class="dashboard_content" style="width:90%; background-color:#fff; margin-left:1rem; margin-top:0">
-      <div class="patent">
+      <div class="dashboard_content" style="width:100%; background-color:#fff;  margin:0">
+      <div class="chapter">
         <h1 class="text-center">Patent</h1>
-        <div class="hod_form">
+        
             <form action="" method="post">
-            <label>From
-            <input type="date" name="date_from" class="form-control" required>
-            </label>
-            <label>To
-            <input type="date" name="date_to" class="form-control" required>
-            </label></br>
-            <button type="submit" name="gen_report_date" class="btn btn-danger">generate report</button>
+            <div class="hod_form">
+                <label>From
+                <input type="date" name="date_from" class="form-control">
+                </label>
+                <label>To
+                <input type="date" name="date_to" class="form-control">
+                </label>
+                <label>Name of faculty
+                <input type="text" list="faculty_names" autocomplete="off" name="fac_name" class="form-control">
+                </label>
+                <datalist id="faculty_names">
+                  <?php 
+                    $sql="SELECT * from patent";
+                    $result1 = mysqli_query($conn, $sql);
+                    while($row = mysqli_fetch_array($result1)){?>
+                      '<option value="<?php echo $row['faculty_name']?>"></option>';
+                      '<option value="<?php echo $row["author1"]?>"></option>';
+                      '<option value="<?php echo $row["author2"]?>"></option>';
+                      '<option value="<?php echo $row["author3"]?>"></option>';
+                      '<option value="<?php echo $row["author4"]?>"></option>';
+                  <?php
+                    }
+                    ?>
+                  
+                  </datalist></br>
+                  <button type="submit" name="gen_report" class="btn btn-danger">Generate report</button>
+            </div>
             </form>
-            <form action="" method="post">
-            <label>Name of faculty
-            <input type="text" name="fac_name" class="form-control" required>
-            </label></br>
-            <button type="submit" name="gen_report_name" class="btn btn-danger">generate report</button>
-            </form>
-        </div>
         </br></br>
-          <?php echo $output;?>
-      </div>
+        <div style='width:93%;' >
+            <?php echo $output;?>
+        <div>
       </div>
     </div>
   </div>
