@@ -72,7 +72,7 @@
                         header("location:users/principal/home.php");
                         exit();
                     default:
-                        header("location:users/faculty/home.php.php");
+                        header("location:users/faculty/dashboard.php");
                         exit();
                 }
             }else{
