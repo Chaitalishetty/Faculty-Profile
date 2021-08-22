@@ -37,22 +37,22 @@
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="js/plugins/fontawesome-free/css/fontawesome.min.css">
-  <link rel="stylesheet" href="js/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../../js/plugins/fontawesome-free/css/fontawesome.min.css">
+  <link rel="stylesheet" href="../../js/plugins/fontawesome-free/css/all.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="js/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <link rel="stylesheet" href="../../js/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- iCheck -->
-  <link rel="stylesheet" href="js/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="../../js/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- JQVMap -->
-  <link rel="stylesheet" href="js/plugins/jqvmap/jqvmap.min.css">
+  <link rel="stylesheet" href="../../js/plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="js/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../../js/dist/css/adminlte.min.css">
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="js/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <link rel="stylesheet" href="../../js/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- summernote -->
-  <link rel="stylesheet" href="js/plugins/summernote/summernote-bs4.min.css">
+  <link rel="stylesheet" href="../../js/plugins/summernote/summernote-bs4.min.css">
   <!-- Bootstrap Links  -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../css/bootstrap.min.css" rel="stylesheet">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <!-- Chart JS Link  -->
