@@ -314,7 +314,7 @@
 
         </form>
 
-        <a href="fac_login.php" class="text-center">Already Registered ? Login</a>
+        <a href="index.php" class="text-center">Already Registered ? Login</a>
       </div>
       <!-- /.form-box -->
     </div>

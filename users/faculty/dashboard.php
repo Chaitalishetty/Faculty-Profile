@@ -6,34 +6,9 @@ session_start();
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link href="styles.css" type="text/css" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="js/plugins/fontawesome-free/css/fontawesome.min.css">
-  <link rel="stylesheet" href="js/plugins/fontawesome-free/css/all.min.css">
-  <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="js/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="js/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- JQVMap -->
-  <link rel="stylesheet" href="js/plugins/jqvmap/jqvmap.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="js/dist/css/adminlte.min.css">
-  <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="js/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-  <!-- summernote -->
-  <link rel="stylesheet" href="js/plugins/summernote/summernote-bs4.min.css">
-  <!-- Bootstrap Links  -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <script src="js/plugins/popper/popper.min.js" ></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="js/plugins/bootstrap/js/bootstrap.min.js"></script>
-  <!-- Chart JS Link  -->
-  <script src="js/plugins/chart.js/Chart.min.js"></script>
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link href="../../css/styles.css" type="text/css" rel="stylesheet">
+  <script type="text/javascript" src="navbar.js"></script>
+  <?php include('../scripts.php');?>
   <title>Dashboard</title>
 </head>
 <body>
@@ -43,7 +18,7 @@ session_start();
     <nav class="nav_dashboard">  
       <span style="font-size:40px;cursor:pointer;margin: 10px;" onclick="closeNav()">&times;</span><!--cross icon-->
         <div class="nav_img" style="text-align:center;margin: 20px 0px;">
-          <img src="logo.png" style="width:60px"/>
+          <img src="../../logo.png" style="width:60px"/>
         </div>
         <div style="margin-left: 25px;">
           <ul>

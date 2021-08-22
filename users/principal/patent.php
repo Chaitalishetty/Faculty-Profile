@@ -10,7 +10,7 @@ $output = "";
 if(isset($_POST["gen_report_date"])){
     $from=date('Y-m-d',strtotime($_POST['date_from']));
       $to=date('Y-m-d',strtotime($_POST['date_to']));
-    $sql =   "SELECT * from copyright where reg_date between '$from' and '$to'"; 
+    $sql =   "SELECT * from patent where patent between '$from' and '$to'"; 
     $result = mysqli_query($conn, $sql);  
     $output.="<h4 class='text-center'>Reports showing from ".$from." to ".$to."</h4></br><table>";
     while($row = mysqli_fetch_array($result)){
@@ -23,6 +23,7 @@ if(isset($_POST["gen_report_date"])){
     <td>'.$row["author4"].'</td>  
     <td>'.$row["title"].'</td>  
     <td>'.$row["application_no"].'</td>  
+    <td>'.$row["patent"].'</td> 
     <td>'.$row["status"].'</td>
     <td>'.$row["opt1"].'</td>   
   </tr> ';  
@@ -31,7 +32,7 @@ if(isset($_POST["gen_report_date"])){
 }
 if(isset($_POST["gen_report_name"])){
   $fac_name=mysqli_escape_string($conn,$_POST["fac_name"]);
-  $sql1 =   "SELECT * FROM copyright where (faculty_name LIKE '%$fac_name%' OR author1 LIKE '%$fac_name%' OR author2 LIKE '%$fac_name%' OR author3 LIKE '%$fac_name%' OR author4 LIKE '%$fac_name%')"; 
+  $sql1 =   "SELECT * FROM patent where (faculty_name LIKE '%$fac_name%' OR author1 LIKE '%$fac_name%' OR author2 LIKE '%$fac_name%' OR author3 LIKE '%$fac_name%' OR author4 LIKE '%$fac_name%')"; 
   $result1 = mysqli_query($conn, $sql1);  
   $output.="<h4 class='text-center'>Reports showing for ".$fac_name."</h4></br><table>";
   while($row = mysqli_fetch_array($result1)){
@@ -44,6 +45,7 @@ if(isset($_POST["gen_report_name"])){
     <td>'.$row["author4"].'</td>  
     <td>'.$row["title"].'</td>  
     <td>'.$row["application_no"].'</td>  
+    <td>'.$row["patent"].'</td> 
     <td>'.$row["status"].'</td>
     <td>'.$row["opt1"].'</td>   
   </tr> ';  
@@ -56,17 +58,9 @@ if(isset($_POST["gen_report_name"])){
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="../styles.css" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="../../css/styles.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="navbar.js"></script>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <!-- Bootstrap Links  -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+    <?php include('../scripts.php');?>
     <title>Chapter</title>
 </head>
 <body>
@@ -78,8 +72,8 @@ if(isset($_POST["gen_report_name"])){
     <div class="dashboard_container">
     <script>header();</script>
       <div class="dashboard_content" style="width:90%; background-color:#fff; margin-left:1rem; margin-top:0">
-      <div class="copyright">
-        <h1 class="text-center">Copyright</h1>
+      <div class="patent">
+        <h1 class="text-center">Patent</h1>
         <div class="hod_form">
             <form action="" method="post">
             <label>From
