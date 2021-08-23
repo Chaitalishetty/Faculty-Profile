@@ -7,7 +7,7 @@ if (isset($_SESSION['sdrn'])){
 $sdrn=150;
 $i=0;
 $output="<h4>";
-$sql =  "SELECT * from conference" ; 
+$sql =  "SELECT * from conference where sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP')" ; 
 $result = mysqli_query($conn, $sql); 
 while($row = mysqli_fetch_array($result)){
   $i=$i+1;
@@ -19,7 +19,7 @@ $output.="</h4>";
   $i=0;
    $output="<h4 class='text-center'>Reports showing  ";
    $filter_query="";
-  $select="SELECT * from conference where faculty_name!='' ";
+  $select="SELECT * from conference where sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP') ";
    if(isset($_POST["date_from"]) &&$_POST["date_to"] && $_POST["date_from"]!="" && $_POST["date_to"]!=""){
      $from=date('Y-m-d',strtotime($_POST['date_from']));
        $to=date('Y-m-d',strtotime($_POST['date_to']));

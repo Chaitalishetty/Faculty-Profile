@@ -17,16 +17,23 @@
     <div class="dashboard_container">
       <div class="dashboard_header">
         <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span><!--hamburger icon-->
-        <h2>Dashboard</h2>
-        <a class="btn btn-light" href="../logout.php" style="margin-left:70%">Logout</a>
+        <h2>Principal Dashboard</h2>
+        <a class="btn btn-light" href="../../logout.php" style="margin-left:60%">Logout</a>
       </div>
       <div class="dashboard_content" style="width:90%; background-color:#fff; margin-left:1rem; margin-top:0">
 
       <p class="heading" style="text-decoration: underline;"><b>Distribution of data present</b></p>
-      <div class="col-sm-6" id="chart_canvas">
-          <canvas id="chart_faculty_details"></canvas>
-          <?php include 'chart_publications.php'; ?> 
-        </div>
+      <div class="row" style="padding:1px">
+          <div class="col-sm-5" id="chart_canvas">
+              <canvas id="chart_faculty_details"></canvas>
+          </div>
+          <div class="col-sm-1"></div>
+          <div class="col-sm-6" id="chart_canvas">
+              <canvas id="chart_faculty_details_2"></canvas> 
+          </div>
+      <?php include 'principal_chart.php';?>
+
+      </div>
 
       </div>
     </div>

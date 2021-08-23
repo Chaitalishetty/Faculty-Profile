@@ -19,7 +19,7 @@ $output.="</h4>";
   $i=0;
    $output="<h4 class='text-center' style='font-weight:bold'>Reports showing  ";
    $filter_query="";
-  $select="SELECT * from book_chapter where faculty_name!='' ";
+  $select="SELECT * from book_chapter where sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP')";
    if(isset($_POST["date_from"]) &&$_POST["date_to"] && $_POST["date_from"]!="" && $_POST["date_to"]!=""){
      $from=date('Y-m-d',strtotime($_POST['date_from']));
        $to=date('Y-m-d',strtotime($_POST['date_to']));
