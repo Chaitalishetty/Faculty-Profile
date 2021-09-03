@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="../../css/styles.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="navbar.js"></script>
-    <?php include('../scripts.php');?>
+    <?php include('../../include/scripts.php');?>
     <title>Dashboard</title>
 </head>
 <body>

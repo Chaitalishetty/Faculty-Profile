@@ -13,7 +13,7 @@
     <style>
         body {
             overflow: hidden;
-            background-image: url('rait_homepage.jpg');
+            background-image: url('include/images/rait_homepage.jpg');
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -61,7 +61,7 @@
             if (mysqli_num_rows($result) > 0) {
                 session_start();
                 $row = mysqli_fetch_assoc($result);
-                $_SESSION['Sdrn'] = $row['Sdrn'];
+                $_SESSION['sdrn'] = $row['Sdrn'];
                 $_SESSION['full_name'] = $row['full_name'];
                 $_SESSION['designation'] = $row['Desig'];
                 switch (strtolower($_SESSION['designation'])) {
@@ -72,7 +72,7 @@
                         header("location:users/principal/home.php");
                         exit();
                     default:
-                        header("location:users/faculty/dashboard.php");
+                        header("location:users/faculty/home.php");
                         exit();
                 }
             }else{
