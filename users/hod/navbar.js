@@ -2,12 +2,12 @@ navbar = () => {
   document.querySelector(".dashboard").innerHTML = `<nav class="nav_dashboard">  
     <span style="font-size:40px;cursor:pointer;margin: 10px;" onclick="closeNav()">&times;</span><!--cross icon-->
           <div class="nav_img" style="text-align:center;margin: 20px 0px;">
-            <img src="../../logo.png" style="width:60px"/>
+            <img src="../../include/images/logo.png" style="width:60px"/>
           </div>
           <div>
               <ul>
                 <li><a href="home.php" id="home">Home</a></li>
-                <li><a href="#" onclick=profile(); id="profile">Profile</a></li>
+                <!--<li><a href="#" onclick=profile(); id="profile">Profile</a></li>-->
                 <li class="sub_menu"><h3><i class="fa fa-book"></i>&nbsp;Publications&nbsp;<div class='fa fa-caret-down right'></div></h3>
                   <ul>
                     <li><a href="chapter.php">Book Chapter</a></li>
@@ -26,7 +26,7 @@ header = () => {
   document.querySelector(".dashboard_container").innerHTML = `<div class="dashboard_header">
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span><!--hamburger icon-->
   <h2>Dashboard</h2>
-  <a class="btn btn-light" href="../logout.php" style="margin-left:70%">Logout</a>
+  <a class="btn btn-light" href="../../logout.php" style="margin-left:70%">Logout</a>
 </div>`
 }
 function openNav() {
