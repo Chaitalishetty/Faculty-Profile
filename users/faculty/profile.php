@@ -5,6 +5,9 @@
       $sdrn = $_SESSION['sdrn'];
       $faculty_name = $_SESSION['full_name'];
   }
+  $sql =  "SELECT * FROM faculty where sdrn = '$sdrn' " ; 
+  $result = mysqli_query($conn, $sql);
+  $row = mysqli_fetch_array($result);
 ?>
   <!DOCTYPE html>
   <html lang="en">
@@ -24,14 +27,14 @@
       <!--dashboard content-->
       <div class="dashboard_container">
       <script>header();</script>
-      <div class="container-fluid">
+      <div class="container-fluid" style="width:88%; margin-left:20px; margin-top:20px; margin-bottom:20px">
   <div class="row">
-    <div class="col" style="text-align: center; padding-top:2%" >
-      <p ><h2 >Aditi Chhabria</h2></p>
-      <p><h4>Assistant professor</h4></p>
+    <div class="col-sm-5" style="text-align: center; padding-top:2%" >
+      <p ><h2 ><?=$faculty_name;?></h2></p>
+      <p><h4><?=$row['Desig'];?></h4></p>
     </div>
-    <div class="col">
-      <img src="../../include/images/hi.jpg" alt="image" height="200px" width="200px" class="rounded-circle" align="right">
+    <div class="col-sm-6">
+      <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['profile_photo']); ?>" alt="image" height="200px" width="200px" class="rounded-circle" align="right">
     </div>
   </div>
   <br><br>
@@ -40,16 +43,17 @@
       <p class="heading" style="text-decoration: underline;"><b>Personal Details</b></p>
       <table>
         <tr><th>Gender</th><td>Female</td></tr>
-        <tr><th>Mobile No. &nbsp;</th><td>+91 1231231231</td></tr>
-        <tr><th>Address</th><td>ABCD Building, XYZ Colony, City West</td></tr>
+        <tr><th>Mobile No. &nbsp;</th><td><?=$row['Contact_no'];?></td></tr>
+        <tr><th>Email. &nbsp;</th><td><?=$row['Email'];?></td></tr>
+        <tr><th>Address</th><td><?=$row['r_address'];?></td></tr>
       </table>
     </div>
 
     <div class="col" style="border-left:2px solid grey; border-radius:20px">
       <p class="heading" style="text-decoration: underline;"><b>Profesional Details</b></p>
       <table>
-        <tr><th>Department</th><td>Computer Engineering</td></tr>
-        <tr><th>DOJ</th><td>yyyy-mm-dd</td></tr>
+        <tr><th>Department</th><td><?=$row['Department'];?></td></tr>
+        <tr><th>DOJ</th><td><?=$row['Doj'];?></td></tr>
         <tr><th>Area of Specialisation &nbsp;&nbsp;</th><td>Data Warehouse and Mining</td></tr>
         <tr><th>Experience</th><td>15</td></tr>
       </table>
@@ -71,10 +75,8 @@
         <tr><th>Qualification &nbsp;&nbsp;</th><td>Pursuing</td></tr>
         <tr><th>University</th><td>Rajasthan</td></tr>
       </table>
-      </div></div>
-        <br> <br>
-      <div class="row" style="border-left:2px solid grey; border-radius:20px">
-        <div class="col">
+      </div>
+        <div class="col" style="border-left:2px solid grey; border-radius:20px">
         <p class="heading"><b>MY RECENT WORKS</b></p>
         <table>
         <tr><th>Patents</th><td>1</td></tr>

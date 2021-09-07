@@ -56,7 +56,7 @@
             $Sdrn = mysqli_real_escape_string($conn, $_POST['Sdrn']);
             $Password = mysqli_real_escape_string($conn, $_POST['Password']);
 
-            $sql = "SELECT *, concat(First_name,' ',Last_name),Desig AS full_name from `faculty` WHERE `Sdrn` = '$Sdrn' AND `Password` = '$Password';";
+            $sql = "SELECT *, concat(First_name,' ',Last_name) AS full_name,Desig  from `faculty` WHERE `Sdrn` = '$Sdrn' AND `Password` = '$Password';";
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0) {
                 session_start();
