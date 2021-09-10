@@ -99,8 +99,10 @@
         </li> 
        </ul>
     </nav>
+    <button onclick="generateCv()" class="btn btn-danger">Print CV</button>
+
     <!--end of top navigation bar-->
-    <div class="container-fluid">
+    <div class="container-fluid" id="cv">
       <div class="row">
         <div class="col" style="text-align: center; margin-top: 50px; margin-left: 10%;" >
           <p ><h2 >PUJA PADIYA</h2></p>
@@ -108,7 +110,7 @@
         </div>
         <div class="col">
           <div class="move">
-            <img src="hi.jpg" alt="profile image" height="190px" width="190px"  class="rounded-circle" style="margin-left: 35%;  margin-top: 5px;">
+            <img src="./include/images/hi.jpg" alt="profile image" height="190px" width="190px"  class="rounded-circle" style="margin-left: 35%;  margin-top: 5px;">
             <div class="middle" style="width: 200px;">
               <div class="text">
                 <label style="font-size: 20px;">Update photo</label><br>
@@ -159,4 +161,15 @@
     
    
   </body>
+  <script>
+    function generateCv(){
+    var cv_content=document.getElementById("cv").innerHTML;
+    var win =window.open(",","height=700","width=700");
+    win.document.write(cv_content);
+    win.document.close();
+    win.print();
+    // win.save("Resume.pdf");
+    win.close();
+  }
+  </script>
 </html>

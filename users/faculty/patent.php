@@ -5,7 +5,6 @@ if (isset($_SESSION['sdrn'])){
     $sdrn = $_SESSION['sdrn'];
     $faculty_name = $_SESSION['full_name'];
 }
-// $sdrn=150;
 $i=0;
 $output="<h4>";
 $sql =  "SELECT * from patent where (sdrn = '$sdrn' OR faculty_name LIKE '%$faculty_name%' OR author1 LIKE '%$faculty_name%' OR author2 LIKE '%$faculty_name%' OR author3 LIKE '%$faculty_name%' OR author4 LIKE '%$faculty_name%')" ; 

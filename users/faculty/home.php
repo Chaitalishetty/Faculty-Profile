@@ -117,7 +117,7 @@
       </div>
       <!-- End of InfoBoxes  -->
 
-      <p class="heading" style="text-decoration: underline;"><b>Distribution of data present</b></p>
+      <p  style="text-decoration: underline;"><b>Distribution of data present</b></p>
       <div class="row" style="padding:1px">
           <div class="col-sm-5" id="chart_canvas">
               <canvas id="chart_faculty_details"></canvas>

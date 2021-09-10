@@ -18,6 +18,17 @@
       <script type="text/javascript" src="navbar.js"></script>
       <?php include('../../include/scripts.php');?>
       <title>Chapter</title>
+      <style>
+      @print {
+          @page :footer {
+              display: none
+          }
+        
+          @page :header {
+              display: none
+          }
+        }
+      </style>
   </head>
   <body>
     <!-- dashboard -->
@@ -27,7 +38,10 @@
       <!--dashboard content-->
       <div class="dashboard_container">
       <script>header();</script>
-      <div class="container-fluid" style="width:88%; margin-left:20px; margin-top:20px; margin-bottom:20px">
+      <div class="container-fluid" style="padding-top:10px">
+      <button onclick="generateCv()" class="btn btn-danger">Print CV</button>
+  
+  <div id="cv" style="margin:20px;padding:20px;width:80vw">
   <div class="row">
     <div class="col-sm-5" style="text-align: center; padding-top:2%" >
       <p ><h2 ><?=$faculty_name;?></h2></p>
@@ -39,60 +53,79 @@
   </div>
   <br><br>
   <div class="row">
-    <div class="col" style="border-left:2px solid grey; border-radius:20px">
-      <p class="heading" style="text-decoration: underline;"><b>Personal Details</b></p>
+    <div class="col" >
+      <p class="heading"><b>PERSONAL DETAILS</b></p>
+      <div class="info">
       <table>
-        <tr><th>Gender</th><td>Female</td></tr>
-        <tr><th>Mobile No. &nbsp;</th><td><?=$row['Contact_no'];?></td></tr>
-        <tr><th>Email. &nbsp;</th><td><?=$row['Email'];?></td></tr>
-        <tr><th>Address</th><td><?=$row['r_address'];?></td></tr>
-      </table>
-    </div>
-
-    <div class="col" style="border-left:2px solid grey; border-radius:20px">
-      <p class="heading" style="text-decoration: underline;"><b>Profesional Details</b></p>
-      <table>
-        <tr><th>Department</th><td><?=$row['Department'];?></td></tr>
-        <tr><th>DOJ</th><td><?=$row['Doj'];?></td></tr>
-        <tr><th>Area of Specialisation &nbsp;&nbsp;</th><td>Data Warehouse and Mining</td></tr>
-        <tr><th>Experience</th><td>15</td></tr>
-      </table>
-    </div>
-  </div>
-  <br><br>
-
-  <div class="row">
-
-
-
-      
-    <div class="col">
-      <div class="row" style="border-left:2px solid grey; border-radius:20px">
-      <div class="col">
-        <p class="heading" style="text-decoration: underline;"><b>Education</b></p>
-        <table>
-        <tr><th>Degree</th><td>Phd</td></tr>
-        <tr><th>Qualification &nbsp;&nbsp;</th><td>Pursuing</td></tr>
-        <tr><th>University</th><td>Rajasthan</td></tr>
+        <tr><th>Gender : </th><td>Female</td></tr>
+        <tr><th>Mobile No. : &nbsp;</th><td><?=$row['Contact_no'];?></td></tr>
+        <tr><th>Email : &nbsp;</th><td><?=$row['Email'];?></td></tr>
+        <tr><th>Address :</th><td><?=$row['r_address'];?></td></tr>
       </table>
       </div>
-        <div class="col" style="border-left:2px solid grey; border-radius:20px">
-        <p class="heading"><b>MY RECENT WORKS</b></p>
-        <table>
-        <tr><th>Patents</th><td>1</td></tr>
-        <tr><th>Book Chapter </th><td>1</td></tr>
-        <tr><th>Workshop</th><td>Organised: 10  Attended:12</td></tr>
-        <tr><th>Talks Delivered &nbsp;&nbsp;</th><td>9</td></tr>
+    </div>
+
+    <div class="col" >
+      <p class="heading"><b>PROFESSIONAL DETAILS</b></p>
+      <div class="info">
+      <table>
+        <tr><th>Department : </th><td><?=$row['Department'];?></td></tr>
+        <tr><th>DOJ : </th><td><?=$row['Doj'];?></td></tr>
+        <tr><th>Area of Specialisation : &nbsp;&nbsp;</th><td>Data Warehouse and Mining</td></tr>
+        <tr><th>Experience : </th><td>15</td></tr>
       </table>
+      </div>
+    </div>
+  </div>
+      </br>
+  
+  <div class="row">
+    <div class="col">
+      <div class="row" >
+      <div class="col">
+        <p class="heading"><b>EDUCATION</b></p>
+        <div class="info">
+        <table>
+        <tr><th>Degree :</th><td>Phd</td></tr>
+        <tr><th>Qualification :&nbsp;&nbsp;</th><td>Pursuing</td></tr>
+        <tr><th>University :</th><td>Rajasthan</td></tr>
+      </table>
+      </div>
+      </div>
+        <div class="col">
+        <p class="heading"><b>MY RECENT WORKS</b></p>
+        <div class="info">
+        <table>
+        <tr><th>Patents :</th><td>1</td></tr>
+        <tr><th>Book Chapter :</th><td>1</td></tr>
+        <tr><th>Workshop</th><td>Organised: 10  Attended:12</td></tr>
+        <tr><th>Talks Delivered :&nbsp;&nbsp;</th><td>9</td></tr>
+      </table>
+      </div>
         </div></div>
     </div>
       
     
-    
+    </div>  
       
       
+    </br>
+  <div class="row">
+    <div class="profile_content">
+      <?php include("publication_query.php");
+      echo $output1;//book chapter
+      echo $output2;//publication
+      echo $output3;//journal
+      echo $output4;//copyright
+      echo $output5;//patent
+      echo $output6;//conference
+      echo $output7;//workshop
+      echo $output8;//syllabus
+      echo $output9;//orientation
+      ?>
+    <div>
   </div>
-
+  </div>
 
 </div>
 
@@ -106,5 +139,21 @@
     $(this).parent(".sub_menu").children("ul").slideToggle("50");
     $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
   });
+  
+  </script>
+  <script>
+    function generateCv(){
+    var cv_content=document.getElementById("cv").innerHTML;
+    var styles="<style>.heading{color: rgb(7, 48, 172);border-bottom: 5px solid rgb(50, 181, 224);margin-left: 20px;}.con{margin-left:30px}";
+    styles=styles+"table{text-align:left;padding-left:30px}</style>";
+    
+    var win =window.open(",","height=700","width=900");
+    win.document.write(styles);
+    win.document.write(cv_content);
+    win.document.close();
+    win.print();
+    // win.save("Resume.pdf");
+    win.close();
+  }
   </script>
   </html>
