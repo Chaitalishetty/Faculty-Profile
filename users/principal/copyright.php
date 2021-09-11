@@ -4,7 +4,6 @@ $conn = mysqli_connect("localhost", "root", "", "test");
 if (isset($_SESSION['sdrn'])){
     $sdrn = $_SESSION['sdrn'];
 }
-$sdrn=150;
 $i=0;
 $output="<h4>";
 $sql =  "SELECT * from copyright" ; 

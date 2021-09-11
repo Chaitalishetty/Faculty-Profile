@@ -94,6 +94,23 @@
 #author-input input{
     margin-top:20px;
 }
+.heading{
+    color: rgb(7, 48, 172);
+    font-size: larger;
+    border-bottom: 5px solid rgb(50, 181, 224);
+    margin-left: 20px;
+}
+.info{
+    margin-left: 20px;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 2px 2px gray;
+    border-radius: 10px;
+    padding: 3px 15px ;
+    margin-bottom: 5px;
+}
+.profile_content .con{
+    padding-left: 30px;
+}
 #chart_canvas{
     border-radius: 20px;
     box-shadow: 1px 1px 6px -3px;

@@ -117,7 +117,7 @@
       </div>
       <!-- End of InfoBoxes  -->
 
-      <p class="heading" style="text-decoration: underline;"><b>Distribution of data present</b></p>
+      <p  style="text-decoration: underline;"><b>Distribution of data present</b></p>
       <div class="row" style="padding:1px">
           <div class="col-sm-5" id="chart_canvas">
               <canvas id="chart_faculty_details"></canvas>
@@ -126,8 +126,16 @@
           <div class="col-sm-6" id="chart_canvas">
               <canvas id="chart_faculty_details_2"></canvas> 
           </div>
+          <div class="row" style=" margin-top:10px">
+          <div class="col-sm-6" id="chart_canvas">
+              <canvas id="chart_faculty_part_1"></canvas>
+          </div>
+          <div class="col-sm-1"></div>
+          <div class="col-sm-5" id="chart_canvas">
+              <canvas id="chart_faculty_part_2"></canvas>
+          </div>
       <?php include 'hod_chart.php';?>
-
+      
       </div>
       </div>
     </div>
