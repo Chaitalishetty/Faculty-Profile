@@ -137,7 +137,7 @@ if(mysqli_num_rows($result8)!=0){
   $output8="<p class='heading'><b>SYLLABUS SETTINGS</b></p><p class='con'>";
 while($row = mysqli_fetch_array($result8)){
   $i8=$i8+1;
- $output8 .= "[".$i8."] ".$row["University"].", ".$row["Subject"].", SEM ".$row["Semester"].", ".$row["Venue"].", ".$row["Date"];  
+ $output8 .= "[".$i8."] ".$row["University"].", ".$row["Subject"].", SEM ".$row["Semester"].", ".$row["Venue"].", ".$row["Date"].".";  
 }
 
 $output8.="</p>";
@@ -153,12 +153,35 @@ if(mysqli_num_rows($result9)!=0){
   $output9="<p class='heading'><b>ORIENTATION</b></p><p class='con'>";
 while($row = mysqli_fetch_array($result9)){
   $i9=$i9+1;
- $output9 .= "[".$i9."] ".$row["University"].", ".$row["Subject"].", SEM ".$row["Semester"].", ".$row["Venue"].", ".$row["Date"];  
+ $output9 .= "[".$i9."] ".$row["University"].", ".$row["Subject"].", SEM ".$row["Semester"].", ".$row["Venue"].", ".$row["Date"].".";  
 }
 
 $output9.="</p>";
 }
 else{
   $output9="";
+}
+
+
+
+$link_tool = mysqli_connect("localhost", "root", "", "workshoptool");
+if (isset($_SESSION['sdrn'])){
+    $sdrn = $_SESSION['sdrn'];
+    $faculty_name = $_SESSION['full_name'];
+}
+$i10=0;
+$sql10 =  "SELECT * FROM schedule where faculty_sdrn = '$sdrn'" ; 
+$result10 = mysqli_query($link_tool, $sql10);
+if(mysqli_num_rows($result10)!=0){
+  $output10="<p class='heading'><b>WORKSHOPS CONDUCTED</b></p><p class='con'>";
+while($row = mysqli_fetch_array($result10)){
+  $i10=$i10+1;
+ $output10 .="[" .$i10."] ".$row["topic"].", ".$row['subject']." ( ".$row["schedule_type"]." ) ,".$row['speaker_name'].", ".$row["speaker_designation"].", ".$row['no_of_days']." days, ".$row['date'].".";  
+}
+
+$output10.="</p>";
+}
+else{
+  $output10="";
 }
 ?>

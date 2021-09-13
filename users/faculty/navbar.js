@@ -32,6 +32,11 @@ navbar = () => {
                     <li><a href="med_exam.php">Medical Exams</a></li>
                     <li><a href="fac_res.php">Faculty-Resource</a></li>
                   </ul>  
+                </li>
+                <li class="sub_menu"><h3><i class="fa fa-book"></i>&nbsp;Workshop&nbsp;<div class='fa fa-caret-down right'></div></h3>
+                  <ul>
+                    <li><a href="workshop.php">Workshop Conducted</a></li>
+                  </ul>  
                 </li>  
            </ul>
           </div>

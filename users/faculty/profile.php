@@ -122,6 +122,7 @@
       echo $output7;//workshop
       echo $output8;//syllabus
       echo $output9;//orientation
+      echo $output10;//workshop conducted
       ?>
     <div>
   </div>
