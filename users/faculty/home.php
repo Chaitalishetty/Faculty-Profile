@@ -126,14 +126,16 @@
           <div class="col-sm-6" id="chart_canvas">
               <canvas id="chart_faculty_details_2"></canvas> 
           </div>
+          
           <div class="row" style=" margin-top:10px">
+            <div class="col-sm-5" id="chart_canvas">
+                <canvas id="chart_faculty_part_2"></canvas>
+            </div>
+            <div class="col-sm-1"></div>
           <div class="col-sm-6" id="chart_canvas">
               <canvas id="chart_faculty_part_1"></canvas>
           </div>
-          <div class="col-sm-1"></div>
-          <div class="col-sm-5" id="chart_canvas">
-              <canvas id="chart_faculty_part_2"></canvas>
-          </div>
+          
       <?php include 'hod_chart.php';?>
       
       </div>

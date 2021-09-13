@@ -25,9 +25,12 @@ navbar = () => {
                     <li><a href="SyllabusReport.php">Syllabus</a></li>
                   </ul>  
                 </li>  
-                <li class="sub_menu"><h3><i class="fa fa-book"></i>&nbsp;SS1&nbsp;<div class='fa fa-caret-down right'></div></h3>
+                <li class="sub_menu"><h3><i class="fa fa-book"></i>&nbsp;Expertise&nbsp;<div class='fa fa-caret-down right'></div></h3>
                   <ul>
-                    <li><a href="report.php">Report</a></li>
+                    <li><a href="awards.php">Awards</a></li>
+                    <li><a href="comp_exam.php">Exams</a></li>
+                    <li><a href="med_exam.php">Medical Exams</a></li>
+                    <li><a href="fac_res.php">Faculty-Resource</a></li>
                   </ul>  
                 </li>  
            </ul>
