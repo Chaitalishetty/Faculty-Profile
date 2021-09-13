@@ -39,7 +39,11 @@
       <div class="dashboard_container">
       <script>header();</script>
       <div class="container-fluid" style="padding-top:10px">
-      <button onclick="generateCv()" class="btn btn-danger">Print CV</button>
+      <div style="margin-left:60vw">
+      <button onclick="generateCv()" class="btn btn-secondary">Print CV</button>
+      <a href="updates.html" class="btn btn-danger" target="_blank_">Update Profile</a>
+      </div>
+
   
   <div id="cv" style="margin:20px;padding:20px;width:80vw">
   <div class="row">

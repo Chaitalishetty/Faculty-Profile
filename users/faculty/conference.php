@@ -7,7 +7,7 @@ if (isset($_SESSION['sdrn'])){
 }
 // $sdrn=150;
 $i=0;
-$output="<h4>";
+$output="<h5>";
 $sql =  "SELECT * FROM conference where (sdrn = '$sdrn' OR faculty_name LIKE '%$faculty_name%' OR author1 LIKE '%$faculty_name%' OR author2 LIKE '%$faculty_name%' OR author3 LIKE '%$faculty_name%' OR author4 LIKE '%$faculty_name%')" ; 
 $result = mysqli_query($conn, $sql); 
 while($row = mysqli_fetch_array($result)){
@@ -15,7 +15,7 @@ while($row = mysqli_fetch_array($result)){
   $authors=implode(", ",array_filter([$row["faculty_name"],$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
   $output .= "[".$i."]  ".$authors.', "'.$row["paper_title"].'", '.$row["con_name"].', '.$row["con_place"].", ".$row["con_date"].", ".$row["indexed_in"].", ".$row["opt1"] .". </br></br>";  
 }
-$output.="</h4>";
+$output.="</h5>";
  if(isset($_POST["gen_report"])){
   $i=0;
    $output="<h4 class='text-center'>Reports showing  ";
@@ -27,7 +27,7 @@ $output.="</h4>";
        $filter_query.="AND con_date between '$from' and '$to'";
         $output.="from ".$from." to ".$to;
    }
-    $output.="</h4><h4>";
+    $output.="</h4><h5>";
      $sql =   $select.$filter_query; 
      $result = mysqli_query($conn, $sql);  
      while($row = mysqli_fetch_array($result)){
@@ -36,7 +36,7 @@ $output.="</h4>";
   $output .= "[".$i."]  ".$authors.', "'.$row["paper_title"].'", '.$row["con_name"].', '.$row["con_place"].", ".$row["con_date"].", ".$row["indexed_in"].", ".$row["opt1"] .". </br></br>";  
  
     }
-    $output.='</h4>';
+    $output.='</h5>';
  }
 
 ?>

@@ -58,7 +58,7 @@
           <!-- small box -->
           <div class="small-box bg-warning">
             <div class="inner">
-              <h3>4</h3>
+              <h3><?= fac_bk_pat()?></h3>
 
               <p>Patent</p>
             </div>
@@ -73,7 +73,7 @@
           <!-- small box -->
           <div class="small-box bg-danger">
             <div class="inner">
-              <h3>6</h3>
+              <h3><?=fac_bk_con()?></h3>
 
               <p>Conferences</p>
             </div>
@@ -88,7 +88,7 @@
           <!-- small box -->
           <div class="small-box bg-info">
             <div class="inner">
-              <h3>6</h3>
+              <h3><?=fac_bk_copy()?></h3>
 
               <p>Copyright</p>
             </div>
@@ -103,7 +103,7 @@
           <!-- small box -->
           <div class="small-box bg-success">
             <div class="inner">
-              <h3>5</h3>
+              <h3><?=fac_bk_jour()?></h3>
 
               <p>Journal</p>
             </div>
@@ -126,7 +126,7 @@
           <div class="col-sm-6" id="chart_canvas">
               <canvas id="chart_faculty_details_2"></canvas> 
           </div>
-          
+      </div>   
           <div class="row" style=" margin-top:10px">
             <div class="col-sm-5" id="chart_canvas">
                 <canvas id="chart_faculty_part_2"></canvas>
@@ -138,7 +138,7 @@
           
       <?php include 'hod_chart.php';?>
       
-      </div>
+      
       </div>
     </div>
   </div>

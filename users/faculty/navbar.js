@@ -2,7 +2,7 @@ navbar = () => {
   document.querySelector(".dashboard").innerHTML = `<nav class="nav_dashboard">  
     <span style="font-size:40px;cursor:pointer;margin: 10px;" onclick="closeNav()">&times;</span><!--cross icon-->
           <div class="nav_img" style="text-align:center;margin: 20px 0px;">
-            <img src="../../include/images/logo.png" style="width:60px"/>
+            <img src="../../include/images/dylogo.png" style="width:170px"/>
           </div>
           <div>
               <ul>
@@ -34,7 +34,7 @@ navbar = () => {
                   </ul>  
                 </li>
                 <li class="sub_menu"><h3><i class="fa fa-book"></i>&nbsp;Workshop&nbsp;<div class='fa fa-caret-down right'></div></h3>
-                  <ul>
+                  <ul style="overflow-y:hidden">
                     <li><a href="workshop.php">Workshop Conducted</a></li>
                   </ul>  
                 </li>  
