@@ -362,7 +362,7 @@
             $Sdrn = mysqli_real_escape_string($conn, $_POST['Sdrn']);
             $Password = mysqli_real_escape_string($conn, $_POST['Password']);
 
-            $sql = "SELECT *, concat(First_name,' ',Last_name) AS full_name,Desig  from `faculty` WHERE `Sdrn` = '$Sdrn' AND `Password` = '$Password';";
+            $sql = "SELECT *, concat(First_name,' ',Middle_name,' ',Last_name) AS full_name,Desig  from `faculty` WHERE `Sdrn` = '$Sdrn' AND `Password` = '$Password';";
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0) {
                 
@@ -400,7 +400,7 @@
                 echo '
                     <script type="text/javascript">
                         alert("Invalid Credentials");
-                        window.open("login.php", "_self");
+                        window.open("index.php", "_self");
                     </script> 
                 ';
                 exit();
