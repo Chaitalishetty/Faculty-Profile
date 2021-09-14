@@ -10,6 +10,7 @@ navbar = () => {
                 <li><a href="profile.php" id="profile">Profile</a></li>
                 <li class="sub_menu"><h3><i class="fa fa-book"></i>&nbsp;Publications&nbsp;<div class='fa fa-caret-down right'></div></h3>
                   <ul>
+                    <li><a href="../../modules/FacultyPublications/Faculty/src/Details_collection/page1.php">Add/Edit Details</a></li>
                     <li><a href="chapter.php">Book Chapter</a></li>
                     <li><a href="publication.php" >Book Publications</a></li> 
                     <li><a href="patent.php">Patent</a></li> 
@@ -20,6 +21,7 @@ navbar = () => {
                 </li>  
                 <li class="sub_menu"><h3><i class="fa fa-book"></i>&nbsp;Participation&nbsp;<div class='fa fa-caret-down right'></div></h3>
                   <ul>
+                    <li><a href="../../modules/FacultyParticipation/faculty/welcome.php">Add/Edit Details</a></li>
                     <li><a href="WorkShopReport.php">Workshop</a></li>
                     <li><a href="OrientationReport.php" >Orientation</a></li> 
                     <li><a href="SyllabusReport.php">Syllabus</a></li>
@@ -27,6 +29,7 @@ navbar = () => {
                 </li>  
                 <li class="sub_menu"><h3><i class="fa fa-book"></i>&nbsp;Expertise&nbsp;<div class='fa fa-caret-down right'></div></h3>
                   <ul>
+                    <li><a href="../../modules/SS1/Faculty Experties/detail.php">Add/Edit Details</a></li>
                     <li><a href="awards.php">Awards</a></li>
                     <li><a href="comp_exam.php">Exams</a></li>
                     <li><a href="med_exam.php">Medical Exams</a></li>
@@ -35,6 +38,7 @@ navbar = () => {
                 </li>
                 <li class="sub_menu"><h3><i class="fa fa-book"></i>&nbsp;Workshop&nbsp;<div class='fa fa-caret-down right'></div></h3>
                   <ul style="overflow-y:hidden">
+                    <li><a href="../../modules/WorkshopTool/faculty/dashboard.php">Add/Edit Details</a></li>
                     <li><a href="workshop.php">Workshop Conducted</a></li>
                   </ul>  
                 </li>  
