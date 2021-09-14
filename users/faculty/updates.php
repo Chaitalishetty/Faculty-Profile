@@ -79,51 +79,59 @@
     <div class="dashboard_container">
       <script>header();</script>
 
+      <form action="../../backend/update.php" id="update" method="post" enctype="multipart/form-data">
         <div class="container-fluid">
           <div class="row">
             <div class="col-8">
-              <form>
-                <div class="form-group" style="padding-top: 20px;">
-                  <p class="heading">
-                    <b>LOGIN DETAILS</b>
-                  </p>
-                  <input type="text" class="form-field form-control" placeholder="Enter name" value="<?=$faculty_name;?>"><br>
-                  <input type="number" class="form-field form-control" placeholder="Enter phone no." value="<?=$row['Contact_no'];?>"><br>
-                  <input type="email" class="form-field form-control" placeholder="Enter email" value="<?=$row['Email'];?>"><br>
-                  <input type="password" class="form-field form-control" placeholder="Enter new password"><br>
-                  <input type="password" class="form-field form-control" placeholder="Confirm new password"><br>
-                </div>
-              </form>
+              <div class="form-group" style="padding-top: 20px;">
+                <p class="heading">
+                <b>LOGIN DETAILS</b>
+                </p>
+                <input type="text" class="form-field form-control" name="full_name" placeholder="Enter name" value="<?=$faculty_name;?>" readonly><br>
+                <input type="number" class="form-field form-control" name="phone_no" placeholder="Enter phone no." value="<?=$row['Contact_no'];?>"><br>
+                <input type="email" class="form-field form-control" name="email_id" placeholder="Enter email" value="<?=$row['Email'];?>"><br>
+                <input type="password" class="form-field form-control" name="password" id="password" placeholder="Enter new password"><br>
+                <input type="password" class="form-field form-control" name="c_password" id="c_password" placeholder="Confirm new password"><br>
+              </div>
             </div>
+
             <div class="col-4" style="padding-top: 15px;">
               <div class="row container" style="margin-left:20%; margin-top:20%">
                 <label for="profile_photo" >
-                  <?php  echo '<img id="avatar" alt="Image" src="data:image/jpg;charset=utf8;base64,'; ?>
-                  <?php echo base64_encode($row['profile_photo']); ?>
-                  <?php echo '"height="200px" width="200px" class="rounded-circle image" style="border: 2px solid black;"/>'; ?>
+                <?php  echo '<img id="avatar" alt="Image" src="data:'.$row['image_type'].';charset=utf8;base64,'; ?>
+                <?php echo base64_encode($row['profile_photo']); ?>
+                <?php echo '"height="200px" width="200px" class="rounded-circle image" style="border: 2px solid black;"/>'; ?>
                 </label>
                 <div class="middle">
-                  <div class="text">Update Profile Picture</div>
-                </div>
-                <input type="file" style="display:none" name="profile_photo" id="profile_photo" onchange="loadFile(event)" accept="image/png, image/gif, image/jpeg" />
+                <div class="text">Update Profile Picture</div>
               </div>
+                <input type="file" style="display:none" name="profile_photo" id="profile_photo" onchange="loadFile(event)" accept="image/png, image/gif, image/jpeg" />
             </div>
           </div>
 
+
           <hr style="border-top: 2px solid rgba(128, 0, 0, 0.76);">
-          <form>
-            <div class="row">
+
+
+          <div class="row">
+            <div class="col-sm-5"></div>
+            <div class="col-sm-3">
+              <input type="submit" class="btn btn-dark btn-lg" value="Update profile">
+            </div>
+          </div>
+
+          <!-- <div class="row">
               <div class="col">
                 <p class="heading">
                   <b>PERSONAL DETAILS</b>
                 </p>
                 Gender :
                 <input type="text" class="form-field form-control-sm" placeholder="Enter gender"
-                  style="margin-left:38px;"><br>
+                  style="margin-left:38px;" ><br>
                 Date of birth :
                 <input type="date" class="form-field form-control-sm" placeholder="Enter DOB"><br>
                 Permanent address
-                <textarea class="form-control-range" rows="2" placeholder="Enter Permanent address"></textarea>
+                <textarea class="form-control-range" rows="2" placeholder="Enter Permanent address" value="<?=$row['p_address'];?>">value="<?=$row['p_address'];?>"</textarea>
                 <br>
                 <hr style="border-top: 2px solid rgba(128, 0, 0, 0.76);">
                 <p class="heading">
@@ -132,15 +140,15 @@
                 <p class="info">
                   Program :
                   <input type="text" class="form-field form-control-sm" placeholder="Enter UG program"
-                    style="margin-left: 11px;"><br>
+                    style="margin-left: 11px;" ><br>
                   Score :
                   <input type="text" class="form-field form-control-sm" placeholder="Enter UG Score"
-                    style="margin-left: 31px;"><br>
+                    style="margin-left: 31px;" ><br>
                   University :
-                  <input type="text" class="form-field form-control-sm" placeholder="Enter UG university name"><br>
+                  <input type="text" class="form-field form-control-sm" placeholder="Enter UG university name" ><br>
                   College :
                   <input type="text" class="form-field form-control-sm" placeholder="Enter UG college name"
-                    style="margin-left: 16px;"><br>
+                    style="margin-left: 16px;" ><br>
                 </p>
                 <p class="heading">
                   <br>PhD
@@ -222,30 +230,34 @@
                 </p>
                 <hr style="border-top: 2px solid rgba(128, 0, 0, 0.76);">
               </div>
-            </div><br>
-            <input type="submit" class="btn btn-dark btn-lg" value="Update profile">
-            <br><br>
-          </form>
+            </div><br> -->
+            
+        </div>
+      </form>
 
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  </body>
-  <script>
+
+    </div>
+  </div>
+
+</body>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
   $('.sub_menu ul').hide();
   $(".sub_menu h3").click(function () {
     $(this).parent(".sub_menu").children("ul").slideToggle("50");
     $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
   });
-  
-  </script>
-  <script>
-    var loadFile = function (event) {
-      var output = document.getElementById('avatar');
-      output.src = URL.createObjectURL(event.target.files[0]);
-      output.onload = function () {
-        URL.revokeObjectURL(output.src)
-      }
-    };
-    function generateCv(){
+
+  var loadFile = function (event) {
+    var output = document.getElementById('avatar');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function () {
+      URL.revokeObjectURL(output.src)
+    }
+  };
+  function generateCv(){
     var cv_content=document.getElementById("cv").innerHTML;
     var styles="<style>.heading{color: rgb(7, 48, 172);border-bottom: 5px solid rgb(50, 181, 224);margin-left: 20px;}.con{margin-left:30px}";
     styles=styles+"table{text-align:left;padding-left:30px}</style>";
@@ -258,5 +270,7 @@
     // win.save("Resume.pdf");
     win.close();
   }
-  </script>
-  </html>
+</script>
+
+
+</html>
