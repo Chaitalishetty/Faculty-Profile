@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 05, 2021 at 11:51 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.4
+-- Generation Time: Sep 16, 2021 at 12:36 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -300,8 +300,8 @@ CREATE TABLE `organized` (
   `organized_id` int(11) NOT NULL,
   `faculty_sdrn` int(11) NOT NULL,
   `faculty_name` varchar(100) NOT NULL,
-  `type_of_organize` varchar(100) NOT NULL,
-  `type_of_activity` varchar(20) NOT NULL,
+  `type_of_organize` varchar(300) NOT NULL,
+  `type_of_activity` varchar(300) NOT NULL,
   `class` varchar(50) NOT NULL,
   `sem` varchar(50) NOT NULL,
   `date` date NOT NULL,
@@ -315,17 +315,52 @@ CREATE TABLE `organized` (
 --
 
 INSERT INTO `organized` (`organized_id`, `faculty_sdrn`, `faculty_name`, `type_of_organize`, `type_of_activity`, `class`, `sem`, `date`, `time`, `no_of_days`, `upload_done`) VALUES
-(1, 150, 'First Middle Last', 'Expert Talk', 'Subject Related', 'T.E', '6, 7', '2021-07-31', '03:48:00', '1', 1),
-(2, 150, 'First Middle Last', 'Expert Talk', 'Common to all', 'Faculty', 'N/A', '2021-08-28', '09:50:00', '3', 1),
-(3, 150, 'First Middle Last', 'FDP', 'Common to all', 'F.E', '1, 2', '2021-08-22', '20:01:00', '6', 1),
-(4, 150, 'First Middle Last', 'Hands On Session', 'Common to all', 'T.E', '5, 6', '2021-07-31', '21:06:00', '5', 1),
-(5, 377, 'Vaishali Satish Jadhav', 'Expert Talk', 'Common to all', 'S.E', '3, 4', '2021-08-14', '22:29:00', '2', NULL),
-(6, 377, 'Vaishali Satish Jadhav', 'Hands On Session', 'Common to all', 'S.E', '1, 3', '2021-08-06', '00:50:00', '6', NULL),
-(7, 638, 'Ekta  Sarda', 'Expert Talk', 'Common to all', 'S.E', '3', '2021-08-07', '23:50:00', '5', 1),
-(8, 393, 'Dr. Amarsinh V. Vidhate', 'Hands On Session', 'Common to all', 'S.E', '2, 3', '2021-08-07', '23:52:00', '5', NULL),
-(9, 150, 'Leena  Ragha', 'Workshop', 'Subject Related', 'S.E, T.E', '4, 6, 8', '2021-08-28', '02:49:00', '5', NULL),
-(10, 638, 'Ekta  Sarda', 'STTP', 'Subject Related', 'T.E', '5, 6', '2021-08-14', '18:18:00', '3', 1),
-(11, 638, 'Ekta  Sarda', 'Hands On Session', 'Common to all', 'Faculty', 'N/A', '2021-08-29', '17:19:00', '7', 1);
+(307, 482, 'Ms. Smita Bohir', 'Hands on Session', 'A Step towards Data Science', 'TE', 'VI', '2020-01-24', '00:00:00', '2', NULL),
+(308, 728, 'Ms. Shaguna Ingle', 'Hands on Session', 'A Step towards Data Science', 'TE', 'VI', '2020-01-24', '00:00:00', '2', NULL),
+(309, 894, 'Mr. Balwant J. Gorad', 'Hands on Session', 'A Step towards Data Science', 'TE', 'VI', '2020-01-24', '00:00:00', '2', NULL),
+(310, 898, 'Dr. Vaibhav Naravade ', 'Hands on Session', 'Framework Approach towards projects Development', 'SE', 'IV', '2020-02-29', '00:00:00', '2', NULL),
+(311, 687, 'Ms. Sumithra T.V', 'Hands on Session', 'Framework Approach towards projects Development', 'SE', 'IV', '2020-02-29', '00:00:00', '2', NULL),
+(312, 638, 'Ekta Sarda', 'FDP', 'IEEE-GPRS Sponered FDP On High Performance Computing', 'Faculty/ Students', '', '2019-12-11', '00:00:00', '6', NULL),
+(313, 807, 'Vishwanath Chikkareddi', 'Hands on Session', 'Android App Development', 'BE', 'VII', '2019-12-11', '00:00:00', '2', NULL),
+(314, 812, 'Tabassum Altaf Maktum', 'FDP', 'High Performance Computing, Application Perspective', 'Faculty/ Students', '', '2019-11-11', '00:00:00', '6', NULL),
+(315, 679, 'Dhanashri Ashok Bhosale', 'FDP', 'IEEE-GPRS Sponered FDP On High Performance Computing', 'Faculty/ Students', '', '2019-11-11', '00:00:00', '6', NULL),
+(316, 874, 'Dr. Amit Barve', 'FDP', 'IEEE-GPRS Sponered FDP On High Performance Computing', 'Faculty/ Students', '', '2019-11-11', '00:00:00', '6', NULL),
+(317, 811, 'Rashmi Amol Dhumal', 'FDP', 'IEEE-GPRS Sponered FDP On High Performance Computing', 'Faculty/ Students', '', '2019-11-11', '00:00:00', '6', NULL),
+(318, 295, 'Prof. Vanita Mane', 'FDP', 'IEEE-GPRS Sponered FDP On High Performance Computing', 'Faculty/ Students', '', '2019-11-11', '00:00:00', '6', NULL),
+(319, 677, 'Kamlesh Lekhraj Nenwani', 'FDP', 'IEEE-GPRS Sponered FDP On High Performance Computing', 'Faculty/ Students', '', '2019-11-11', '00:00:00', '6', NULL),
+(320, 593, 'Prathmesh Gunjgur', 'FDP', 'IEEE-GPRS Sponered FDP On High Performance Computing', 'Faculty/ Students', '', '2019-11-11', '00:00:00', '6', NULL),
+(321, 807, 'Vishwanath Chikkareddi', 'FDP', 'IEEE-GPRS Sponered FDP On High Performance Computing', 'Faculty/ Students', '', '2019-11-11', '00:00:00', '5', NULL),
+(322, 896, 'Dr. (Mrs.) Sangita Santosh Chaudhari', 'FDP', 'IEEE-GPRS Sponered FDP On High Performance Computing', 'Faculty/ Students', '', '2019-11-11', '00:00:00', '6', NULL),
+(323, 672, 'Ms Pallavi H. Chitte', 'FDP', 'Mobile Communication Beyond 4G', 'Faculty/ Students', '', '2019-10-14', '00:00:00', '1', NULL),
+(324, 679, 'Dhanashri Ashok Bhosale', 'FDP', 'PMMMNMTT, MHRD Sponsered FDP on \"Data Science Using Python', 'Faculty/ Students', '', '2019-10-09', '00:00:00', '6', NULL),
+(325, 672, 'Ms Pallavi H. Chitte', 'FDP', 'PMMMNMTT, MHRD Sponsered FDP on \"Data Science Using Python', 'Faculty/ Students', '', '2019-10-09', '00:00:00', '6', NULL),
+(326, 894, 'Mr. Gorad Balwant Jaywant', 'FDP', 'PMMMNMTT, MHRD Sponsered FDP on \"Data Science Using Python', 'Faculty/ Students', '', '2019-10-09', '00:00:00', '6', NULL),
+(327, 811, 'Rashmi Amol Dhumal', 'FDP', 'PMMMNMTT, MHRD Sponsered FDP on \"Data Science Using Python', 'Faculty/ Students', '', '2019-10-09', '00:00:00', '6', NULL),
+(328, 888, 'Dr. Dhananjay Dakhane', 'FDP', 'PMMMNMTT, MHRD Sponsered FDP on \"Data Science Using Python', 'Faculty/ Students', '', '2019-10-09', '00:00:00', '6', NULL),
+(329, 812, 'Tabassum Altaf Maktum', 'FDP', 'PMMMNMTT, MHRD Sponsered FDP on \"Data Science Using Python', 'Faculty/ Students', '', '2019-10-09', '00:00:00', '6', NULL),
+(330, 627, 'Mrs. Shinde Apurva Swapnil', 'FDP', 'PMMMNMTT, MHRD Sponsered FDP on \"Data Science Using Python', 'Faculty/ Students', '', '2019-10-09', '00:00:00', '6', NULL),
+(331, 728, 'Saguna Kailas Ingle', 'FDP', 'PMMMNMTT, MHRD Sponsered FDP on \"Data Science Using Python', 'Faculty/ Students', '', '2019-10-09', '00:00:00', '6', NULL),
+(332, 672, 'Ms Pallavi H. Chitte', 'FDP', 'VHDL(VHSIC Hardware Description Language)', 'Faculty/ Students', '', '2019-06-10', '00:00:00', '2', NULL),
+(333, 583, 'Snehal Jayaram Mumbaikar', 'Hands on Session', 'Electronic Design Automation Using VHDL', 'SE', 'III', '2019-06-10', '00:00:00', '1', NULL),
+(334, 638, 'Ekta Sarda', 'Hands on Session', 'Practical Demonstration of Interfacing With 8086 ', 'TE', 'V', '2019-04-10', '00:00:00', '1', NULL),
+(335, 894, 'Mr. Gorad Balwant Jaywant', 'Hands on Session', 'Object Oriented Relational DBMS', 'TE', 'V', '2019-03-10', '00:00:00', '1', NULL),
+(336, 482, 'Prof. Smita Vinit Bhoir(Patil)', 'Hands on Session', 'Object Oriented Relational Database', 'TE', 'V', '2019-09-30', '00:00:00', '1', NULL),
+(337, 576, 'Mrs. Smita Dinesh Bharne (Khangar)', 'Hands on Session', 'Object Oriented Ralational Database Managment System', 'TE', 'V', '2019-09-30', '00:00:00', '1', NULL),
+(338, 699, 'Preet Chandan Kaur', 'Hands on Session', 'Cloud Computing and Linux', 'BE', 'VII', '2019-09-28', '00:00:00', '1', NULL),
+(339, 728, 'Saguna Kailas Ingle', 'Hands on Session', ' Cloud Computing', 'BE', 'VII', '2019-09-28', '00:00:00', '', NULL),
+(340, 0, 'Mrs. Snehal Prashant Gaikwad', 'Hands on Session', 'Emerging Trends in Pattern Recognition', 'BE', 'VII', '2019-09-28', '00:00:00', '3', NULL),
+(341, 821, 'Neeraj Kumar Sharma', 'Hands on Session', 'Cloud Computing', 'BE', 'VII', '2019-09-28', '00:00:00', '1', NULL),
+(342, 807, 'Vishwanath Chikkareddi', 'Hands on Session', 'Cloud Computing', 'BE', 'VII', '2019-09-28', '00:00:00', '1', NULL),
+(343, 295, 'Prof. Vanita Mane', 'Hands on Session', 'Report/ Research Paper Writing Tool-Latex', 'BE/ME', 'VII/I', '2019-09-26', '00:00:00', '1', NULL),
+(344, 583, 'Snehal Jayaram Mumbaikar', 'Hands on Session', 'Evolution and Application of Mobile Network \"', 'BE', 'VII', '2019-09-24', '00:00:00', '1', NULL),
+(345, 295, 'Prof. Vanita Mane', 'Hands on Session', 'Web Application and Wireless Security.', 'BE', 'VII', '2019-09-23', '00:00:00', '3', NULL),
+(346, 687, 'Sumithra T.V', 'Hands on Session', 'Frameworks - An Effective Approach Towards Web Developmen', 'SE', 'III', '2019-09-21', '00:00:00', '1', NULL),
+(347, 419, 'Sheetal A. Ahir', 'Hands on Session', 'Frameworks- An Effective Approach Towards Web Development', 'SE', 'III', '2019-09-21', '00:00:00', '1', NULL),
+(348, 627, 'Mrs. Shinde Apurva Swapnil', 'Hands on Session', 'Framework- An Efficient Approach Towards Web Development', 'SE', 'III', '2019-09-21', '00:00:00', '1', NULL),
+(349, 874, 'Dr. Amit Barve', 'Hands on Session', 'Framework- An Efficient Approach Towards Web Development', 'SE', 'III', '2019-09-21', '00:00:00', '1', NULL),
+(350, 874, 'Dr. Amit Barve', 'Hands on Session', 'Parallel Programming', 'BE', 'VII', '2019-07-27', '00:00:00', '1', NULL),
+(351, 807, 'Vishwanath Chikkareddi', 'Hands on Session', 'Parallel Processing', 'BE', 'VII', '2019-07-27', '00:00:00', '1', NULL),
+(352, 295, 'Prof. Vanita Mane', 'Hands on Session', 'Latex-Scientific Report Writing', 'BE', 'VII', '2019-07-27', '00:00:00', '1', NULL);
 
 -- --------------------------------------------------------
 
@@ -639,7 +674,7 @@ ALTER TABLE `gap_sheet`
 -- AUTO_INCREMENT for table `organized`
 --
 ALTER TABLE `organized`
-  MODIFY `organized_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `organized_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=353;
 
 --
 -- AUTO_INCREMENT for table `organized_uploads`

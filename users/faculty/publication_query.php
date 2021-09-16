@@ -1,5 +1,6 @@
 <?php
 @session_start();
+error_reporting(0);
 $conn = mysqli_connect("localhost", "root", "", "test");
 if (isset($_SESSION['sdrn'])){
     $sdrn = $_SESSION['sdrn'];
@@ -121,7 +122,7 @@ if(mysqli_num_rows($result7)!=0){
   $output7="<p class='heading'><b>WORKSHOPS ATTENDED</b></p><p class='con'>";
 while($row = mysqli_fetch_array($result7)){
   $i7=$i7+1;
- $output7 .="[" .$i7."] ".$row["Name_workshop"]." ( ".$row["criteria"]." ) ,".$row['sponsor'].", ".$row['venue'].", ".$row["sdate"].", ".$row["ndays"].", ".$row["organiser"].", ".$row["org_type"].", ".$row["sfunding"].", ".$row["ramount"].", ".$row["amount_funded"].", ".$row["TA"];  
+ $output7 .="[" .$i7."] ".$row["criteria"]." on ( '".$row["Name_workshop"]."' ) , organized by ".$row["organiser"]." at ".$row['venue'].", From ".$row["sdate"].".</br>";  
 }
 
 $output7.="</p>";
@@ -184,4 +185,115 @@ $output10.="</p>";
 else{
   $output10="";
 }
+
+$link_tool = mysqli_connect("localhost", "root", "", "faculty");
+if (isset($_SESSION['sdrn'])){
+    $sdrn = $_SESSION['sdrn'];
+    $faculty_name = $_SESSION['full_name'];
+}
+$i11=0;
+$sql11 =  "select * from awards where Sdrn='$sdrn'" ; 
+$result11 = mysqli_query($link_tool, $sql11);
+if(mysqli_num_rows($result11)!=0){
+  $output11="<p class='heading'><b>AWARDS</b></p><p class='con'>";
+while($row = mysqli_fetch_array($result11)){
+  $i11=$i11+1;
+ $output11 .="[" .$i11."] ".$row['1']." ( ".$row["2"]." ) ,".$row['3'].", ".$row["4"].", ".$row['5']." , ".$row['6'].",".$row['7'].",".$row['8'].",".$row['9'].",".$row['10'].",".$row['11'].",".$row['12'].".</br>";  
+}
+
+$output11.="</p>";
+}
+else{
+  $output11="";
+}
+
+$link_tool = mysqli_connect("localhost", "root", "", "faculty");
+if (isset($_SESSION['sdrn'])){
+    $sdrn = $_SESSION['sdrn'];
+    $faculty_name = $_SESSION['full_name'];
+}
+$i12=0;
+$sql12 =  "select * from competitive_exam where Sdrn='$sdrn'" ; 
+$result12 = mysqli_query($link_tool, $sql12);
+if(mysqli_num_rows($result12)!=0){
+  $output12="<p class='heading'><b>Competitive Exams</b></p><p class='con'>";
+while($row = mysqli_fetch_array($result12)){
+  $i12=$i12+1;
+ $output12 .="[" .$i12."] ".$row['1']." ( ".$row["2"]." ) ,".$row['3'].", ".$row["4"].", ".$row['5']." , ".$row['6'].",".$row['7'].".</br>";  
+}
+
+$output12.="</p>";
+}
+else{
+  $output12="";
+}
+
+$link_tool = mysqli_connect("localhost", "root", "", "faculty");
+if (isset($_SESSION['sdrn'])){
+    $sdrn = $_SESSION['sdrn'];
+    $faculty_name = $_SESSION['full_name'];
+}
+$i13=0;
+$sql13 =  "select * from medicals where Sdrn='$sdrn'" ; 
+$result13 = mysqli_query($link_tool, $sql13);
+if(mysqli_num_rows($result13)!=0){
+  $output13="<p class='heading'><b>Medical Exams</b></p><p class='con'>";
+while($row = mysqli_fetch_array($result13)){
+  $i13=$i13+1;
+ $output13 .="[" .$i13."] ".$row['1']." ( ".$row["2"]." ) ,".$row['3'].", ".$row["4"].", ".$row['5']." , ".$row['6'].",".$row['7'].".</br>";  
+}
+
+$output13.="</p>";
+}
+else{
+  $output13="";
+}
+
+$link_tool = mysqli_connect("localhost", "root", "", "faculty");
+if (isset($_SESSION['sdrn'])){
+    $sdrn = $_SESSION['sdrn'];
+    $faculty_name = $_SESSION['full_name'];
+}
+$i14=0;
+$sql14 =  "select * from faculty_as_resource where Sdrn='$sdrn'" ; 
+$result14 = mysqli_query($link_tool, $sql14);
+if(mysqli_num_rows($result14)!=0){
+  $output14="<p class='heading'><b>Faculty as Resource</b></p><p class='con'>";
+while($row = mysqli_fetch_array($result14)){
+  $i14=$i14+1;
+ $output14 .="[" .$i14."] "." ( ".$row[4]." ) ,".$row[5].", ".$row[9].", ".$row[10]." , ".$row['Date'].".</br>";  
+}
+
+$output14.="</p>";
+}
+else{
+  $output14="";
+}
+
+
+
+$link_tool = mysqli_connect("localhost", "root", "", "faculty_par");
+if (isset($_SESSION['sdrn'])){
+    $sdrn = $_SESSION['sdrn'];
+    $faculty_name = $_SESSION['full_name'];
+}
+$i15=0;
+$sql15 =  "select * from workshop where Sdrn='$sdrn'" ; 
+$result15 = mysqli_query($link_tool, $sql15);
+if(mysqli_num_rows($result15)!=0){
+  $output15="<p class='heading'><b>WORKSHOPS ORGANIZED</b></p><p class='con'>";
+while($row = mysqli_fetch_array($result15)){
+  $i15=$i15+1;
+ $output15 .="[" .$i15."] ".$row['criteria']." ( ".$row['Name_workshop']." ) ,".$row['sponsor'].", ".$row['venue'].", ".$row['sdate']." , ".$row['edate'].", ".$row['ndays'].", ".$row['organiser'].", ".$row['org_type'].", ".$row['sfunding'].", ".$row['ramount'].", ".$row['amount_funded'].".</br>";  
+}
+
+$output15.="</p>";
+}
+else{
+  $output15="";
+}
+
+
+
+
 ?>

@@ -1,14 +1,20 @@
+
 navbar = () => {
   document.querySelector(".dashboard").innerHTML = `<nav class="nav_dashboard">  
     <span style="font-size:40px;cursor:pointer;margin: 10px;" onclick="closeNav()">&times;</span><!--cross icon-->
-          <div class="nav_img" style="text-align:center;margin: 20px 0px;">
-            <img src="../../include/images/dylogo.png" style="width:170px"/>
+          <div class="nav_img" style="text-align:center;  height:9vh ">
+            <img src="../../include/images/dylogo.png" style="width:80%; max-height:100%;"/>
           </div>
+          <hr style="margin:0.5rem 0.5rem !important;">
           <div>
               <ul>
-                <li><a href="home.php" id="home">Home</a></li>
-                <li><a href="profile.php" id="profile">Profile</a></li>
-                <li class="sub_menu"><h3><i class="fa fa-book"></i>&nbsp;Publications&nbsp;<div class='fa fa-caret-down right'></div></h3>
+                <li><a href="home.php" id="home"><i class="fas fa-fw fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="profile.php" id="profile"><i class="fas fa-fw fa-user"></i>Profile</a></li>
+                <hr style="margin:0.5rem 0.5rem !important;">
+                <div style="font-size: 0.7rem; padding-left:0.5rem">
+                  <b>MODULES</b>
+                </div>
+                <li class="sub_menu"><h3 style="font-size: 1rem;"><i class="fa fa-book"></i>&nbsp;Publications&nbsp;<div class='fa fa-caret-down right'></div></h3>
                   <ul>
                     <li><a href="../../modules/FacultyPublications/Faculty/src/Details_collection/page1.php">Add/Edit Details</a></li>
                     <li><a href="chapter.php">Book Chapter</a></li>
@@ -19,7 +25,7 @@ navbar = () => {
                     <li><a href="conference.php">Conference</a></li>
                   </ul>  
                 </li>  
-                <li class="sub_menu"><h3><i class="fa fa-book"></i>&nbsp;Participation&nbsp;<div class='fa fa-caret-down right'></div></h3>
+                <li class="sub_menu"><h3 style="font-size: 1rem;"><i class="fa fa-book"></i>&nbsp;Participation&nbsp;<div class='fa fa-caret-down right'></div></h3>
                   <ul>
                     <li><a href="../../modules/FacultyParticipation/faculty/welcome.php">Add/Edit Details</a></li>
                     <li><a href="WorkShopReport.php">Workshop</a></li>
@@ -27,7 +33,7 @@ navbar = () => {
                     <li><a href="SyllabusReport.php">Syllabus</a></li>
                   </ul>  
                 </li>  
-                <li class="sub_menu"><h3><i class="fa fa-book"></i>&nbsp;Expertise&nbsp;<div class='fa fa-caret-down right'></div></h3>
+                <li class="sub_menu"><h3 style="font-size: 1rem;"><i class="fa fa-book"></i>&nbsp;Expertise&nbsp;<div class='fa fa-caret-down right'></div></h3>
                   <ul>
                     <li><a href="../../modules/SS1/Faculty Experties/detail.php">Add/Edit Details</a></li>
                     <li><a href="awards.php">Awards</a></li>
@@ -36,7 +42,7 @@ navbar = () => {
                     <li><a href="fac_res.php">Faculty-Resource</a></li>
                   </ul>  
                 </li>
-                <li class="sub_menu"><h3><i class="fa fa-book"></i>&nbsp;Workshop&nbsp;<div class='fa fa-caret-down right'></div></h3>
+                <li class="sub_menu"><h3 style="font-size: 1rem;"><i class="fa fa-book"></i>&nbsp;Workshop&nbsp;<div class='fa fa-caret-down right'></div></h3>
                   <ul style="overflow-y:hidden">
                     <li><a href="../../modules/WorkshopTool/faculty/dashboard.php">Add/Edit Details</a></li>
                     <li><a href="workshop.php">Workshop Conducted</a></li>
@@ -46,11 +52,12 @@ navbar = () => {
           </div>
   </nav>`;
 };
+
 header = () => {
-  document.querySelector(".dashboard_container").innerHTML = `<div class="dashboard_header">
+  document.querySelector(".dashboard_container").innerHTML = `<div class="dashboard_header dashboard_header navbar navbar-expand topbar mb-4 static-top shadow">
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span><!--hamburger icon-->
-  <h2>Dashboard</h2>
-  <a class="btn btn-light" href="../../logout.php" style="margin-left:70%">Logout</a>
+  <h2>Faculty Profile System</h2>
+  <a class="btn btn-light" href="../../logout.php" style="margin-left:55%">Logout</a>
 </div>`
 }
 function openNav() {
