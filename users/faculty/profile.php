@@ -41,7 +41,7 @@
       <div class="container-fluid" style="padding-top:10px">
       <div style="margin-left:60vw">
       <button onclick="generateCv()" class="btn btn-secondary">Print CV</button>
-      <a href="updates.html" class="btn btn-danger" target="_blank_">Update Profile</a>
+      <a href="updates.php" class="btn btn-danger" >Update Profile</a>
       </div>
 
   
