@@ -54,6 +54,14 @@
 </style>
 </head>
 <body>
+    <script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <script src="../../js/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+        <script src="../../js/plugins/popper/popper.min.js" ></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+    </script>
 <a href="welcome.php"><img src="images/logo.png" style="height:10vh;width:auto"></a>
 <h2>Data of Course Orientation table</h2>
 <br>
@@ -62,9 +70,9 @@
         <center>
 
             <form method="post">
-                <input type="date" name="txtStartDate">
-                <input type="date" name="txtEndDate">
-                <input class="name-field" type="text" name="NameOfFaculty" placeholder="Enter Name of the Faculty">
+                <input type="date" name="txtStartDate" class="form-control" style="display:inline; width:200px">
+                <input type="date" name="txtEndDate" class="form-control" style="display:inline; width:200px" >
+                <input class="name-field" type="text"  name="NameOfFaculty" placeholder="Enter Name of the Faculty">
 
 
                 <input class="search-btn" type="submit" name="search" value="View Record">

@@ -8,24 +8,21 @@ navbar = () => {
           <hr style="margin:0.5rem 0.5rem !important;">
           <div>
               <ul>
-                <li><a href="home.php" id="home"><i class="fas fa-fw fa-tachometer-alt"></i> Dashboard</a></li>
-                <li><a href="profile.php" id="profile"><i class="fas fa-fw fa-user"></i>Profile</a></li>
+                <li><a href="home.php" id="home"><i class="fas fa-fw fa-tachometer-alt"></i> DASHBOARD</a></li>
+                <li><a href="profile.php" id="profile"><i class="fas fa-fw fa-user"></i> PROFILE</a></li>
                 <hr style="margin:0.5rem 0.5rem !important;">
-                <div style="font-size: 0.7rem; padding-left:0.5rem">
-                  <b>MODULES</b>
-                </div>
-                <li class="sub_menu"><h3 style="font-size: 1rem;"><i class="fa fa-book"></i>&nbsp;Publications&nbsp;<div class='fa fa-caret-down right'></div></h3>
+                <li class="sub_menu"><h3 style="font-size: 1rem;"><i class="fa fa-book"></i>&nbsp;PUBLICATION&nbsp;<div class='fa fa-caret-down right'></div></h3>
                   <ul>
                     <li><a href="../../modules/FacultyPublications/Faculty/src/Details_collection/page1.php">Add/Edit Details</a></li>
                     <li><a href="chapter.php">Book Chapter</a></li>
-                    <li><a href="publication.php" >Book Publications</a></li> 
+                    <li><a href="publication.php" >Book Publication</a></li> 
                     <li><a href="patent.php">Patent</a></li> 
                     <li><a href="copyright.php">Copyright</a></li>
                     <li><a href="journal.php">Journal</a></li> 
                     <li><a href="conference.php">Conference</a></li>
                   </ul>  
                 </li>  
-                <li class="sub_menu"><h3 style="font-size: 1rem;"><i class="fa fa-book"></i>&nbsp;Participation&nbsp;<div class='fa fa-caret-down right'></div></h3>
+                <li class="sub_menu"><h3 style="font-size: 1rem;"><i class="fa fa-book"></i>&nbsp;PARTICIPATION&nbsp;<div class='fa fa-caret-down right'></div></h3>
                   <ul>
                     <li><a href="../../modules/FacultyParticipation/faculty/welcome.php">Add/Edit Details</a></li>
                     <li><a href="WorkShopReport.php">Workshop</a></li>
@@ -33,7 +30,7 @@ navbar = () => {
                     <li><a href="SyllabusReport.php">Syllabus</a></li>
                   </ul>  
                 </li>  
-                <li class="sub_menu"><h3 style="font-size: 1rem;"><i class="fa fa-book"></i>&nbsp;Expertise&nbsp;<div class='fa fa-caret-down right'></div></h3>
+                <li class="sub_menu"><h3 style="font-size: 1rem;"><i class="fa fa-book"></i>&nbsp;EXPERTISM&nbsp;<div class='fa fa-caret-down right'></div></h3>
                   <ul>
                     <li><a href="../../modules/SS1/Faculty Experties/detail.php">Add/Edit Details</a></li>
                     <li><a href="awards.php">Awards</a></li>
@@ -42,7 +39,7 @@ navbar = () => {
                     <li><a href="fac_res.php">Faculty-Resource</a></li>
                   </ul>  
                 </li>
-                <li class="sub_menu"><h3 style="font-size: 1rem;"><i class="fa fa-book"></i>&nbsp;Workshop&nbsp;<div class='fa fa-caret-down right'></div></h3>
+                <li class="sub_menu"><h3 style="font-size: 1rem;"><i class="fa fa-book"></i>&nbsp;WORKSHOP&nbsp;<div class='fa fa-caret-down right'></div></h3>
                   <ul style="overflow-y:hidden">
                     <li><a href="../../modules/WorkshopTool/faculty/dashboard.php">Add/Edit Details</a></li>
                     <li><a href="workshop.php">Workshop Conducted</a></li>

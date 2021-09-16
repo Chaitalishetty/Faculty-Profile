@@ -64,7 +64,7 @@
       <p class="heading"><b>PERSONAL DETAILS</b></p>
       <div class="info">
       <table>
-        <tr><th>Gender : </th><td>Female</td></tr>
+        <tr><th>Gender : </th><td><?=$row['gender'];?></td></tr>
         <tr><th>Mobile No. : &nbsp;</th><td><?=$row['Contact_no'];?></td></tr>
         <tr><th>Email : &nbsp;</th><td><?=$row['Email'];?></td></tr>
         <tr><th>Address :</th><td><?=$row['r_address'];?></td></tr>
@@ -129,7 +129,7 @@
       echo $output7;//workshop
       echo $output8;//syllabus
       echo $output9;//orientation
-      echo $output10;//workshop conducted
+      // echo $output10;//workshop conducted
       echo $output11;//awards
       // echo $output12;//Competetive exams
       // echo $output13;//Medical exams

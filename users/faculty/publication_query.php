@@ -63,7 +63,7 @@ $i4=0;
 $sql4 =  "SELECT * FROM copyright where (sdrn = '$sdrn' OR faculty_name LIKE '%$faculty_name%' OR author1 LIKE '%$faculty_name%' OR author2 LIKE '%$faculty_name%' OR author3 LIKE '%$faculty_name%' OR author4 LIKE '%$faculty_name%') " ; 
 $result4 = mysqli_query($conn, $sql4); 
 if(mysqli_num_rows($result4)!=0){
-  $output4="<p class='heading'><b>COPYRIGHT</b></p><p class='con'>";
+  $output4="<br><p class='heading'><b>COPYRIGHT</b></p><p class='con'>";
 while($row = mysqli_fetch_array($result4)){
   $i4=$i4+1;
   $authors=implode(", ",array_filter([$row["faculty_name"],$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
@@ -80,7 +80,7 @@ $i5=0;
 $sql5 =  "SELECT * from patent where (sdrn = '$sdrn' OR faculty_name LIKE '%$faculty_name%' OR author1 LIKE '%$faculty_name%' OR author2 LIKE '%$faculty_name%' OR author3 LIKE '%$faculty_name%' OR author4 LIKE '%$faculty_name%')" ; 
 $result5 = mysqli_query($conn, $sql5); 
 if(mysqli_num_rows($result5)!=0){
-  $output5="<p class='heading'><b>PATENT</b></p><p class='con'>";
+  $output5="<br><p class='heading'><b>PATENT</b></p><p class='con'>";
   while($row = mysqli_fetch_array($result5)){
     $i=$i+1;
     $authors=implode(", ",array_filter([$row["faculty_name"],$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
@@ -97,7 +97,7 @@ $i6=0;
 $sql6 =  "SELECT * FROM conference where (sdrn = '$sdrn' OR faculty_name LIKE '%$faculty_name%' OR author1 LIKE '%$faculty_name%' OR author2 LIKE '%$faculty_name%' OR author3 LIKE '%$faculty_name%' OR author4 LIKE '%$faculty_name%')" ; 
 $result6 = mysqli_query($conn, $sql6); 
 if(mysqli_num_rows($result6)!=0){
-  $output6="<p class='heading'><b>CONFERENCE</b></p><p class='con'>";
+  $output6="<br><p class='heading'><b>CONFERENCE</b></p><p class='con'>";
 while($row = mysqli_fetch_array($result6)){
   $i6=$i6+1;
   $authors=implode(", ",array_filter([$row["faculty_name"],$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
@@ -119,10 +119,10 @@ $i7=0;
 $sql7 =  "SELECT * FROM workshop where SDRN = '$sdrn'" ; 
 $result7 = mysqli_query($link, $sql7);
 if(mysqli_num_rows($result7)!=0){
-  $output7="<p class='heading'><b>WORKSHOPS ATTENDED</b></p><p class='con'>";
+  $output7="<br><p class='heading'><b>WORKSHOPS ATTENDED</b></p><p class='con'>";
 while($row = mysqli_fetch_array($result7)){
   $i7=$i7+1;
- $output7 .="[" .$i7."] ".$row["criteria"]." on ( '".$row["Name_workshop"]."' ) , organized by ".$row["organiser"]." at ".$row['venue'].", From ".$row["sdate"].".</br>";  
+ $output7 .="[" .$i7."] ".$row["criteria"]." on ( '".$row["Name_workshop"]."' ) , organized by ".$row["organiser"]." at ".$row['venue'].", From ".$row["sdate"].".</br></br>";  
 }
 
 $output7.="</p>";
@@ -135,10 +135,10 @@ $i8=0;
 $sql8 =  "SELECT * FROM syllabus where SDRN = '$sdrn'" ; 
 $result8 = mysqli_query($link, $sql8);
 if(mysqli_num_rows($result8)!=0){
-  $output8="<p class='heading'><b>SYLLABUS SETTINGS</b></p><p class='con'>";
+  $output8="<br><p class='heading'><b>SYLLABUS SETTINGS</b></p><p class='con'>";
 while($row = mysqli_fetch_array($result8)){
   $i8=$i8+1;
- $output8 .= "[".$i8."] ".$row["University"].", ".$row["Subject"].", SEM ".$row["Semester"].", ".$row["Venue"].", ".$row["Date"].".";  
+ $output8 .= "[".$i8."] ".$row["University"].", ".$row["Subject"].", SEM ".$row["Semester"].", ".$row["Venue"].", ".$row["Date"].".<br><br>";  
 }
 
 $output8.="</p>";
@@ -151,10 +151,10 @@ $i9=0;
 $sql9 =  "SELECT * FROM orientation where SDRN = '$sdrn'" ; 
 $result9 = mysqli_query($link, $sql8);
 if(mysqli_num_rows($result9)!=0){
-  $output9="<p class='heading'><b>ORIENTATION</b></p><p class='con'>";
+  $output9="<br><p class='heading'><b>ORIENTATION</b></p><p class='con'>";
 while($row = mysqli_fetch_array($result9)){
   $i9=$i9+1;
- $output9 .= "[".$i9."] ".$row["University"].", ".$row["Subject"].", SEM ".$row["Semester"].", ".$row["Venue"].", ".$row["Date"].".";  
+ $output9 .= "[".$i9."] ".$row["University"].", ".$row["Subject"].", SEM ".$row["Semester"].", ".$row["Venue"].", ".$row["Date"].".<br><br>";  
 }
 
 $output9.="</p>";
@@ -165,26 +165,26 @@ else{
 
 
 
-$link_tool = mysqli_connect("localhost", "root", "", "workshoptool");
-if (isset($_SESSION['sdrn'])){
-    $sdrn = $_SESSION['sdrn'];
-    $faculty_name = $_SESSION['full_name'];
-}
-$i10=0;
-$sql10 =  "SELECT * FROM schedule where faculty_sdrn = '$sdrn'" ; 
-$result10 = mysqli_query($link_tool, $sql10);
-if(mysqli_num_rows($result10)!=0){
-  $output10="<p class='heading'><b>WORKSHOPS CONDUCTED</b></p><p class='con'>";
-while($row = mysqli_fetch_array($result10)){
-  $i10=$i10+1;
- $output10 .="[" .$i10."] ".$row["topic"].", ".$row['subject']." ( ".$row["schedule_type"]." ) ,".$row['speaker_name'].", ".$row["speaker_designation"].", ".$row['no_of_days']." days, ".$row['date'].".";  
-}
+// $link_tool = mysqli_connect("localhost", "root", "", "workshoptool");
+// if (isset($_SESSION['sdrn'])){
+//     $sdrn = $_SESSION['sdrn'];
+//     $faculty_name = $_SESSION['full_name'];
+// }
+// $i10=0;
+// $sql10 =  "SELECT * FROM schedule where faculty_sdrn = '$sdrn'" ; 
+// $result10 = mysqli_query($link_tool, $sql10);
+// if(mysqli_num_rows($result10)!=0){
+//   $output10="<br><p class='heading'><b>WORKSHOPS CONDUCTED</b></p><p class='con'>";
+// while($row = mysqli_fetch_array($result10)){
+//   $i10=$i10+1;
+//  $output10 .="[" .$i10."] ".$row["topic"].", ".$row['subject']." ( ".$row["schedule_type"]." ) ,".$row['speaker_name'].", ".$row["speaker_designation"].", ".$row['no_of_days']." days, ".$row['date'].".<br><br>";  
+// }
 
-$output10.="</p>";
-}
-else{
-  $output10="";
-}
+// $output10.="</p>";
+// }
+// else{
+//   $output10="";
+// }
 
 $link_tool = mysqli_connect("localhost", "root", "", "faculty");
 if (isset($_SESSION['sdrn'])){
@@ -195,10 +195,10 @@ $i11=0;
 $sql11 =  "select * from awards where Sdrn='$sdrn'" ; 
 $result11 = mysqli_query($link_tool, $sql11);
 if(mysqli_num_rows($result11)!=0){
-  $output11="<p class='heading'><b>AWARDS</b></p><p class='con'>";
+  $output11="<br><p class='heading'><b>AWARDS</b></p><p class='con'>";
 while($row = mysqli_fetch_array($result11)){
   $i11=$i11+1;
- $output11 .="[" .$i11."] ".$row['1']." ( ".$row["2"]." ) ,".$row['3'].", ".$row["4"].", ".$row['5']." , ".$row['6'].",".$row['7'].",".$row['8'].",".$row['9'].",".$row['10'].",".$row['11'].",".$row['12'].".</br>";  
+ $output11 .="[" .$i11."] ".$row['1']." ( ".$row["2"]." ) ,".$row['3'].", ".$row["4"].", ".$row['5']." , ".$row['6'].",".$row['7'].",".$row['8'].",".$row['9'].",".$row['10'].",".$row['11'].",".$row['12'].".</br><br>";  
 }
 
 $output11.="</p>";
@@ -216,10 +216,10 @@ $i12=0;
 $sql12 =  "select * from competitive_exam where Sdrn='$sdrn'" ; 
 $result12 = mysqli_query($link_tool, $sql12);
 if(mysqli_num_rows($result12)!=0){
-  $output12="<p class='heading'><b>Competitive Exams</b></p><p class='con'>";
+  $output12="<br><p class='heading'><b>Competitive Exams</b></p><p class='con'>";
 while($row = mysqli_fetch_array($result12)){
   $i12=$i12+1;
- $output12 .="[" .$i12."] ".$row['1']." ( ".$row["2"]." ) ,".$row['3'].", ".$row["4"].", ".$row['5']." , ".$row['6'].",".$row['7'].".</br>";  
+ $output12 .="[" .$i12."] ".$row['1']." ( ".$row["2"]." ) ,".$row['3'].", ".$row["4"].", ".$row['5']." , ".$row['6'].",".$row['7'].".<br><br>";  
 }
 
 $output12.="</p>";
@@ -237,10 +237,10 @@ $i13=0;
 $sql13 =  "select * from medicals where Sdrn='$sdrn'" ; 
 $result13 = mysqli_query($link_tool, $sql13);
 if(mysqli_num_rows($result13)!=0){
-  $output13="<p class='heading'><b>Medical Exams</b></p><p class='con'>";
+  $output13="<br><p class='heading'><b>Medical Exams</b></p><p class='con'>";
 while($row = mysqli_fetch_array($result13)){
   $i13=$i13+1;
- $output13 .="[" .$i13."] ".$row['1']." ( ".$row["2"]." ) ,".$row['3'].", ".$row["4"].", ".$row['5']." , ".$row['6'].",".$row['7'].".</br>";  
+ $output13 .="[" .$i13."] ".$row['1']." ( ".$row["2"]." ) ,".$row['3'].", ".$row["4"].", ".$row['5']." , ".$row['6'].",".$row['7'].".<br><br>";  
 }
 
 $output13.="</p>";
@@ -258,10 +258,10 @@ $i14=0;
 $sql14 =  "select * from faculty_as_resource where Sdrn='$sdrn'" ; 
 $result14 = mysqli_query($link_tool, $sql14);
 if(mysqli_num_rows($result14)!=0){
-  $output14="<p class='heading'><b>Faculty as Resource</b></p><p class='con'>";
+  $output14="<br><p class='heading'><b>Faculty as Resource</b></p><p class='con'>";
 while($row = mysqli_fetch_array($result14)){
   $i14=$i14+1;
- $output14 .="[" .$i14."] "." ( ".$row[4]." ) ,".$row[5].", ".$row[9].", ".$row[10]." , ".$row['Date'].".</br>";  
+ $output14 .="[" .$i14."] "." ( ".$row[4]." ) ,".$row[5].", ".$row[9].", ".$row[10]." , ".$row['Date'].".<br><br>";  
 }
 
 $output14.="</p>";
@@ -272,19 +272,19 @@ else{
 
 
 
-$link_tool = mysqli_connect("localhost", "root", "", "faculty_par");
+$link_tool = mysqli_connect("localhost", "root", "", "workshoptool");
 if (isset($_SESSION['sdrn'])){
     $sdrn = $_SESSION['sdrn'];
     $faculty_name = $_SESSION['full_name'];
 }
 $i15=0;
-$sql15 =  "select * from workshop where Sdrn='$sdrn'" ; 
+$sql15 =  "select * from organized where Sdrn='$sdrn'" ; 
 $result15 = mysqli_query($link_tool, $sql15);
 if(mysqli_num_rows($result15)!=0){
-  $output15="<p class='heading'><b>WORKSHOPS ORGANIZED</b></p><p class='con'>";
+  $output15="<br><p class='heading'><b>WORKSHOPS ORGANIZED</b></p><p class='con'>";
 while($row = mysqli_fetch_array($result15)){
   $i15=$i15+1;
- $output15 .="[" .$i15."] ".$row['criteria']." ( ".$row['Name_workshop']." ) ,".$row['sponsor'].", ".$row['venue'].", ".$row['sdate']." , ".$row['edate'].", ".$row['ndays'].", ".$row['organiser'].", ".$row['org_type'].", ".$row['sfunding'].", ".$row['ramount'].", ".$row['amount_funded'].".</br>";  
+ $output15 .="[" .$i15."] ".$row['criteria']." ( ".$row['Name_workshop']." ) ,".$row['sponsor'].", ".$row['venue'].", ".$row['sdate']." , ".$row['edate'].", ".$row['ndays'].", ".$row['organiser'].", ".$row['org_type'].", ".$row['sfunding'].", ".$row['ramount'].", ".$row['amount_funded'].".<br><br>";  
 }
 
 $output15.="</p>";
