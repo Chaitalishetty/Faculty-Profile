@@ -26,7 +26,7 @@
     <body>
         <div style="float:right " >
 		    <form class="form-inline my-2 my-lg-0">
-                <a href="../../login.php" class="btn btn-info " id="goback">
+                <a href="../../../../../index.php" class="btn btn-info " id="goback">
                 <span></span> Logout</a>
             </form>
         </div>

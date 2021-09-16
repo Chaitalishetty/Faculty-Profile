@@ -74,7 +74,7 @@
     // $pan_card_new_name = $Sdrn. "_pan_card_" . date('YmjHis') . "." . $extension;
     // move_uploaded_file($pan_card, "../uploaded_documents/" . $pan_card_new_name);
 
-    $final_query= "UPDATE `faculty` SET `First_name`='$full_namee[0]', `Middle_name`='$full_namee[1]', `Last_name`='$full_namee[2]', `Contact_no`='$phone_no', `Email`='$email_id' $imageQuery $passwordQuery WHERE `Sdrn`='$Sdrn' ";
+    $final_query= "UPDATE `faculty` SET  `Contact_no`='$phone_no', `Email`='$email_id' $imageQuery $passwordQuery WHERE `Sdrn`='$Sdrn' ";
     if (!$result = mysqli_query($conn,$final_query)) {
         exit(mysqli_error());     
     }else{

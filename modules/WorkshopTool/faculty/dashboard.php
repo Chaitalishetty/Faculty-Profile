@@ -7,7 +7,7 @@
     $upcoming_event_num = 0;
 
     if (!isset($_SESSION['login_user'])){
-        header("Location: ../index.php");
+        header("Location: ../../../index.php");
         die();
     }else{
         $user_check = $_SESSION['login_user'];
@@ -105,7 +105,7 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="#">Profile</a>
-                                        <a class="dropdown-item" href="../logout.php">Log out</a>
+                                        <a class="dropdown-item" href="../../../index.php">Log out</a>
                                     </div>
                                 </li>
                             </ul>   

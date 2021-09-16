@@ -17,12 +17,12 @@
     <script>navbar();</script>
     <!--dashboard content-->
     <div class="dashboard_container">
-      <div class="dashboard_header">
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span><!--hamburger icon-->
-        <h2>Dashboard</h2>
-        <a class="btn btn-light" href="../../logout.php" style="margin-left:70%">Logout</a>
+      <div class="dashboard_header navbar navbar-expand topbar mb-4 static-top shadow" >
+        <span style="font-size:25px;cursor:pointer" onclick="openNav()">&#9776;</span><!--hamburger icon-->
+        <h2>Welcome <?php echo $_SESSION['firstname'];?></h2>
+        <a class="btn btn-light" href="../../logout.php" style="margin-left:55%">Logout</a>
       </div>
-      <div class="dashboard_content" style="width:90%; background-color:#fff; margin-left:1rem; margin-top:0">
+      <div class="dashboard_content" >
       
       <!-- Start of InfoBoxes  -->
       <div class="row">

@@ -154,7 +154,7 @@ if (isset($_SESSION['sdrn'])){
                 while($data=mysqli_fetch_array($result)){
                     echo "<tr>";
                     echo "<td>" . $srno . "</td>";
-                    echo"<td  style=' padding-left:10px;text-align: center;'>".$data['Resource_person']."</td><td  style=' padding-left:20px;text-align: center;'>$data[3]</td><td  style=' padding-left:20px;text-align: center;'>$data[4]</td><td  style=' padding-left:50px;text-align: center;'>$data[5]</td><td  style=' padding-left:50px;text-align: center;'>".$data['Venue']."</td><td  style=' padding-left:60px;text-align: center;'>".$data['Date']."</td>";
+                    echo"<td  style=' padding-left:10px;text-align: center;'>".$data[1]."</td><td  style=' padding-left:20px;text-align: center;'>$data[4]</td><td  style=' padding-left:20px;text-align: center;'>$data[5]</td><td  style=' padding-left:50px;text-align: center;'>$data[9]</td><td  style=' padding-left:50px;text-align: center;'>".$data['Venue']."</td><td  style=' padding-left:60px;text-align: center;'>".$data['Date']."</td>";
                     //echo "<td><a href='" . $doc . "'><img src='images/doc.png' style='width:20px'></td></a>";
                     echo "</tr>";
                     $srno++;

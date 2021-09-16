@@ -25,7 +25,7 @@ include('session.php');
                 </div>';
             }
             ?>
-            <div id="buttons"><a href="logout.php">Sign Out</a></div>
+            <div id="buttons"><a href="../../../index.php">Sign Out</a></div>
         </div>
 
     </div>

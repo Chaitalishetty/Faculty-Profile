@@ -91,7 +91,7 @@
                 <input type="number" class="form-field form-control" name="phone_no" placeholder="Enter phone no." value="<?=$row['Contact_no'];?>"><br>
                 <input type="email" class="form-field form-control" name="email_id" placeholder="Enter email" value="<?=$row['Email'];?>"><br>
                 <input type="password" class="form-field form-control" name="password" id="password" placeholder="Enter new password"><br>
-                <input type="password" class="form-field form-control" name="c_password" id="c_password" placeholder="Confirm new password"><br>
+                <!-- <input type="password" class="form-field form-control" name="c_password" id="c_password" placeholder="Confirm new password"><br> -->
               </div>
             </div>
 

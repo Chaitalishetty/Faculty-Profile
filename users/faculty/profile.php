@@ -8,6 +8,9 @@
   $sql =  "SELECT * FROM faculty where sdrn = '$sdrn' " ; 
   $result = mysqli_query($conn, $sql);
   $row = mysqli_fetch_array($result);
+  $date1 = new DateTime($row['Doj']);
+  $date2 = new DateTime(date("Y-m-d"));
+  $interval = $date1->diff($date2);
 ?>
   <!DOCTYPE html>
   <html lang="en">
@@ -75,15 +78,15 @@
       <table>
         <tr><th>Department : </th><td><?=$row['Department'];?></td></tr>
         <tr><th>DOJ : </th><td><?=$row['Doj'];?></td></tr>
-        <tr><th>Area of Specialisation : &nbsp;&nbsp;</th><td>Data Warehouse and Mining</td></tr>
-        <tr><th>Experience : </th><td>15</td></tr>
+        <tr><th>Area of Specialisation : &nbsp;&nbsp;</th><td><?=$row['Specialization'];?></td></tr>
+        <tr><th>Experience : </th><td><?=$interval->y;?></td></tr>
       </table>
       </div>
     </div>
   </div>
       </br>
   
-  <div class="row">
+  <!-- <div class="row">
     <div class="col">
       <div class="row" >
       <div class="col">
@@ -108,9 +111,8 @@
       </div>
         </div></div>
     </div>
-      
     
-    </div>  
+  </div>   -->
       
       
     </br>
@@ -123,10 +125,15 @@
       echo $output4;//copyright
       echo $output5;//patent
       echo $output6;//conference
+      echo $output15;//Workshops
       echo $output7;//workshop
       echo $output8;//syllabus
       echo $output9;//orientation
       echo $output10;//workshop conducted
+      echo $output11;//awards
+      // echo $output12;//Competetive exams
+      // echo $output13;//Medical exams
+      echo $output14;//Faculty Resource
       ?>
     <div>
   </div>
@@ -149,7 +156,7 @@
   <script>
     function generateCv(){
     var cv_content=document.getElementById("cv").innerHTML;
-    var styles="<style>.heading{color: rgb(7, 48, 172);border-bottom: 5px solid rgb(50, 181, 224);margin-left: 20px;}.con{margin-left:30px}";
+    var styles="<style>.heading{color: #790016;border-bottom: 5px solid #ff1943;margin-left: 20px;}.con{margin-left:30px}";
     styles=styles+"table{text-align:left;padding-left:30px}</style>";
     
     var win =window.open(",","height=700","width=900");
