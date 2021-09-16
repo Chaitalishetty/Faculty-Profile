@@ -18,7 +18,7 @@
         }
 
         body {
-            font-family: 'google sans', sans-serif;
+            font-family: "Nunito","-apple-system","BlinkMacSystemFont","Segoe UI","Roboto","Helvetica Neue",Arial,sans-serif;
             overflow: hidden;
         }
 
@@ -427,8 +427,11 @@
                 <div class="row justify-content-center align-items-center" id="rightside">
                     <!-- Login form -->
                     <form id="login_form" action="index.php" method="post" class="w-75">
-                        <div class="form-group text-center mb-md-5">
-                            <label for="" class="h2 font-weight-bold">Login</label>
+                        <div class="form-group text-center mb-md-5" style="margin-left:-700px; position: absolute;">
+                            <label for="" class="h2 font-weight-bold">Welcome to<br><span style="color:#bd0929"><b>Faculty Profile System</b></span></label>
+                        </div>
+                        <div class="form-group text-center mb-md-5"  style="position: relative;">
+                            <label for="" class="h2 font-weight-bold">Sign In</label>
                         </div>
                         <div class="form-group shadow-sm">
                           <input type="text" name="Sdrn" placeholder="username" class="form-control btn-lg border-0" id="Sdrn" >
