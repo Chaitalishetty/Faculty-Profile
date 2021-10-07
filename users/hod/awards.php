@@ -14,7 +14,7 @@ if (isset($_SESSION['sdrn'])){
     <link href="../../css/styles.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="navbar.js"></script>
     <?php include('../../include/scripts.php');?>
-    <title>Workshop</title>
+    <title>Awards</title>
     <style>
         table {
             border-collapse: collapse;
@@ -93,7 +93,7 @@ if (isset($_SESSION['sdrn'])){
     <script>header();</script>
       <div class="dashboard_content" style="width:100%; background-color:#fff;  margin:0">
       <div class="chapter">
-        <h1 class="text-center">Data of Workshops Attended</h1>
+        <h1 class="text-center">Data of Awards</h1>
         <form action="" method="post">
             <div class="hod_form">
                 <label>From
@@ -105,7 +105,8 @@ if (isset($_SESSION['sdrn'])){
                 </br>
                 <button type="submit" name="gen_report" class="btn btn-danger">Generate report</button>
             </div>
-        </form>
+            </form>
+
 
         </br></br>
 
@@ -113,66 +114,49 @@ if (isset($_SESSION['sdrn'])){
             <table>
                 <tr>
                 <th>Sr No</th>
-                    <th>Criteria</th>
-                    <th>Name</th>
-                    <th>Sponsored By</th>
-                    <th>Venue</th>
-                    <th>Date From</th>
-                    <th>Date To</th>
-                    <th>Days</th>
-                    <th>Organiser</th>
-                    <th>Level</th>
-                    <th>Source of Funding</th>
-                    <th>Registration Amount</th>
-                    <th>Amount Funded</th>
-                    <th>TA</th>
-                    <!-- <th>Doc</th> -->
-
+                <th>Award name</th
+                ><th>Title of Innovation</th>
+                <th>Name of Awardee</th>
+                <th >Position</th>
+                <th >Event_name</th>
+			    <th>Awarding Agency</th>
+                <th>Category</th><th>Date</th>
+                <th >university</th>
+                <th >College name</th>
+                <th >level</th>
                 </tr>
 
                 <?php
                 // include('session.php');
                 @session_start();
-                $link = mysqli_connect("localhost", "root", "", "test");
-
-                // Check connection
-                if ($link === false) {
-                    die("ERROR: Could not connect. " . mysqli_connect_error());
-                }
                 $sdrn = $_SESSION['sdrn'];
-                // $sdrn = $user_check;
+                include('../../modules\SS1\Faculty Experties\connect.php');
 
-                //      if(isset($_POST['search']))
-                //    {
-                //      $NameOfFaculty = $_POST['NameOfFaculty'];
                 $filter_query="";
                 if(isset($_POST["gen_report"])){
                     if(isset($_POST["date_from"]) &&$_POST["date_to"] && $_POST["date_from"]!="" && $_POST["date_to"]!=""){
                         $from=date('Y-m-d',strtotime($_POST['date_from']));
                         $to=date('Y-m-d',strtotime($_POST['date_to']));
-                        $filter_query.="AND edate between '$from' and '$to'";
+                        $filter_query.=" where `Date` between '$from' and '$to'";
                     }
                 }
-                $query = " SELECT * FROM workshop WHERE SDRN = '$sdrn' ".$filter_query." ";
-                $query_run = mysqli_query($link, $query);
+   
+                $s="select * from awards $filter_query ";
+                $result=mysqli_query($conn,$s);
+                $r=mysqli_num_rows($result);
+                // $sdrn = $user_check;
+
+                //      if(isset($_POST['search']))
+                //    {
+                //      $NameOfFaculty = $_POST['NameOfFaculty'];
                 $srno=1;
-                while ($row = mysqli_fetch_array($query_run)) {
-                    $doc = $row['uploads'];
+                while($data=mysqli_fetch_array($result)){
                     echo "<tr>";
                     echo "<td>" . $srno . "</td>";
-                    echo "<td>" . $row['criteria'] . "</td>";
-                    echo "<td>" . $row['Name_workshop'] . "</td>";
-                    echo "<td>" . $row['sponsor'] . "</td>";
-                    echo "<td>" . $row['venue'] . "</td>";
-                    echo "<td>" . $row['sdate'] . "</td>";
-                    echo "<td>" . $row['edate'] . "</td>";
-                    echo "<td>" . $row['ndays'] . "</td>";
-                    echo "<td>" . $row['organiser'] . "</td>";
-                    echo "<td>" . $row['org_type'] . "</td>";
-                    echo "<td>" . $row['sfunding'] . "</td>";
-                    echo "<td>" . $row['ramount'] . "</td>";
-                    echo "<td>" . $row['amount_funded'] . "</td>";
-                    echo "<td>" . $row['TA'] . "</td>";
+                    echo"<td  style=' padding-left:10px'>$data[2]</td><td  style=' padding-left:20px'>$data[3]</td><td  style=' padding-left:20px'>$data[4]</td><td  style=' padding-left:50px'>$data[5]</td><td  style=' padding-left:50px'>$data[6]</td><td  style=' padding-left:60px'>$data[7]</td>
+				    <td  style=' padding-left:60px'>$data[8]</td><td  style=' padding-left:20px'>$data[9]</td><td  style=' padding-left:20px'>$data[10]</td>
+				    <td  style=' padding-left:20px'>$data[11]</td><td  style=' padding-left:20px'>$data[12]</td>
+                     ";
                     //echo "<td><a href='" . $doc . "'><img src='images/doc.png' style='width:20px'></td></a>";
                     echo "</tr>";
                     $srno++;

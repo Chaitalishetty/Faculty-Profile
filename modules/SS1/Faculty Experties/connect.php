@@ -2,7 +2,7 @@
     $host = "localhost";
     $user = "root";
     $pass = "";
-    $db = "faculty";
+    $db = "test";
     $conn = mysqli_connect($host, $user, $pass, $db) or die('Error Connecting');
     
 ?>

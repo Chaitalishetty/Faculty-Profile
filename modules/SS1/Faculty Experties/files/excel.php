@@ -5,7 +5,7 @@
     $severname="localhost";
     $username="root";
     $password="";
-    $dbname="faculty";
+    $dbname="test";
 
     $conn=mysqli_connect($severname,$username,$password);
 

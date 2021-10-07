@@ -25,7 +25,7 @@
         $severname="localhost";
         $username="root";
         $password="";
-        $dbname="test";
+        $dbname="faculty";
 
         $conn=mysqli_connect($severname,$username,$password);
         
@@ -35,8 +35,8 @@
         mysqli_select_db($conn, $dbname);
 
         if($_SERVER['REQUEST_METHOD']=='POST')
-            $_SESSION['Sdrn']=mysqli_real_escape_string($conn,$_POST['Sdrn']);
-        $Sdrn=$_SESSION['Sdrn'];
+            $_SESSION['sdrn']=mysqli_real_escape_string($conn,$_POST['Sdrn']);
+        $Sdrn=$_SESSION['sdrn'];
     
         function fetch($result,$value){
 

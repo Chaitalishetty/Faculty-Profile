@@ -71,7 +71,7 @@
         </tr>
 
         <?php
-        $conn = mysqli_connect("localhost", "root", "", "faculty_par");
+        $conn = mysqli_connect("localhost", "root", "", "test");
         // Check connection
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);

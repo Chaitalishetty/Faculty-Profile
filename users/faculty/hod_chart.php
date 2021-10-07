@@ -73,7 +73,7 @@
 	var myChart = new Chart(ctx, {
         type: 'doughnut',
     data: {
-        labels: ["book_chapter", "book_publications","patent","conference","copyright","journal"],
+        labels: ["Book Chapter", "Book Publications","Patent","Conference","Copyright","Journal"],
         datasets: [
         {
             data: [book_chapter,book_publications,patent,conference,copyright,journal],
@@ -246,7 +246,7 @@ options: {
 
 <!-- faculty Participation -->
 <?php
-$link = mysqli_connect("localhost", "root", "","faculty_par");
+$link = mysqli_connect("localhost", "root", "","test");
 if ($link->connect_error)  {
 	die("Connection failed: " . $link->connect_error);
 }
@@ -379,7 +379,7 @@ var workshop = [<?php echo join(',',$workshop); ?>];
 var myChart = new Chart(ctx, {
         type: 'doughnut',
     data: {
-        labels: ["workshop", "syllabus setting","orientation"],
+        labels: ["Workshop", "Syllabus Setting","Orientation"],
         datasets: [
         {
             data: [workshop,syllabussetting,orientation],

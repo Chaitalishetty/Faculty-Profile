@@ -1,6 +1,6 @@
 <?php
 @session_start();
-$link = mysqli_connect("localhost", "root", "", "test");
+$link = mysqli_connect("localhost", "root", "", "workshoptool");
 if (isset($_SESSION['sdrn'])){
     $sdrn = $_SESSION['sdrn'];
     $faculty_name = $_SESSION['full_name'];
@@ -93,7 +93,7 @@ if (isset($_SESSION['sdrn'])){
     <script>header();</script>
       <div class="dashboard_content" style="width:100%; background-color:#fff;  margin:0">
       <div class="chapter">
-        <h1 class="text-center">Data of Workshops Attended</h1>
+        <h1 class="text-center">Data of Workshops Conducted</h1>
         <form action="" method="post">
             <div class="hod_form">
                 <label>From
@@ -113,19 +113,16 @@ if (isset($_SESSION['sdrn'])){
             <table>
                 <tr>
                 <th>Sr No</th>
-                    <th>Criteria</th>
-                    <th>Name</th>
-                    <th>Sponsored By</th>
-                    <th>Venue</th>
-                    <th>Date From</th>
-                    <th>Date To</th>
-                    <th>Days</th>
+                    <th>Faculty Name</th>
+                    <th>Topic</th>
+                    <th>Subject</th>
+                    <th>Workshop Type</th>
+                    <th>Speaker Name</th>
+                    <th>Speaker Designation</th>
                     <th>Organiser</th>
-                    <th>Level</th>
-                    <th>Source of Funding</th>
-                    <th>Registration Amount</th>
-                    <th>Amount Funded</th>
-                    <th>TA</th>
+                    <th>No. of days</th>
+                    <th>Date</th>
+                    
                     <!-- <th>Doc</th> -->
 
                 </tr>
@@ -133,7 +130,7 @@ if (isset($_SESSION['sdrn'])){
                 <?php
                 // include('session.php');
                 @session_start();
-                $link = mysqli_connect("localhost", "root", "", "test");
+                $link = mysqli_connect("localhost", "root", "", "workshoptool");
 
                 // Check connection
                 if ($link === false) {
@@ -150,29 +147,25 @@ if (isset($_SESSION['sdrn'])){
                     if(isset($_POST["date_from"]) &&$_POST["date_to"] && $_POST["date_from"]!="" && $_POST["date_to"]!=""){
                         $from=date('Y-m-d',strtotime($_POST['date_from']));
                         $to=date('Y-m-d',strtotime($_POST['date_to']));
-                        $filter_query.="AND edate between '$from' and '$to'";
+                        $filter_query.="WHERE date between '$from' and '$to'";
                     }
                 }
-                $query = " SELECT * FROM workshop WHERE SDRN = '$sdrn' ".$filter_query." ";
+                $query = " SELECT * FROM schedule  $filter_query";
                 $query_run = mysqli_query($link, $query);
                 $srno=1;
                 while ($row = mysqli_fetch_array($query_run)) {
-                    $doc = $row['uploads'];
                     echo "<tr>";
                     echo "<td>" . $srno . "</td>";
-                    echo "<td>" . $row['criteria'] . "</td>";
-                    echo "<td>" . $row['Name_workshop'] . "</td>";
-                    echo "<td>" . $row['sponsor'] . "</td>";
-                    echo "<td>" . $row['venue'] . "</td>";
-                    echo "<td>" . $row['sdate'] . "</td>";
-                    echo "<td>" . $row['edate'] . "</td>";
-                    echo "<td>" . $row['ndays'] . "</td>";
-                    echo "<td>" . $row['organiser'] . "</td>";
-                    echo "<td>" . $row['org_type'] . "</td>";
-                    echo "<td>" . $row['sfunding'] . "</td>";
-                    echo "<td>" . $row['ramount'] . "</td>";
-                    echo "<td>" . $row['amount_funded'] . "</td>";
-                    echo "<td>" . $row['TA'] . "</td>";
+                    echo "<td>" . $row['faculty_name'] . "</td>";
+                    echo "<td>" . $row['topic'] . "</td>";
+                    echo "<td>" . $row['subject'] . "</td>";
+                    echo "<td>" . $row['schedule_type'] . "</td>";
+                    echo "<td>" . $row['speaker_name'] . "</td>";
+                    echo "<td>" . $row['speaker_designation'] . "</td>";
+                    echo "<td>" . $row['organized_by'] . "</td>";
+                    echo "<td>" . $row['no_of_days'] . "</td>";
+                    echo "<td>" . $row['date'] . "</td>";
+                    
                     //echo "<td><a href='" . $doc . "'><img src='images/doc.png' style='width:20px'></td></a>";
                     echo "</tr>";
                     $srno++;

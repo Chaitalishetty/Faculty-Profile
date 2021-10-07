@@ -14,13 +14,13 @@ if (isset($_SESSION['sdrn'])){
     <link href="../../css/styles.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="navbar.js"></script>
     <?php include('../../include/scripts.php');?>
-    <title>Workshop</title>
+    <title>Syllabus</title>
     <style>
         table {
             border-collapse: collapse;
             width: 100%;
             color: #737373;
-            font-size: 15px;
+            font-size: 20px;
             text-align: center;
         }
 
@@ -93,7 +93,7 @@ if (isset($_SESSION['sdrn'])){
     <script>header();</script>
       <div class="dashboard_content" style="width:100%; background-color:#fff;  margin:0">
       <div class="chapter">
-        <h1 class="text-center">Data of Workshops Attended</h1>
+        <h1 class="text-center">Data of Syllabus Setting</h1>
         <form action="" method="post">
             <div class="hod_form">
                 <label>From
@@ -110,75 +110,59 @@ if (isset($_SESSION['sdrn'])){
         </br></br>
 
         <div style='width:90%;' >
-            <table>
-                <tr>
+        <table>
+                        
+            <tr>
                 <th>Sr No</th>
-                    <th>Criteria</th>
-                    <th>Name</th>
-                    <th>Sponsored By</th>
-                    <th>Venue</th>
-                    <th>Date From</th>
-                    <th>Date To</th>
-                    <th>Days</th>
-                    <th>Organiser</th>
-                    <th>Level</th>
-                    <th>Source of Funding</th>
-                    <th>Registration Amount</th>
-                    <th>Amount Funded</th>
-                    <th>TA</th>
-                    <!-- <th>Doc</th> -->
+                <th>University</th>
+                <th>Subject</th>
+                <th>Semester</th>
+                <th>Venue</th>
+                <th>Date</th>
+            </tr>
 
-                </tr>
+            <?php
+            // include('session.php');
+            @session_start();
+            $link = mysqli_connect("localhost", "root", "", "test");
 
-                <?php
-                // include('session.php');
-                @session_start();
-                $link = mysqli_connect("localhost", "root", "", "test");
+            // Check connection
+            if ($link === false) {
+                die("ERROR: Could not connect. " . mysqli_connect_error());
+            }
+            $sdrn = $_SESSION['sdrn'];
+            // $sdrn = $user_check;
 
-                // Check connection
-                if ($link === false) {
-                    die("ERROR: Could not connect. " . mysqli_connect_error());
+            //      if(isset($_POST['search']))
+            //    {
+            //      $NameOfFaculty = $_POST['NameOfFaculty'];
+            $filter_query="";
+            if(isset($_POST["gen_report"])){
+                if(isset($_POST["date_from"]) &&$_POST["date_to"] && $_POST["date_from"]!="" && $_POST["date_to"]!=""){
+                    $from=date('Y-m-d',strtotime($_POST['date_from']));
+                    $to=date('Y-m-d',strtotime($_POST['date_to']));
+                    $filter_query.="WHERE `Date` between '$from' and '$to'";
                 }
-                $sdrn = $_SESSION['sdrn'];
-                // $sdrn = $user_check;
+            }
+            $query = " SELECT * FROM syllabus $filter_query";
+            $query_run = mysqli_query($link, $query);
+            $srno = 1;
 
-                //      if(isset($_POST['search']))
-                //    {
-                //      $NameOfFaculty = $_POST['NameOfFaculty'];
-                $filter_query="";
-                if(isset($_POST["gen_report"])){
-                    if(isset($_POST["date_from"]) &&$_POST["date_to"] && $_POST["date_from"]!="" && $_POST["date_to"]!=""){
-                        $from=date('Y-m-d',strtotime($_POST['date_from']));
-                        $to=date('Y-m-d',strtotime($_POST['date_to']));
-                        $filter_query.="AND edate between '$from' and '$to'";
-                    }
-                }
-                $query = " SELECT * FROM workshop WHERE SDRN = '$sdrn' ".$filter_query." ";
-                $query_run = mysqli_query($link, $query);
-                $srno=1;
-                while ($row = mysqli_fetch_array($query_run)) {
-                    $doc = $row['uploads'];
-                    echo "<tr>";
-                    echo "<td>" . $srno . "</td>";
-                    echo "<td>" . $row['criteria'] . "</td>";
-                    echo "<td>" . $row['Name_workshop'] . "</td>";
-                    echo "<td>" . $row['sponsor'] . "</td>";
-                    echo "<td>" . $row['venue'] . "</td>";
-                    echo "<td>" . $row['sdate'] . "</td>";
-                    echo "<td>" . $row['edate'] . "</td>";
-                    echo "<td>" . $row['ndays'] . "</td>";
-                    echo "<td>" . $row['organiser'] . "</td>";
-                    echo "<td>" . $row['org_type'] . "</td>";
-                    echo "<td>" . $row['sfunding'] . "</td>";
-                    echo "<td>" . $row['ramount'] . "</td>";
-                    echo "<td>" . $row['amount_funded'] . "</td>";
-                    echo "<td>" . $row['TA'] . "</td>";
-                    //echo "<td><a href='" . $doc . "'><img src='images/doc.png' style='width:20px'></td></a>";
-                    echo "</tr>";
-                    $srno++;
-                }
-                //}
+            while ($row = mysqli_fetch_array($query_run)) {
+                $doc = $row['uploads'];
+                echo "<tr>";
+                echo "<td>" . $srno . "</td>";
+                echo "<td>" . $row['University'] . "</td>";
+                echo "<td>" . $row['Subject'] . "</td>";
+                echo "<td>" . $row['Semester'] . "</td>";
+                echo "<td>" . $row['Venue'] . "</td>";
+                echo "<td>" . $row['Date'] . "</td>";
+                echo "</tr>";
+                $srno++;
+            }
+            //}
 
+        
                 ?>
             </table>
         <div>
