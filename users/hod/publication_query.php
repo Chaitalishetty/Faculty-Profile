@@ -26,7 +26,7 @@ else{
 ?>
 <?php
 $i2=0;
-$sql2 =  "SELECT * FROM book_publication where (sdrn = '$sdrn' OR faculty_name LIKE '%$faculty_name%' OR author1 LIKE '%$faculty_name%' OR author2 LIKE '%$faculty_name%' OR author3 LIKE '%$faculty_name%' OR author4 LIKE '%$faculty_name%')" ; 
+$sql2 =  "SELECT * FROM book_publication " ; 
 $result2 = mysqli_query($conn, $sql2); 
 if(mysqli_num_rows($result2)!=0){
   $output2="<p class='heading'><b>BOOK PUBLICATION</b></p><p class='con'>";
@@ -43,7 +43,7 @@ else{
 ?>
 <?php
 $i3=0;
-$sql3 =  "SELECT * from journal where (sdrn = '$sdrn' OR faculty_name LIKE '%$faculty_name%' OR author1 LIKE '%$faculty_name%' OR author2 LIKE '%$faculty_name%' OR author3 LIKE '%$faculty_name%' OR author4 LIKE '%$faculty_name%')" ; 
+$sql3 =  "SELECT * from journal" ; 
 $result3 = mysqli_query($conn, $sql3); 
 if(mysqli_num_rows($result3)!=0){
   $output3="<p class='heading'><b>JOURNAL</b></p><p class='con'>";
@@ -60,7 +60,7 @@ else{
 ?>
 <?php
 $i4=0;
-$sql4 =  "SELECT * FROM copyright where (sdrn = '$sdrn' OR faculty_name LIKE '%$faculty_name%' OR author1 LIKE '%$faculty_name%' OR author2 LIKE '%$faculty_name%' OR author3 LIKE '%$faculty_name%' OR author4 LIKE '%$faculty_name%') " ; 
+$sql4 =  "SELECT * FROM copyright " ; 
 $result4 = mysqli_query($conn, $sql4); 
 if(mysqli_num_rows($result4)!=0){
   $output4="<br><p class='heading'><b>COPYRIGHT</b></p><p class='con'>";
@@ -77,7 +77,7 @@ else{
 ?>
 <?php
 $i5=0;
-$sql5 =  "SELECT * from patent where (sdrn = '$sdrn' OR faculty_name LIKE '%$faculty_name%' OR author1 LIKE '%$faculty_name%' OR author2 LIKE '%$faculty_name%' OR author3 LIKE '%$faculty_name%' OR author4 LIKE '%$faculty_name%')" ; 
+$sql5 =  "SELECT * from patent " ; 
 $result5 = mysqli_query($conn, $sql5); 
 if(mysqli_num_rows($result5)!=0){
   $output5="<br><p class='heading'><b>PATENT</b></p><p class='con'>";
@@ -94,7 +94,7 @@ else{
 ?>
 <?php
 $i6=0;
-$sql6 =  "SELECT * FROM conference where (sdrn = '$sdrn' OR faculty_name LIKE '%$faculty_name%' OR author1 LIKE '%$faculty_name%' OR author2 LIKE '%$faculty_name%' OR author3 LIKE '%$faculty_name%' OR author4 LIKE '%$faculty_name%')" ; 
+$sql6 =  "SELECT * FROM conference " ; 
 $result6 = mysqli_query($conn, $sql6); 
 if(mysqli_num_rows($result6)!=0){
   $output6="<br><p class='heading'><b>CONFERENCE</b></p><p class='con'>";
@@ -116,7 +116,7 @@ if (isset($_SESSION['sdrn'])){
     $faculty_name = $_SESSION['full_name'];
 }
 $i7=0;
-$sql7 =  "SELECT * FROM workshop where SDRN = '$sdrn'" ; 
+$sql7 =  "SELECT * FROM workshop " ; 
 $result7 = mysqli_query($link, $sql7);
 if(mysqli_num_rows($result7)!=0){
   $output7="<br><p class='heading'><b>WORKSHOPS ATTENDED</b></p><p class='con'>";
@@ -132,7 +132,7 @@ else{
 }
 
 $i8=0;
-$sql8 =  "SELECT * FROM syllabus where SDRN = '$sdrn'" ; 
+$sql8 =  "SELECT * FROM syllabus " ; 
 $result8 = mysqli_query($link, $sql8);
 if(mysqli_num_rows($result8)!=0){
   $output8="<br><p class='heading'><b>SYLLABUS SETTINGS</b></p><p class='con'>";
@@ -148,7 +148,7 @@ else{
 }
 
 $i9=0;
-$sql9 =  "SELECT * FROM orientation where SDRN = '$sdrn'" ; 
+$sql9 =  "SELECT * FROM orientation" ; 
 $result9 = mysqli_query($link, $sql8);
 if(mysqli_num_rows($result9)!=0){
   $output9="<br><p class='heading'><b>ORIENTATION</b></p><p class='con'>";
@@ -165,34 +165,13 @@ else{
 
 
 
-// $link_tool = mysqli_connect("localhost", "root", "", "workshoptool");
-// if (isset($_SESSION['sdrn'])){
-//     $sdrn = $_SESSION['sdrn'];
-//     $faculty_name = $_SESSION['full_name'];
-// }
-// $i10=0;
-// $sql10 =  "SELECT * FROM schedule where faculty_sdrn = '$sdrn'" ; 
-// $result10 = mysqli_query($link_tool, $sql10);
-// if(mysqli_num_rows($result10)!=0){
-//   $output10="<br><p class='heading'><b>WORKSHOPS CONDUCTED</b></p><p class='con'>";
-// while($row = mysqli_fetch_array($result10)){
-//   $i10=$i10+1;
-//  $output10 .="[" .$i10."] ".$row["topic"].", ".$row['subject']." ( ".$row["schedule_type"]." ) ,".$row['speaker_name'].", ".$row["speaker_designation"].", ".$row['no_of_days']." days, ".$row['date'].".<br><br>";  
-// }
-
-// $output10.="</p>";
-// }
-// else{
-//   $output10="";
-// }
-
 $link_tool = mysqli_connect("localhost", "root", "", "faculty");
 if (isset($_SESSION['sdrn'])){
     $sdrn = $_SESSION['sdrn'];
     $faculty_name = $_SESSION['full_name'];
 }
 $i11=0;
-$sql11 =  "select * from awards where Sdrn='$sdrn'" ; 
+$sql11 =  "select * from awards " ; 
 $result11 = mysqli_query($link_tool, $sql11);
 if(mysqli_num_rows($result11)!=0){
   $output11="<br><p class='heading'><b>AWARDS</b></p><p class='con'>";
@@ -213,7 +192,7 @@ if (isset($_SESSION['sdrn'])){
     $faculty_name = $_SESSION['full_name'];
 }
 $i12=0;
-$sql12 =  "select * from competitive_exam where Sdrn='$sdrn'" ; 
+$sql12 =  "select * from competitive_exam" ; 
 $result12 = mysqli_query($link_tool, $sql12);
 if(mysqli_num_rows($result12)!=0){
   $output12="<br><p class='heading'><b>Competitive Exams</b></p><p class='con'>";
@@ -234,7 +213,7 @@ if (isset($_SESSION['sdrn'])){
     $faculty_name = $_SESSION['full_name'];
 }
 $i13=0;
-$sql13 =  "select * from medicals where Sdrn='$sdrn'" ; 
+$sql13 =  "select * from medicals " ; 
 $result13 = mysqli_query($link_tool, $sql13);
 if(mysqli_num_rows($result13)!=0){
   $output13="<br><p class='heading'><b>Medical Exams</b></p><p class='con'>";
@@ -255,7 +234,7 @@ if (isset($_SESSION['sdrn'])){
     $faculty_name = $_SESSION['full_name'];
 }
 $i14=0;
-$sql14 =  "select * from faculty_as_resource where Sdrn='$sdrn'" ; 
+$sql14 =  "select * from faculty_as_resource " ; 
 $result14 = mysqli_query($link_tool, $sql14);
 if(mysqli_num_rows($result14)!=0){
   $output14="<br><p class='heading'><b>Faculty as Resource</b></p><p class='con'>";
@@ -278,7 +257,7 @@ if (isset($_SESSION['sdrn'])){
     $faculty_name = $_SESSION['full_name'];
 }
 $i15=0;
-$sql15 =  "select * from organized where Sdrn='$sdrn'" ; 
+$sql15 =  "select * from organized " ; 
 $result15 = mysqli_query($link_tool, $sql15);
 if(mysqli_num_rows($result15)!=0){
   $output15="<br><p class='heading'><b>WORKSHOPS ORGANIZED</b></p><p class='con'>";

@@ -1,7 +1,7 @@
 <?php
   // include('config.php');
    session_start();
-   $link = mysqli_connect("localhost", "root", "", "faculty_par");
+   $link = mysqli_connect("localhost", "root", "", "test");
  
 // Check connection
 if($link === false){

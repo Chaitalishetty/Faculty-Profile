@@ -2,6 +2,6 @@
 
 $con = mysqli_connect('localhost','root');
 
-mysqli_select_db($con,'faculty');
+mysqli_select_db($con,'test');
 
 ?>

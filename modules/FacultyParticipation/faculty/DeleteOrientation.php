@@ -5,7 +5,7 @@
 <?php
 
 // Escape user inputs for security
-$link = mysqli_connect("localhost", "root", "", "faculty_par");
+$link = mysqli_connect("localhost", "root", "", "test");
  
 // Check connection
 if($link === false){

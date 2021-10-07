@@ -1,6 +1,6 @@
 <?php  
 include('session.php');
-$conn = mysqli_connect("localhost", "root", "", "faculty_par");  
+$conn = mysqli_connect("localhost", "root", "", "test");  
 //mysqli_select_db($conn, 'crud');  
 $sql = "SELECT * FROM `workshop` WHERE SDRN = '$user_check'";  
 $setRec = mysqli_query($conn, $sql);  

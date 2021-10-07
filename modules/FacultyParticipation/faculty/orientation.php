@@ -2,7 +2,7 @@
     <?php include 'css/styles.css'; ?>
 </style>
 <?php
-$link = mysqli_connect("localhost", "root", "", "faculty_par");
+$link = mysqli_connect("localhost", "root", "", "test");
 // Check connection
 if ($link === false) {
     die("ERROR: Could not connect. " . mysqli_connect_error());

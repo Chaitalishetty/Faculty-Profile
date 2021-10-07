@@ -150,10 +150,10 @@ if (isset($_SESSION['sdrn'])){
                     if(isset($_POST["date_from"]) &&$_POST["date_to"] && $_POST["date_from"]!="" && $_POST["date_to"]!=""){
                         $from=date('Y-m-d',strtotime($_POST['date_from']));
                         $to=date('Y-m-d',strtotime($_POST['date_to']));
-                        $filter_query.="AND edate between '$from' and '$to'";
+                        $filter_query.="WHERE edate between '$from' and '$to'";
                     }
                 }
-                $query = " SELECT * FROM workshop WHERE SDRN = '$sdrn' ".$filter_query." ";
+                $query = " SELECT * FROM workshop  $filter_query ";
                 $query_run = mysqli_query($link, $query);
                 $srno=1;
                 while ($row = mysqli_fetch_array($query_run)) {

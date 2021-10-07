@@ -1,6 +1,6 @@
 <?php
 @session_start();
-$link = mysqli_connect("localhost", "root", "", "faculty_par");
+$link = mysqli_connect("localhost", "root", "", "test");
 if (isset($_SESSION['sdrn'])){
     $sdrn = $_SESSION['sdrn'];
     $faculty_name = $_SESSION['full_name'];

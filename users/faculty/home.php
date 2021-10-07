@@ -17,10 +17,10 @@
     <script>navbar();</script>
     <!--dashboard content-->
     <div class="dashboard_container">
-      <div class="dashboard_header navbar navbar-expand topbar mb-4 static-top shadow" >
+      <div class="dashboard_header navbar topbar mb-4 static-top shadow" >
         <span style="font-size:25px;cursor:pointer" onclick="openNav()">&#9776;</span><!--hamburger icon-->
         <h2>Welcome <?php echo $_SESSION['full_name'];?></h2>
-        <a class="btn btn-light" href="../../logout.php" style="margin-left:45%">Logout</a>
+        <a class="btn btn-light" href="../../logout.php" style="margin-right:5%">Logout</a>
       </div>
       <div class="dashboard_content" >
       

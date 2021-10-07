@@ -1,7 +1,7 @@
 <?php
 include('session.php');
 $ids = $_GET['id'];
-$link = mysqli_connect("localhost", "root", "", "faculty_par");
+$link = mysqli_connect("localhost", "root", "", "test");
 
 // Check connection
 if ($link === false) {

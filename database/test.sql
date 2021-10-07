@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 16, 2021 at 07:19 PM
+-- Generation Time: Oct 07, 2021 at 06:21 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.3.9
 
@@ -20,6 +20,91 @@ SET time_zone = "+00:00";
 --
 -- Database: `test`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin_detail`
+--
+
+CREATE TABLE `admin_detail` (
+  `Username` varchar(200) NOT NULL,
+  `Password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin_detail`
+--
+
+INSERT INTO `admin_detail` (`Username`, `Password`) VALUES
+('admin', '12345'),
+('admin', '12345');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `awards`
+--
+
+CREATE TABLE `awards` (
+  `id` int(11) NOT NULL,
+  `Faculty_name` varchar(60) NOT NULL,
+  `Award_name` varchar(60) NOT NULL,
+  `Title_of_innovation` varchar(30) NOT NULL,
+  `Name_of_awardee` varchar(30) NOT NULL,
+  `Position` varchar(50) NOT NULL,
+  `Event_name` varchar(60) NOT NULL,
+  `Awarding_agency` varchar(30) NOT NULL,
+  `Category` varchar(30) NOT NULL,
+  `Date` date DEFAULT NULL,
+  `University` varchar(60) NOT NULL,
+  `College_name` varchar(60) NOT NULL,
+  `Level` varchar(60) NOT NULL,
+  `pdf` varchar(200) DEFAULT NULL,
+  `Sdrn` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `awards`
+--
+
+INSERT INTO `awards` (`id`, `Faculty_name`, `Award_name`, `Title_of_innovation`, `Name_of_awardee`, `Position`, `Event_name`, `Awarding_agency`, `Category`, `Date`, `University`, `College_name`, `Level`, `pdf`, `Sdrn`) VALUES
+(3, 'Leena R Ragha', ' Avishkar Research Convention 2019-21', '-', 'Mrs. Rashmi Dhumal', '3rd', ' 14th Intercollegiate / Institute / Department Avishkar', '-', 'Fr. C. Rodrigues Institute of ', '2021-09-03', 'Mumbai', 'Fr. C. Rodrigues Institute of Technology, Vashi, Navi Mumbai', 'Local level', 'upload_files/awards/Edu_JSTSP1.pdf', 811),
+(4, 'Amarsinh A Vidhate', 'Avishkar Research Convention 2019-20', '-', 'Mrs. Rashmi Dhumal', 'Participating', '14th Intercollegiate / Institute / Department Avishkar Resea', '', '-', '0000-00-00', 'University of Mumbai', 'RAIT', 'District', '', 811),
+(5, 'Amarsinh A Vidhate', ' Avishkar Research Convention 2019-20', '-', 'Amarsinh A Vidhate', 'Participating', '14th Intercollegiate / Institute / Department Avishkar Resea', '-', '-', '0000-00-00', 'University of Mumbai', 'Fr. C. Rodrigues Institute of Technology, Vashi, Navi Mumbai', 'Local level', '', 2),
+(6, 'Vaibhav E Narawade', 'Outstanding Research Paper', '-', 'Vaibhav E Narawade', 'Participating', 'International Commerce & Management Co', 'Mumbai University', '', '0000-00-00', 'Mumbai University', 'RAIT', 'Local level', '', 3),
+(7, 'Dhanajay M Dakhane', 'Significant Contribution for AY 2018-2019', '', '', 'Participating', '', '', '', '0000-00-00', '', '', 'Local level', '', 5),
+(8, 'Vanita M Mane', 'Appreciation Letter', '', '', 'Participating', '', '', '', '0000-00-00', 'Cyber Crime cell, Crime Branch CBD Belapur', 'Navi Mumbai', 'National level', '', 6),
+(9, 'Vishwanath S Chikkareddi', 'Moodle for Teachers', '-', 'Vishwanath S Chikkareddi', '1st', 'Online test by SPOKEN TREE, IIT BOMBAY', '-', '-', '0000-00-00', 'Mumbai University & IIT Bombay', 'Vidyalankar Institute of Technology With Spoken tree IIT Bom', '-', '', 16),
+(10, 'Tushar H Ghorpade ', 'Data Science ', '-', 'Tushar H Ghorpade', 'Participating', 'Quiz', '-', '-', '0000-00-00', '-', 'NBNSCOE, Solapur', 'National', '', 19),
+(11, 'Smita D Bharne', 'Faculty Program on NBA', '-', 'Smita D Bharne', 'Participating', 'Quiz', '-', '-', '0000-00-00', 'Mumbai University', 'Bharati Vidyapeeth College Of Engineering, Navi Mumbai', 'National Level', '', 20),
+(12, 'Smita D Bharne', 'Covid -19 Awareness Program ', '-', 'Smita D Bharne', 'Participating', 'Quiz', '-', '-', '0000-00-00', 'Shivaji  University, Kolhapur ', 'National Service Scheme and Shiv Shayata Disaster Managment ', 'National Level', '', 20),
+(13, 'Smita D Bharne', 'Awareness Quiz on  -Covid -19 ', '-', 'Smita D Bharne', 'Participating', 'Quiz', '-', '-', '0000-00-00', 'Mumbai University ', 'RAIT, Nerul', 'National Level', '', 20),
+(14, 'Sheetal A Ahir', 'Fundamentals of Computer Science', '-', 'Sheetal A Ahir', 'Participating', 'Quiz', '-', '-', '0000-00-00', '-', 'VIVA Institute of Technology', '-', '', 21),
+(15, 'Sheetal A Ahir', 'Ayush Sanjivani Quiz', '-', 'Sheetal A Ahir', 'Participating', 'Quiz', '-', '-', '0000-00-00', 'Ministry of Ayush and MyGov.', '-', 'National', '', 21),
+(16, 'Sheetal A Ahir', 'Covid -19 Awareness Program ', '-', 'Sheetal A Ahir', 'Participating', 'Quiz', '-', '-', '0000-00-00', 'Anna University', 'Thiagarajar Collage of Engg.', 'National', '', 21),
+(17, 'Sheetal A Ahir', 'Intercollegiate Environmental Quiz', '-', 'Sheetal A Ahir', 'Participating', 'Quiz', '-', '-', '0000-00-00', 'Mumbai University', 'SIES College of Comm.', 'National', '', 21),
+(18, 'Sheetal A Ahir', 'Covid -19 Awareness Program ', '-', 'Sheetal A Ahir', 'Participating', 'Quiz', '-', '-', '0000-00-00', 'Social Wing RAIT', 'RAIT', 'National', '', 21),
+(19, 'Sheetal A Ahir', 'E-Quiz on \"Research Methodology', '-', 'Sheetal A Ahir', 'Participating', 'Quiz', '-', '-', '0000-00-00', 'Savitribai Phule Pune University', 'Pratibha Institute of Business Management', 'National', '', 21),
+(20, 'Sheetal A Ahir', 'E-Quiz on \"Machine Learning', '-', 'Sheetal A Ahir', 'Participating', 'Quiz', '-', '-', '0000-00-00', 'SBITMRJ', 'S B Jain Institute of Technology, Managemet and Research', 'National', '', 21),
+(21, 'Sheetal A Ahir', 'E-Quiz on \"Atmanirbhar Bharat-Strength of the Fututre', '-', 'Sheetal A Ahir', 'Participating', 'Quiz', '-', '-', '0000-00-00', 'Institutions Innovative Council', 'Institutions Innovative Council', 'National', '', 21),
+(22, 'Sheetal A Ahir', 'R-Programming', '-', 'Sheetal A Ahir', 'Participating', 'Quiz', '-', '-', '0000-00-00', 'SBITMRJ', 'S B Jain Institute of Technology, Managemet and Research', 'National', '', 21),
+(23, 'Sheetal A Ahir', 'Data Analytics', '-', 'Sheetal A Ahir', 'Participating', 'Quiz', '-', '-', '0000-00-00', 'SBITMRJ', 'S B Jain Institute of Technology, Managemet and Research', 'National', '', 21),
+(24, 'Ekta K Sarda', 'Awareness of Outcome -Based Education Paradigm', '-', 'Ekta K Sarda', 'Participating', 'Quiz', '-', '-', '0000-00-00', 'Mumbai University', 'L.R. Tiwari CoE', 'National', '', 22),
+(25, 'Ekta K Sarda', 'Cloud Compiting', '-', 'Ekta K Sarda', 'Participating', 'Quiz', '-', '-', '0000-00-00', 'D Y Patil University', 'D Y Patil School of Engg & Technology', 'National', '', 22),
+(26, 'Ekta K Sarda', 'Intellectual Property Rights', '-', 'Ekta K Sarda', 'Participating', 'Quiz', '-', '-', '0000-00-00', 'Mumbai University', 'New Horizon institute of Technology', 'National', '', 22),
+(27, 'Ekta K Sarda', 'Research Schemes and Funding Awareness ', '-', 'Ekta K Sarda', 'Participating', 'Quiz', '-', '-', '0000-00-00', 'Mumbai University', 'New Horizon institute of Technology', 'National', '', 22),
+(28, 'Ekta K Sarda', 'Faculty Program on NBA', '-', 'Ekta K Sarda', 'Participating', 'Quiz', '-', '-', '0000-00-00', 'Mumbai University', 'Bharati Vidyapeeth CoE', 'National', '', 22),
+(29, 'Ekta K Sarda', 'Covid -19 Awareness Program ', '-', 'Ekta K Sarda', 'Participating', 'Quiz', '-', '-', '0000-00-00', 'Mumbai University', 'Pillai College of Engg.', 'National', '', 22),
+(30, 'Ekta K Sarda', 'Advanced Data Structure', '-', 'Ekta K Sarda', 'Participating', 'Quiz', '-', '-', '0000-00-00', 'Mumbai University', 'Jaihind CoE', 'National', '', 22),
+(31, 'Ekta K Sarda', 'Google Cloud Computing', '-', 'Ekta K Sarda', 'Participating', 'Quiz', '-', '-', '0000-00-00', 'Mumbai University', 'Dhole Patil CoE', 'National', '', 22),
+(32, 'Pallavi H Chitte ', '', '', '', '', '', '', '', '0000-00-00', '', '', '', '', 33),
+(33, 'Dhanashri A Bhosle ', '', '', '', '', '', '', '', '0000-00-00', '', '', '', '', 34),
+(34, 'Siddhi N Kadu ', '', '', '', '', '', '', '', '0000-00-00', '', '', '', '', 35),
+(35, 'Apurva S Shinde ', '', '', '', '', '', '', '', '0000-00-00', '', '', '', '', 36),
+(36, 'Preet Kaur ', '', '', '', '', '', '', '', '0000-00-00', '', '', '', '', 38),
+(37, 'Leena R Ragha', 'fhfhf', 'fhghf', '', '1st', '', '', '', '0000-00-00', '', '', 'State level', 'upload_files/awards/__', 1),
+(40, 'Leena R Ragha', 'technical', 'rait', 'leena raghe', '1st', '', '', '', '0001-01-01', '', '', 'Local level', 'upload_files/awards/0001_Leena R Ragha_2021-01-01', 1);
 
 -- --------------------------------------------------------
 
@@ -103,6 +188,74 @@ CREATE TABLE `book_publication` (
 INSERT INTO `book_publication` (`id`, `sdrn`, `faculty_name`, `author1`, `author2`, `author3`, `author4`, `book_name`, `publisher_name`, `isbn_no`, `year`, `desgn`, `institute`, `opt1`, `opt2`, `opt3`) VALUES
 (9, 888, 'Dr. Dakhane Dhanajay M.', 'Dr. Dakhane Dhanajay M.', '', '', '', 'Efficient Routing for Mobile Computing: Security Approach Secure Routing in MANET', 'LAMBERT Academic Publishing', '978-620-0-44101-0', '2020-04-01', 'Professor', '', '', '', ''),
 (10, 896, 'Dr. Sangita Chaudhari', 'Dr. Sangita Chaudhari', 'Dr. Madhumita Chatterjee', '', '', 'Cyber Security and Laws An Introduction', 'StarEdu Solutions India Pvt Ltd', '978- 9386765338.', '2020-07-01', 'Professor', 'MES HOC Pillai', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `competitive_exam`
+--
+
+CREATE TABLE `competitive_exam` (
+  `id` int(26) NOT NULL,
+  `Faculty_name` varchar(60) NOT NULL,
+  `PET_appeared` varchar(60) NOT NULL,
+  `PET_date` date NOT NULL,
+  `PET_score` int(60) NOT NULL,
+  `GATE_appeared` varchar(60) NOT NULL,
+  `GATE_date` date NOT NULL,
+  `GATE_score` int(60) NOT NULL,
+  `Exam_Name` varchar(50) NOT NULL,
+  `Exam_Appered` varchar(50) NOT NULL,
+  `Date_Of_Exam` date DEFAULT NULL,
+  `Exam_Score` varchar(50) NOT NULL,
+  `pdf` varchar(200) DEFAULT NULL,
+  `Sdrn` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `competitive_exam`
+--
+
+INSERT INTO `competitive_exam` (`id`, `Faculty_name`, `PET_appeared`, `PET_date`, `PET_score`, `GATE_appeared`, `GATE_date`, `GATE_score`, `Exam_Name`, `Exam_Appered`, `Date_Of_Exam`, `Exam_Score`, `pdf`, `Sdrn`) VALUES
+(4, 'Dr. Joshi Bharti A.', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 811),
+(5, 'Dr. Dakhane Dhanajay M.', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 5),
+(6, 'Dr. Chaudhari Sangita S.', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 6),
+(7, 'Dr. Sharma Neeraj K.', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 7),
+(8, 'Dr. Barve Amit K.', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 8),
+(9, 'Dr.Shinde Shilpa G.', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 9),
+(10, 'Mrs. Mane Vanita M.', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 10),
+(11, 'Mrs. Shedge Rajashree A', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 11),
+(12, 'Mrs. Padiya Puja Y.', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 12),
+(13, 'Mrs. Dhumal Rashmi A.', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 13),
+(14, 'Mrs. Chhabria Aditi S.', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 14),
+(15, 'Mrs. Maktum Tabassum A.', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 15),
+(16, 'Mr. Chikkareddi Vishwanath S.', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 16),
+(17, 'Mrs. Gaikwad Snehal P.', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 17),
+(18, 'Mrs. Pulgam Namita D', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 18),
+(19, 'Mr. Ghorpade Tushar H.', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 19),
+(20, 'Mrs. Bharne Smita D.', 'MU-PET', '0000-00-00', 50, '', '0000-00-00', 0, '', '', NULL, '', '', 20),
+(21, 'Mrs. Ahir Sheetal A.', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 21),
+(22, 'Mrs. Ekta K. Sarda', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 22),
+(23, 'Mrs. Bodhe Swarupa', 'PET', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 23),
+(24, 'Mrs. Bhoir Smita V.', 'MU-PET', '0000-00-00', 48, '', '0000-00-00', 0, '', '', NULL, '', '', 24),
+(25, 'Mrs. Sumithra T.V', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 25),
+(26, 'Mr. Gorad Balwant J.', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 26),
+(27, 'Mrs. Alte Bhavna A.', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 27),
+(28, 'Mr. Nenwani Kamlesh L.', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 28),
+(29, 'Ms. Mumbaikar Snehal J.', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 29),
+(30, 'Mr. Gunjgur Prathmesh N.', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 30),
+(31, 'Ms. Saxena Harsha A.', '', '0000-00-00', 0, '', '0000-00-00', 421, '', '', NULL, '', '', 31),
+(32, 'Mrs. Ingle Saguna K.', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 32),
+(33, 'Mrs. Chitte Pallavi H.', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 33),
+(34, 'Ms. Bhosale Dhanashri A.', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 34),
+(35, 'Mrs. Kadu Siddhi N.', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 35),
+(36, 'Mrs. Shinde Apurva S.', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 36),
+(37, 'Bhavana Alte', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', NULL, '', '', 811),
+(38, 'Leena R Ragha', '', '0000-00-00', 0, '', '0000-00-00', 0, 'cat', '', '0000-00-00', '', '', 1),
+(39, 'Leena R Ragha', '', '0000-00-00', 0, '', '0000-00-00', 0, '', '', '0000-00-00', '900', '', 1),
+(40, 'Leena R Ragha', '', '0000-00-00', 900, '', '0000-00-00', 0, '', '', '0000-00-00', '', '', 1),
+(41, 'Leena R Ragha', '', '0000-00-00', 999, '', '0000-00-00', 0, '', '', '0000-00-00', '', '', 1),
+(43, 'Leena R Ragha', '', '0000-00-00', 0, '', '0000-00-00', 0, 'cat', '1', '0001-01-01', '450', '', 1);
 
 -- --------------------------------------------------------
 
@@ -325,7 +478,84 @@ INSERT INTO `faculty` (`Sdrn`, `First_name`, `Middle_name`, `Last_name`, `DOB`, 
 (894, 'Mr. Balwant', 'J.', 'Gorad', '0000-00-00', 'Female', 'Computer Engineering', 9988776655, 'Ramrao Adik Institute of Technology', 'Ramrao Adik Institute of Technology', 'goradbj@rait.ac.in', '2018-12-24', 'ME/Mtech', 'Machine Learning, Deep Learning, Artificial Intelligence, Data Science', 'Assistant Professor', '123', NULL, '', '', '', '', 0, '');
 INSERT INTO `faculty` (`Sdrn`, `First_name`, `Middle_name`, `Last_name`, `DOB`, `gender`, `Department`, `Contact_no`, `p_address`, `r_address`, `Email`, `Doj`, `Qualification`, `Specialization`, `Desig`, `Password`, `OTP`, `profile_photo`, `image_type`, `aadhar_card`, `pan_card`, `bank_acc_no`, `bank_ifsc_code`) VALUES
 (896, 'Dr.Sangeeta', 'S.', 'Chaudhari', '0000-00-00', 'Female', 'Computer Engineering', 9988776655, 'Ramrao Adik Institute of Technology', 'Ramrao Adik Institute of Technology', 'sangita.chaudhari@rait.ac.in', '2019-01-01', 'PhD', 'Image Processing, Information Security, GIS & Remote Sensing', 'Professor', '123', NULL, 0xffd8ffe000104a46494600010101006000600000ffe100224578696600004d4d002a00000008000101120003000000010001000000000000ffdb0043000201010201010202020202020202030503030303030604040305070607070706070708090b0908080a0807070a0d0a0a0b0c0c0c0c07090e0f0d0c0e0b0c0c0cffdb004301020202030303060303060c0807080c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0cffc000110800f600d703012200021101031101ffc4001f0000010501010101010100000000000000000102030405060708090a0bffc400b5100002010303020403050504040000017d01020300041105122131410613516107227114328191a1082342b1c11552d1f02433627282090a161718191a25262728292a3435363738393a434445464748494a535455565758595a636465666768696a737475767778797a838485868788898a92939495969798999aa2a3a4a5a6a7a8a9aab2b3b4b5b6b7b8b9bac2c3c4c5c6c7c8c9cad2d3d4d5d6d7d8d9dae1e2e3e4e5e6e7e8e9eaf1f2f3f4f5f6f7f8f9faffc4001f0100030101010101010101010000000000000102030405060708090a0bffc400b51100020102040403040705040400010277000102031104052131061241510761711322328108144291a1b1c109233352f0156272d10a162434e125f11718191a262728292a35363738393a434445464748494a535455565758595a636465666768696a737475767778797a82838485868788898a92939495969798999aa2a3a4a5a6a7a8a9aab2b3b4b5b6b7b8b9bac2c3c4c5c6c7c8c9cad2d3d4d5d6d7d8d9dae2e3e4e5e6e7e8e9eaf2f3f4f5f6f7f8f9faffda000c03010002110311003f00fde430aef0701727d28603ccfc7f3a919b701513af19feb418f2d86c8307f5e699b33c13f5e2867e79634aa4919e7dcd01a31a3e47e3f9d2bbe2339fe54e3c3fcdebf9d413b7f3e9412d696141dcff00fd6a1795a6a8600803b834d69b6eefd3de9f9821fd0fd291d8007e9599af789edb41b39269a48d1625dce59c2851ea4d7e737edbff00f0729fc11fd9b21bdd2fc2f79ff0b33c516f21b7fb1e8b76ab650480e18c977b5930bdd503b678c7048b49b343f492f75386cc7ccdc9fd2bcd3e2cfed8df0dfe07eeff0084bbc71e15f0dac6acceba8ea90c3271cfdd2db8fd319afe6e3f6c2ff82fc7c6bfdabe5beb73e243e0ff000ec8c4ae8fa116b60e3a0f366c895f032301954e7257a57c63af7c52bbd6afe4ba6bab81752162d209583364753cf2703a9cfd6b4e5496accf98fe9f3e2bff00c1c29fb37fc3a132daf8d23f12bdb12aeba45bcb38ce0e1779554c9c1eac0639ce335c4e8dff000734fecef7d6d34936a5e22b68a350017d224def21cfc88a32380a724b633debf99cbaf174d74ccccdfbc24e5b3c3718e6aac5accd0b9db236e6e09a1ca1608f31fd45e8bff07207ecdda8ea1636edad6bd08bc94c427974a758adc84ddfbc3925723a1c63debdbbe1ff00fc158fe00fc50dbf61f8a7e138a461fea6eef45a48be8712edce72395c8afe42a5f10dd4817f78cdc632589cd5db6f1cdec631e732a9e1b9e48c63159f34187bc7f69fe12f8cfe1df1c5a2dc68bad69bab43ce64b4b95982f6e76938e71c1e6ba986ed6750558371c60f15fc5bfc35fdabbc73f05f5f8b50f0778ab5ef0ecd13893758df3c2ac4679600e1bef1e0823935fabdff0004beff00839f752f0aea9a6f84fe3e5bc775a4bedb78bc53609fbeb4fbaabf69840f9e318cb488770ce7611920d3a13af53f7c03738fc69aedc7f2f7ac6f03f8d74bf885e18b1d5b48d42d352b0d4204b8b6b9b795648e78d86e5756070ca410411d41ad871bcff9e2a5c6c3199c1fd4d2819a575f2cd08a08ebf9d2b0ee38fcfefde804afdee31d29a3d8fb7d29cdc75e2911e80cd4e5f9073f2f6a6aafef3ae3b5398ee18f4ed40ca3afdbfda74f6e372f1d3eb454d79116b3745f6e68a7a0b999aa5b23a707d2a275f315bdb38a72306ebe9de82ea3eabc0a46db9144b82d9a7a9f973fdea6bbfcdcf5a8cc981f2e3039a62d87331656f4a8e600a81efdbd29d8c2fe14c7fb869dafb07a834b8fc6b81f8fdf1ffc39fb3c7c2fd6bc5be28d62c745d0741b66babdbeb97db1dba0fd49270028e58900024815d278b7c5967e13d02eb50beb88aded6ce269659646dab1a819249f402bf970ff0082d87fc1637c41ff00050ff8d17de1df0bead7563f087c3b76f0e9b6f6d2bc71ebee8c47db665e3729e7cb461f2a9dc7e66c2d452b5d948d0ff82b67fc172fc6dfb7af8ab50f0ef856e350f08fc2b84b411d9a48d0de78817a192ecab711b73b601c00df396380bf00c973bd42fdd5e800e00fa0a6b7993c9f3337e26a54876c7f28f9bb9c54ca4d81029c9c81efd3eb52416de61ea23fcc8ad6d1fc2b7bad329b7b49ae149232830a0fb9f6aedfc0dfb31f88bc6ba8c36f6f67216b8e07fb039e5ba91f971c573d4c4429fc6ec7453c255aaed08b7f23cd23d2bcd6e339f4f5ab50e8536559a36dbd735f52781ffe09a7e2cd46e233791ada47b81de09618c8cf381cf5ff003c57b17fc3b4bfb3ade5115c2ce8b1aed95d3054f0492a320e7918f7af36b6798683b295cf6b0bc2f985557e46bd4f8124d18496be602bd3a03cd664f079596c1e49e0f6afb6b5eff827bea9e1d4b8b95862bc564cf971a9fe5efc7ff5ebe69f895f0a26f0b5e4d6fe5c80444f24771d41f715585cd6857972c59cf8ec8717858f3d68e879bfca98ebf9d58b6b95475fbc36906a292dfcb27e661ed519560ddf19ed5eaf323c5b773f577fe0ddeff82c1ea9fb2ffc48d1be0d78c2e8de7c3df145efd9f4ab8b995bfe29cbb94b1089c91e44d21c11c6c76c8e19b1fd1768faac3aada2cb0c8b22b0c82a720d7f107a2eacf673ab46cc92290415f95860e720f6e82bfa56ff0083777fe0a86bfb637ecff2782fc4b7317fc279f0eededeceed9a4f9f56b2c7970de80792df28497d1f0780e055a9684dba1fa6127cd8fcfe94debd7a5286055b183fe149b73c039e9cd264b4871943fcbeb519989153345e59e3f5a6eccab107bd16628ed70cf18ec3f4a729f9feb4c6dcbf2d2a8ddf9f4a431b78e447f2fa0a29d28da791f2fbd14589d1172538231f4a697ff2282767534d66c83fa553dcd1261e66efe1ce286f987afbe29bb769e3bfeb417e7bfad341b88791df8a8a793646c58e3be6a4dc427515e7ff001fbe295a7c21f86bad788b53ba8edf4bd26d24ba999801b551771249381c0ef4d6f6173763f243fe0e92ff0082a537c3ef0847f00fc17a96dd7bc4b079fe239a0704d969ed9c439072b24a78e4709bb1c9047e0a4706e207ddfa76aef3f6abf8fbac7ed45fb46f8c3c7daeed5d43c49a8bcde501fea225f9228fdf6c6aa09ee727bd702b26dfebef4996481b736d5e2bd0ff0067ef82f73f16fc6b6762be62c734a118aae76827a9ae6be1f783ae3c5fac456b0ae7cd6006457ea07fc13ebf653b4f01e9b1dfdd58c6faa4bd5ba941ede87b7e15e4e658f8e1e9bb6e7bb91e4f2c6d749fc2b736be147ec27e15f05e9b035be9eb79347cb35c45e62bb63baf4c71e9f9d7b9786be0b58d92c4b0e9b656fe481b4c6a148e07b57a77863e1eb476d96554ff00649dd5d3e9fe0a813e6fba17db9cd7e7988af3aadb9b3f64c3d1a3460a14e36479c69df0da2440648c77caf247f9fd29ba8782610acbf2bac9f2b73c0af589fc3988b76df91bafcb4d6d2a14814f9316e1df6f4ae1d4ed8d6e8790cbf0fad1ecc3288e5dabf3306c1e3dabe73fda7ff654d37c75a55d7fa3c6b72c372cfb720fb11f857dc126816f244e3646371ddc2f5cd707f10fc29079522b6c7ddd3e5ebc514ea4a13e68ee556a30af0e4a8ae8fc27f8e1f0967f01788ef2d65842f933150c3a1fc715e6b2466197e6f5fc2bf4dbf6d4fd9c6d7598eea7b4b7c7980b6d4c2f3efc7b7e35f9d7e35f07dc786f51920ba8f6c88e5771e3bfa57e8f93e631c4d3b3dcfc5b89325782ad78af75ec736386f4e73cf6afa63fe0943fb67afec3dfb70f817c797d24b1e836f72da6eb8a8c46eb1b85f2e4623f8bcb252503bf958ef5f34ca9e536d6cf4cd161b6798ab7dd6e0807fcf15edc773e60fedf3c27ab47ade836b750c8b345322c91b8e8e8c3729fa60d69a3ee418fd6be5bff0082477c59b8f8c1ff0004f7f851ad5d4a64be93c3b696f74776edd2c318898fd494279e79efd6be9f824df8c7ff005ab4ea4f91396f91b3eb4b1fdde94818114ac588e3a0a1a08b5b09b4373bbb75a41c49b771fc2807229ea015a56d2e0d0c9061368c7cdcf3cd14483745efd68aa887322c38cb50a377f85127534d2c429fca989680cbb8d34fbe29c3d7d4504706a7545905c4c150f3f4f6afce8ff838abf699d27e0efec6579e1ebdd47ecf71e2c59d7c84432492c3044d21e9f755a6fb3c649c0fde819c9c57e886a5f2dbbf6da2bf107fe0e8dbd8b5af02dd6a03f7d3699258787a3cbb05b759a56bb98fa1dde45b820ff7073dab5a71e6642d19f8573c8c7e77e6463b9ce3bf7fd6a6d3edbed72a8da186738f5a8a4605b72f2bd47bd76bf06fe1f6a3e39d762b7b1b396ed99d46154e093d066b9a52514e4cda1072972c7767d11ff04fcf8411ea7accda85c46596d482a4af0ae7a039e08afd36f827a44fa659c2b1c6b1aa81c9e847b035f3f7ec7bfb37bfc18f0746ba818ee354d42513c91a83b20ec1475afaff00e1afc3eb8bc31657e5c0e71802bf3dcd714ebd76d6dd0fd8f87f03f54c1a8cbe27ab3b8d0ae77d822e54b649242f5adcb291571f36ecfb55ed13e1b1b3b7559245607079e326af37857cbfbabf7471c726bc79459eb4ab2fb2c824413263b1eb9acbd4a078dbe5fbb9aec2cb42cd9a874f2d9473939c54b16816f2229db9f519cf359f23638d6479add5adc32b6c04ede4f7ae6fc4ba74cf6ceb2076e3f8857b26a37da0f87d64fb55f59dbf97cbf9b285da3d4e7b5788f8ff00f6c2f83f692983fe134d1e6ba76daab0cbbb775180df74f3c70688e1eacbe08b7e83fed2a34f5a9248f21f8afe04b7d6b4cb88e4daad2272a179273dabe31fda93f6278f5df0b35c69b085d4215dc17f85c73ebdfa77afb3bc5ff1e7c37e2bb191b4fbcb5ba8df3831901b03d3d715c9e9de20b0d6e716f75e5c90cebb558b03b73ebe95d187a988c2cf9d2683191c26614bd949a699f8d5e2bf0b5c787754b8b1ba8e4866b762acb22e0af38ff3f4ac4d3adbf7fe983c93dabee6ff00828c7ecbdf6666d734c8630d102ce153e695719ea3af1dcfeb5f11d8215bcdbb70dc820f63e95fa365d8e8e2692a8b7ea7e2f9c6573c0d774a5b747dd1fd26ff00c1bcdf166d2e7f606f0fe936f708d75a4dccd1dd446424c258ef53c81b4302180191c9c1eb5fa45a1ea7fdab0f991f118e33eb5f881ff041df10d8f873c17a0cadab35ac3716d326a51cc708cc24063d9c647cbb871ddabf6abe1f5e1be81e655952d2555f243e46e1eb8f4af59c76678f195ceb238fe5fa76a70fbd8fc29aaff3afb77a786dcdc75cf6a03ed085be7a0c5b4fafad2b1da7f4eb403b8ff2a9d4a15bfbbdbad14d73b0163453b99e848c38ce290f148edcf1cd23380714cae6f2158f151bbfb7e5de8c6471f9534b05e9da96e3beb629eb6ec74e976e55b1919ed5f81fff00070bf8897c5ffb3df8da4864927787e25411dc0dbb7c9f2edc44abd39030c73eb5fbdbaddcc7069d334b855084927a74afe7fbfe0aeff0bb58d63e1efc52d7a1d3edf50f0c5bebd3ead73b5809a19cbb46256cb00d1038031939238c723b70f1bc65e844e5668fc7b684b4ab1c6b9e76802bf443f610f8396fe01f015aea171146b7d3812b314c1404640c9f6af8bff65af84f71f193e34e93a62c5fe8f0b7da2e48e891afafd4e057e9469bf0d96fec3fe11fb7ba3670a85f3264ea1001c2f3d4fbd7cbe6d5928a81f5bc37867ceeb5af6d17a9d16aff00b4be9ff0ed64f27cbbcba8df6ed2e00f700e0e7b76a8bfe1e6de38d3d957c35e05d42fd62f97ed02d66921079eaa172d8e0e72a3f4cf5de13d5be1f7eca9a0dbea1771e9f0cb8d9f6fbd2b25ccad927ef3024b7a63f2ae3be27ffc15cbe1ee9891ac535dc8d8d878da533ce300123b7503af19af0f0f084fe0a773e9f17ed62bf7d5f97c91bde12ff82c3f8ea09bcbf10785ededa200711432c531209e824f94f18e091d7ad7d21f05bf6e987e24e9904d359dc59c93e5b65c2638fa8241fc0d7c37e16ff828df857e2c5d3a2c2b208f064495645209e8bb990267ea474af56f067c6bd17c456f6b2584ad6ea8e124b59230af1fe5c60fa8e0e6b9731c3492bf258eaca2ac24ecea731f606b7f18bc717ff13bc236fe1cd274bbaf0b5d79afaedd4efb65b7403e4f2c6e07f20791ce0552f899f18358d2ed2f21b3fdd2c61879a24f994e7038c74a67c38f19acde1fdd1aef731e1083b703debc37f688f896b617535bcc4c11c65a494a9ce47a57ced49c949289f592c3c251d92b2dd75f53c9fe217843c51f187c5170b7be20b88ec646ccac599bccc670db410a38fcaba5f05fec91f0d6e2de18f5e6b8d48458da1ef3ecca7b0c85c13e80138c135e35e11b2f1ffed37f137fe11fd0ede6cc92eef2a57682c74ab7c7fadb97192ec40e07727000eb5f1a789fe3e78b7c3de3bd4ade3d6345b7934d9e78cac9682304c52347b4ee46393d81623039208afb0c1e5d5e74aea5cbe87c0e619a612855e574f9bd7fc8fd8df08fc05f847e1189e1d2f44b1b369170e3edb2b83ebc339c74ed8af2ff008d7fb3c58e857e752f0bdc186285b2f6dbb7295ea40cf35f1f78b3c5bf14be0cf81bc2dad6bf67fd970f896d22bed2ee34bba63b95955bf7f6cc7232ac3951b4fad7b0fc2efda5756f146850c77b1c8b3285058e4acb9c7cd83c83f5af1f1980ad4dddcae7b196e6587c42e58c7974d0e87c6da5378cfc1e6cee57cef2d08453dc63eefe55f99df1ff00c00df0c7e36ddd8b27976f2b89e3dc9b783e9f8ff9e6bf5774fd366f10694b713c2c1a4f418e95f1dffc153fe12c563a5f87fc4505baa91706d676070c770cafeaadf9d7770fd750adc8fa9e7f17613dae17daade27eb7ff00c10ebe0be8fa3fecd7e04d6a3fb25d5cae91e7ed16f8712cae496279e807d38ed5fa69a5c223b28d481ca839ed5fce0ffc1263fe0a51e3af8270f85741b785357d361ba8f4f8ada28774ef1b12a133907ef370067922bfa36f086a2da9e8d048f1b46cd1a92ac791c57dc53c4426dc5743f33a9859d38466f695edf236237ddffeba731f978fad46bb637f7a907dde6b631d9007dd8a728f929aa303f514e5e0501aa06e7f13d28a0baad14b99a254532132311f2f1cd399f68f5a8df04e471ed8a6eee41a51b8f5b6a38b9e69a64dc68cfbfb0a8e51b57fcf35467cdadce77c6e926b16ad6aae23839f38e0e587a57f36ff00f055ff00db14ebbe0bf18fc2ad3c5e9beb8f186a377ab4e498634822be9fc881179de9b42b1e40c80467803fa42f18dcfd934bbc65f95963273f857f3c1ff055efd8fe6b2d5b4af1f5aacd3af8a3cf7bf6e81dd267f9c73d70c063fd9f7e6ea56952a4e4b6d99d386a2ebcf916fb9e35ff000496f8658d23c4de279add9e5b89e3d3e0908c61506f7fae4b27e55f47fc4fb0d6b4cbe7b9d2e1996764f2b8e847a9f4033543f60df87cbe09f805a5dbb30f32f679ee9f03a97738edd4281cd7d21a57c318fc57f2b6e21b80a46723d6be1b34c545e25f36c7e9d91e0dac1c52df53f3fbe29fecd5e2cf8cdaf5adf6b7ae3797092b1c5bcb2c60e32473d4e0735d1fc7afd901be257c20f06e8be17d1f43f0beade1791c4b796d72161d41597e696407e7331650d92c78247a01f6f4bfb2ddad8c3e62fde6638561f2fe55973fecff003dbbed86d7cc563c82aa3ff65a30f9d429e8b636c470ebad773577dee7cb7fb057c34d7bf64dd13c417771ff0008eeb5ac788ac3fb30a5fc4f736b676e242c4792366f2e769cbb718c01c9aebbe1ff00c20fecbd69666b8876f98657b6b781a38612793b77331032785e8076afa034df81178a44d7d0c36f823049f318fb0f4359d2d959d9ebbf64b55dcb0e78eeefdc9f5ac71d9b2aabdd3af2be1ffabbbb3d2be0feff00f84576f4765ee7ee8cd7907ed05e077d435b99648ff737079f422bdbbe166857b269e46df2d471b545737f1bfc0f7b78c978acdb63fe02bd475af99aada7747d8d38dd729f3df857c0b75e0cd645c69536b5a5f9982e2c7509a2240ff75b27a74e4570f77fb1bf837c65e3ebad7352d2479b292c4c927cf2beeddbdcb0e5892724f35f447c38d42cf55bf3a5ddaaeedc02b93b5979ff001af506f80175e4ac90c9b9719daebb80cf6cd7b585cea74e9f233e7f19c3f4ea55e7bfde7ccd7ff05f4dd7a70658dae1a3c26e965676207006719e9ef5daf83fe13c7632f950e9f6ff00652a31b53bff009ef9af6ab2f863269ae3ceb78db18e8a32d5d343e084b587fe3dd6366e780702b8311985f63aa8e56a2b999e57ff0008c27d8405882b28efef5f2dff00c1433e15cde35f82b79670c3f68ba86f2096240bb88c48327d7804f4afb6bc4ba49b38768c7998c8e7a0af02f8fda6aea7a2dcac8adfeb622429dbd1c56581c535554d742730c12a941d37d7438cff008212fecc167a1fed11a56a5e22b399974b31de5909a20b1acc7704279ec70467be2bf7fb4997366acb82703db15f977fb0c7c3d8fc3567fdaf0daac71492c76e8ce0860dc95e7f0c60fad7e96fc39d61758d22dd9be6f32256273d4f435fa264f53dae1fdabfb4dbfd0fc8b8868aa18afabc768a4bef573a0b23fbc63dc9ef56f7fcdfa62a053b5c7e7d2a60d91f539e057ac8f00783e67e3fca9cb929518dcbebd3d281382d8f7aa0b9231e7ffad4537773d7b77ed4504f295d888fafff00ae90b6dfca86ff003ed413c52572a526b613ef2e73fad4731cafd2a46208c545300a9f5a667757399f1ac4cb6722aa82ad1b16c9e9806be0dfdad3f6646f8c5fb19dbed8cadc787f7df84641ba65f30b3019fcff00fd75f78f8c6ed05acd9660cb13e71e9835f36f8cbc6b712fc03b0b2b7b60abf63924bb32bec48d577705b9c0cf5cfa56d3a2aad174df536c2621d0ad1ab1e87e6dfc2bd364d3deded776c58e46caec23033d3f9d7d25e01b486dd636555f326f9464e09af987c13f10f4df1aa47abe8b751dc58de336c78db38218861907b106be87f85fe32850c7b8c6cd1a000b763c57e5b99424a7696e8fdab299c250bc36dcf69f0ef8223d557f7df7547233d6b42e3c271d83ec648f6fde191d0561f86fe2725bc0a0c8aa5bb81c37d2a3f17fc5b874e0e5658d895c0cf535e672dcf72376cf29fda97e244de1bbb8745d2523fb66a0fb7ceeab0af427eb5cd681f0dad74986c6f19e47b9988323b364b67a9fc6b77c61e1787c77aa36a170c56e3691011fc19ef5e47f10a0f89179e20b5b3d26f34fb6d2edd8079b6879245cfb83dbb003eb5ac62de874b8f2a3ec4f847a769a7c273492491c463e00e3766b33e34c3a5c1a0ae6e232d30e463eefe3f857897867c6de22f04698b1ea56d7174b8c8b9897e593eaa3eb589f11353f127c4eb711daadd69b64a30f391b642c7b2e463f1ac6b45a1d1a7adee59d4bc03a7a68d7532ed596e0ee0430cfa823d2bd13f634f8ccde3bd0aeb4bd4a4f3ae34b90c2acdf7b6af4cfd6bc17e1cfc29f1268fafc91dceb979796323730cccd2e013eac4e3fcf15ec9e0bf06dbfc30bf6bfd3e3585ee70660bfc47d6b18a7736ad67068f7ebfd061beb3f976c7e8c066b1b58f0f4905abb0937b229da40ebc743595a07c4e8e7b6dbb90f52439e9f9555f15fc43655217688d87f09ebd2b3ad1b1cf4f9968717e3dbb5b78f7370eabb58fa5783fc4e8e4d4adfcb863f35a4b88f6ae7b0607ffaf5de78f7c6326a492929e5925b8ddbbe9f9d79df8a2eeea1d02f2e2ce31717b1412490c6c7fd6385240c9f53c56d81a69bd4e3cc2af2c743edefd86e6b1f137ecfd7935b3c175b6e5dd0c0770dd17cbd4707e6073ef5f4cfecc5adc979e125370c5999fcdc9f52791f9d7e47ff00c1b71fb4e5d6a3f0d3c69e17d52e957fe26cd781259371844e32c003c80642dd0919fd7f5a7e1469ebe0ad2e0b3dcbfba0509073bbb8e6bf56c1d18d0a11a51e88fc3733c5cb13899d79ef267af2ddab11fddab11480853d413d31d2b02d6f7cdc6d6dc08ad5b39088d466ba398f3cd159097db8ed4c7e8781dea28ee3fc295df747dbe6f7eb544b449bd9cf1fce8a8f1b53d7d28a0a498d66c1ff00eb5207ebb8d128ff000a615dc2ad5cca4383fccd8fc2a395b773d87bd39db603bb1546f6e7a80702990737e2cbb8dda6859577491b60e33806bf3e7fe0a83f1c87ece9fb0a78b3779fb94ada4660fddca1259d5490704e705bff00ac39afbffc6eb1ad934817f7a0641ddb40fa9afc5dff0083857e33de59eb3a2f83d3538fecbac5bbea977141186963b58010a1ce724348e79c0e98aeea7a42e1d4f923fe099fe3ab8d63c35e30d38f9de5d9ea82ea21d428941c8c8ef91fad7dabe03d5e7b678fe665da3b1fd6be25ff00824bf8c2c4f847c61a13b44ba87db21be0ac42b18d936707d981e3dfeb5f71f85ac550a37cbf211c0ee2bf3dcfa37acee7ea9c2b2b61a2ae77c3c6ff0066b2c3eef331cb05ae6adb5b935ed5774d248c2323e52e4f5f5ae96d3c2e356319503cb93afa5717e30f04dc6832dd5bc6d35bfda3705923fbc78ed5f3d4e9a6cfb6f68fa1dc586a1752e57cc0d1ae026de40156a2d34c37b1bdc7dcebf31dbd2be55f107c3ff8a9e1fbdf3f47f195c5d5a4a466cae50065f4f9d719c7bd741e0af0bf8bb59d4218f55d5eea3b89081bde00cbc9c75c9ec2bae9e12faa67661a4aabe567d497dad29b4dab6cb36c38c975da3dbad4534f1dec43cc92d93d10c8bdbd39ae07fe19a350b299646f145e0693a655761c67d31fd6b3f5afd9f17ec73fdb3c4b7d7021208092e339ce40c2e7f0a2a612da9ea53c3537f68f48b38618650cde4eecf5460d8a7de5ea4d1489e62b2e39f9bb57ce7e20f843aac092369ba9ebb0e0801ccf81bbd4646703d2a3f0d7c33f12e81a74cd2f8bf5bbcba99b2c2493e48f1d877f5af3e54545dae71e29469697b9ecc356b9d0eef6c726e8f3f749e9eb5afaa6a8f79a7eee55b6f15c97c2fd22f2f079d7d70d3ac498e79c9e82b7bc4f70b1593471fcad9da78e95cf5e3a1c746a5ce1f5f3e7b37fb5c9af37f8f7e2f5f87bf0ab54f113492a0d0ede4baf291f699b08404cf5e738fa9af4dbc45897f798eb9e9d6bf34ffe0a4df1ff0054f16fc6ebef0ad9ea33278734bb78e07b68a5c477131c3b17c1e483b460f4c57a193e0feb15397a1e0f116611c252f6ad6fa23d37fe0841f12db48fdae6e74b223f335ed3e6f2d4bed56911849b739e7e5dc00afe833c0faa4d0cd6375e679d613055219be680fa1f61d2bf972ff827afc448fe17fed6de0fd52e2ed74fb78efd6292e4b6d16fbc18c396ec016049f4cd7f4d3f0feeeee7f0459b1bc597ed91261993a11800e457e9515a1f8ac9dddd9ef9a582aaa73f29e41cd6f583abafcc7ef7a76af3bf03ea579a7e8f1dbdd797249092a1949391d735d969979bb6f3d7072280e86c4efe4c671c81cd476cc59339f98f734d9499e3dbebc1c53a084471a804b71de9dc92dc52aeda2a058097eebf53455202479369a6b4bf3e0fae050ecae56a33d735a5b5d0ce524c2e66f2d32d8c7bd656aced2c3b97e5da7b77a975995b72a8fafa5539af96d6c98b1c6d079eb5ac511b9c3fc6ad6c699e1296491a31e5219082e0640ebfd6bf9c5ff82ce7ed3fa6fc40fda47c591e9b0dc43328b7d2216976ee10c4a5e6e392aad218f1ea2307d057ec9ffc15f3f6afb3fd9efe006aba95cdc5bdb4935bf956fbc65d989cf03a6300e727bfae057f331f14fe22df7c58f1cea9af6a2cd25d6a770f3b12c58a86390bf41e95d3527c94c715a95fe1cfc50d63e1678c2cf5bd1ef26b5bbb5915c796fb44a01076b7a838fd6bf63bf668f8b7a6fc57f0569fad594d9b7be895c027e789bf894fb83c57e29e368dbd7815f487fc13bbf6a2bbf83bf11e1f0fde48f2e8baf4e91a024936d2e70a40f7c807b77af9ccd307ede97bbbad8fa7e1dcd1e1711cb2f865a7a1fb29e14d6a2b665562a57a8e6b43c536b1df4625dbbc47c83d735e4de10f1cc77d12b2b367aedcfe55d2da78fd7cdf2db3b7eb5f05ac65667eb719c5c6e8d2bbf0ec5a945f748917d38acf97c217b6277dbc819b39535a367ac2dd5caed6e7a75ed5d35a69eb32a15f98e3b56eaaf29a45f5479a6ab278d5ee9561d4add5146046631c7f9f6a34db3f1533b1bad4ad5831e4c716dfcf8e6bd8a0f0fc0d1069218cb2f1c8a8af3c3d0346cd1a85da7a66b39e29ec6d1954ee7216be1ac69ebf6a93ce663963d8553d42d218c342b122ae3038fd6ba7d5cadbc0c785cf6f5ae2f5fd656ce75daea78ce6b8fadc2577b96e19d740b3dcb90aa318359573a989be77627bf358ba9f8bdb522635ff0056bfc408e6b2eefc429690b6e601630589cd6724de84a9c63ab38cfdabbe3de9ff0001be15ea9ae5e0633dbc456da28d8069a5270aa3fcf406bf2275fd7ef3c51ae5e6a77b335c5f6a13bdc4d2bb1667776249c9e7bd7d83ff00055bd76e35dd1bc37279924768b772288c31d8ff002e73e991cfe75f1928c0217d6beeb21c2c2950e75bb3f28e2ec754ad8bf66fe18a353c2b3358eab048aaac7cc0464e09c106bfa62ff826dfc6cb3f8d9fb27787f5cb3b9699d63586eade560ef6f71180245cf0719e467d7bf5afe6474ff96e94e76807935fb25ff06f8fc66fb1c579e1aba56956f499607472c548500e474008c7e22be8227c86ccfd84f0cea6d7768d3200ca5b207a5759a15c2c91aec6fc3b83deb8bf02caa2d668c7de0770cfa74aded32edb4fd4370ced9580600f00fad4ea59da4536d8b9fbc075cd58824cb7b7f3ac6b5bbf3645ea36f5f6ad884e533ed55102d39dc3e5e79a2a2698a8ef4550ec30e48fd2a396e02738a7c8db52b3efaed5061b1c9e2b58a39b7653d6b502833b40fc7a570bf103c6a9a4c79ba985b5b467711fc527b0adef1a6aff0064b6da922aee1d7dabe0dff82bb7edb963fb327c0dd49bedd1b6bda94063b38437ef3246d1b71ce49ef91800d76d1a77d591cc91f969ff0005f3fdb3eebf68ff00da40f862d2fa69345f09ee8e08d18796646c6f6e3bf007cdc8dbc01d4fe7c5c9f986d5fa915d37896feeb58d62f350bf9bcfbcbd95a695c9e58b124e6b9f72a707f002b86b4af236a6eeae502bf373f88aefff00664d306abfb4078421f9557fb46395895ec9f37f4ae1de3dcfd7dcfb8af5afd873436d53f68ed1e468d9a3b349252c3a29db8feb5c75a56837e4776062dd7847cd1fa6dac594fa0e9316a56dbc606f900f4e3f3a82d3e231d46253b8ab29c820d777e1dd29759d116de4da559369cf3915e5fe32f03cde0fd59a3fb88c4ec3ce3e99fc6be039e32bdcfd8a509c2cd6c76de1bf89e6de458e4936499ce49f94d7a8f84be27ab98dd995821eb9cf1ed5f357dae48e3549a16917fbc3b0ff0039ad3d2f58bab55ff44b83b4100ab9ce71ebdeb1a91563a29d66b467d6edf12e295c342d1edda7af154eebc7b146ebc7de3b9867f1af9b6dfe24eb163f2f968caa3190e7f91a924f89fad6a1f76d446dd32ed95fcbfc6b8e49dcf423562d1ec5e34f89892c0cb1fca49e3e98af33f10f8ebcc7f2f733c87e5603a01e95c85f5f5ede3efbebc6ca8c154e33504baac2836c0a59ba703f9d547ccc6a546f63a17f12fd92dff87e9591797b36b4e373b7964fdda34ed2e6d4e50a54e5867af6ae9ac7c287eccc56304aae09c55f3c63b98c69ca5b9f23ff00c14abc342efe095aea03eee97a844473fdf0ca7f9d7c32adb4e5437a107b57e937ededf0f64f18fc07d4ac6dff00d724b1cf12938dccac0e3ebd6bf3d22f00ea0eccaf0f94636607cce32457da649514b0e9799f987165071c6f37748cbb7976be7af5fc2bee1ff82357ed236bf093e37c6b7d2346b22a24459c2a0f9be6527dc1e39ea2be2a97c397705afda046648776d2c873b5bdc75fc7f95747f05bc452783fc7b69751cde5b2b67206769edfad7bf09599f273d8feaffc05e3b8351821bab5912e6196253f2372c0f715dbdbcf26a0db63464771dbf87bf5afce1ff82777edb963e23f0c697a2ea133c7a97911a4e64393b9bee9cf1f291819f6afd0cf05f899f50853cb52ad0000b7f787ad396f71c6573bad28c9e504932cc3f8c0c6eae82d836c0a7f315cbe95a979db7e6fde2fe15d05a5e074e3e561da828b40ec7fc78a2a299f8e85b8f5a2a946e054babe0a4963b40eb93c7ad737af78c238606f2f32b755c77acdf14f8a9629561e64dfd42d79ff00c55f8cba4fc2af09de6a9a95c5bdba5aa33b3cd28448c01dd9b81f8d76d1a3dcc65b9ce7ed1df1fa3f85be00d5fc45af4967a7c36d114b58e572db9fb0c719f5afe783fe0a1ffb605f7ed35f1d6fae27bc92e74cd3e761116013cdedb8a83807031c7000af51ff0082af7fc1576f7f692f1c4de1df0dde19b41b29183cb13feee66c633fedf723b0383dabe14b0b5d53c5ba9adad95b5cdf5f4c4b2c512191cf73c0e78ad6ad4e55cb139fe27e445a9ea3f699646fbaacc49ed8cf159d342c22272176fad7d49fb3c7fc1303c49f1bf4ed49aeb53874bbfd36c4dfb69e20796609b72bb80c01bb81c9e09e9c1acdf839fb145c6b3a2add6b16b756f206649226ff0096441c11f874af0f1d88861d73543d4cbf0157133f67496a7cf7e18f06de6bd72ab0c326d6fe2c75afabff00630f8669e11f12f9ad12f99b555dcf5e7b7b5751a07ece90e897c9b61f2d631cb606180aee7e0a78696d7c5378bb576310538f4e327d79af9ec4e68aa45a81f6997f0fca8558ce7bdcfad3e1be961ace1913e65db8e3a6315d2789fc076de2ed39e19e3cb853b1b1f74e2b37e16b0874e897e4dca02b2e7a57a1d9c7f216551e59e8dd857c94a566d9fa0ab35667cf1a978064f0edfb5b4c9df2ac46430f6345cfc32b7d51372af96fd72383ff00ebaf70d634a86ed2459e34911cf008ac26f87dc66d67dbbbf8645e9f8d73d4acfa170a29ea78a5f7c2cd4ad031b7b893008e1b9159b278275a8a20be6315f65af781f0db5e7fbb6b0c919046e59473f9d364f85fac47cb59c783dfcd5ac6588b6e6ca9a5b1e1f6fe039d1775d49249c602b7e9f4abd67e0edd22aaa81d33ee3debd3f56f87b7fb1bce8e18f038f9ff003e94787fc1b0c7febbf78d927681c543c43e852a6667853c0de7c5f28558ff0089fb8fa0aeaae3c370d9695950ab1a8efdfdcd74361a7456d6b970aaa3a28e9585e35be592d786f9586302ad5dee1748f9aff6a22d73a75c40a3e461f281df073c7e55f2cfc49f82f25cc7f6a58f6b38f30301b7208f6fcebeaef8d96b26b37c76a7c8a0f22b95f0d78753c43a5471c8bf32a6d00fcd8c7aff00857d360f13eca09a3e3b35c0fd6ab3525a1f1adafc2cd53c0ba85bea11a09a2f394b4330fddca09030739ebeb5f777ed43ff00041a1a97c358fc59f0e6fa1b0d49e06bd6b2b9dc61bd0c372c21f3888e780fc8cf5006486fc27fd9957e377c60f0bf84dc3476f717cb7577203f76de13e639f6c81b7fe042bf5127f8cbe0881a1f0d4d7f2c76a8bf61f31a19553cc1f288f2579eb8dc3e5f7afafcbb10eb53e667e7d9c65f0c355f6713f037e0afc6cf14fc11d6e4f0febda6dd699ae691288489c146971c85661c301d410707d6bf617f649fdb9e3d63c1da1eabaa6a974b6d710a335ccc8c90c4481c3b37030c7192715b97dfb0ee910fc74d1ae2dec216d2ede379259240ac6e54e7f744633b41c1fc0d6c789745f0b784351d434d5d3f688e2680c505b862ebb7eee00da7d30d5e9dba1e1eccfaf7c3fafdbebda7dacf15dc32473a09331b03efc107f9575969726078d7cc665e3e63d6bf3efc0df11fc59f077448ee3c1da62ea7a4d8ce57ec4ffbb5d807dc54e761e98c71ed5f557c12fda5b4bf895e1cd3aea48e6d32eaf977c96d768629203dd4a9ee083f5a3d9bb5cd63247b6cb75bff002f5a2b3adf588a640d1cc8dee0d14ac59f9ebfb787fc15bbc2bfb1ce8971347e45f788a7dd1dbd9cf32876386c1d8096da0a9c9c607722bf11ff0069dfdb8be337fc145f576b3d42eb50bed264995974ad2e175b32e33867038661eae491ce31cd7db5f033fe09a90f8775997c4ff156e20f891e31d6e7597ecd382d15b973fdd7c293d7939ea70a2bec9f86bfb1bf85fe297879ed6eb4bfecab4b30603676d02c4884f24800633ee3d2bbf54ad738eeee7e43fecf3ff0492f197c5ed0e4bebcd5f4ff000eaeccdbda342d753cdc1fbdb4854191dc9cfb0e6beeff00d9e3fe091dac7c2df02598d1adf4b7d456dccd73757298ba9ae0a1194651855c9e173f5afb0bc4fe1cf0bfecf5a0dbe9da5e82b25eba6e86085543c8010a3963c01fd2bd73e1a6b2d26aeb6722af94f089633c92bd322b2f42b96ceecf19f07fc28d33f65af0ec5a878912e352d5bc42cb6bb6c2d1b11fc99d8c03312011cc87b9e8057c73f113c192685e25d4e4bcb06d06df522da9c36d2c824f25246dccbb8601c36470057e8f7ed03f05eebc75369be22d1e08f51d6741493ec969713086de42d80433046619c0e9c0f4af9bfc7dfb3ff89bc53f0c6eb56bcd174dd2a4f0cdcce0d9c6249269d18877c48d85641938207245781c4184957c3de3bc75ff0033ea38671d1c3e2d39ed2d3d3b1f24cfe0c12d8b1cac91cc372903af7ac1d27c303c37e27b568f730994c65c9ee39e715ecda8e8d1cf6cad1eddbd7005711f117c293437361a843e62adbb80e10718f5ff003ed5f9ed3a9ad99fac5649a4d1e9be009fc878ff00e9af523debd7340b2560aca4ed032475dc6bc57c297216dade55236ba2b82a786e38af5df067882392158f7648e48f6acddae4b6dad0bbadf87b62878c1f2cf3b1bb1f6ac61fe893ed6f976f43e95db2dd2dc47c72b9ee2ab5ee996f78db6454d8c30c31d6b92b53ea8e9a151a5691c9af896688158f0157233d73531f125c18be661f402b793c03a6c501f2e4751d86ec8f7aab1783ad239cf9923f1c0e7a5704f47a9d71a91672ba8dc4da9b2c7dfb28ea6b434ef0c7d963324ebf311c293d3eb5bf0e936560cde446738e59b9acbd7af9608d864ed1e94447cdd8ccd635054f94745e381c5703e2ad71a5668d57e6738fa56d788b52f3432c6cdefed5cedbe90fa85dff00b59070476af429f99cd524ce17c61e17335948aaa0f9a0a827b134683e005d1f4c2ad862c02e401c76ff001aeeb5cd3e1d3b54b7b69a44f326e5571d7fcfad3b49f07df78aafe5b7b3b7699205579dc062b121381c2e4927a003938f635e8e1e33ab35081e5e22ad3a51739f43debf60ff00d9606abf0e7c47e2ab95fb3ea1ac5bbd8e9aec3e68e019cb0c10c37301d08c851552df5cd5b4889bc3f6da57885bc496b66b0b1286430a4d7063599864b0191bbef12179af45f80ff10f54f0c78ef4af0be9f1dbdb69af3149ad6ea26dc5046b8f2dd4908c3fbadd7dabd9be31f8aacbe15782f51f105c59cd70d6eabb85bc06595b90070396033c8f4afd2707875429469ae87e459862a55f112ab2eaff00038b92eaf7c13a0c2b75766eae74ab24b66b999cbef91860927a9fc6a7d73c22be34f0fc3a869b7566d34841690c7949c8ebcf1efcd715e05f1fc9f157e10ea0d75710dd78816ee433c50c463e8e301549278520679e6bd23c03e0a5f845e02d4350d56f26bc52af765464885154b6c5cf39e3f3f6aed8eacf32a2ea79bf8b7c4f75e13f15697e1bb268dee3508e49e7cc79f914751fdde7dbb54fa24c9ad5e58b6db866997634917de461c1cafe7d2bb1f0b6a3e1bf8e1a45aea1142a24bcb48e578241b6e218dc6407c720f7c66b3bc4965a3fecebe149af37f9925e4c5229662acd1173c28c95f9471c673572b2d095166c4763a9786ad3cf8754bc2b1b1c10c7bf1fd68af38d6be245e7839750d667d51a459de18ee209233f678fe4f97c9c9c2e7a9c93e9454f2872b2d6b9fb345bf8cb55b6bc8753b88ecd2f23ba6b684a912ec39237fde1e9c37156be22fc70b8f849aa4be1ef0e7875aeafa1b192785a60d1daa38195049fbc0f721b23d2ae7ecfadac7827e145d9f1043fd9f61a64b23dacd2aed67b71f317d80b154f404962064f5aa1f113c0fa67c51f07af8c3c2ba5e93aecde22b30249a59648bed36ccb8caf60c07665f6e2ba2524b608d3d6ccbde15f14dafed0b0ea5a3ea9a75d69d790c636caa99f94a8cbabe30327760649c006b762d366f85d205b769ef1628f0a253f3b0ec33f8573ff00b2de8975756abe22b8f0f58e8b67158a595bcc2eda59e7d9c392bf755723ea6ba0f1ab69bf17f46b3d5b43d521bafecf6370891480f9db4952081cf0411f5152e57dca71d6c70bf08ff681bcf067c54d27c21326a4f67ac5ddf4cc6e86f921cb0932cff75624ddb41ea4b281d0d7b67c7cb4d6354f855ac59f876dadee7569a20b04725db5ac679192644058719e80e7a5795f87fe18787fc79e39d275ad62de66fb0dc25e44865648c4e8ac10ba82376dc9201e3760e32063517f6abb74fda1351d01a6d2ee7c2769a6c6cb7f0ca24717be6b23c0704fcc06df96b196ba2358bb6a7c87e33d32c743f142dac5791dc3c9196b8544755b59c1c3a7ce03104f20e2a397c251ea564d1c803c72a952319c8ff39afbfbc6ff00063c39f10a45bad4ac639dbeccd08fee947c127dcf0307a8af897c5fa2c7f0bf5ebc81bed8da28b9786da7ba88c72c641385653c9e01c1ee39af84ceb2795293ad497bbd7cbfe01fa0e439e2ab0587acfde5b79aff0033948fc3b0dba2c3047e4c71aec4551c2e3d2ace9b3cba65c215668f6f2bcd3fc4f7b70966d7565fbd2bc8527ef7a678e953f86fc456be27d311cec1bbe5e0fcb9e87f5af9cf23eca32d2e765a1789fed568bbb0acbd41f4ab93ea0d22654f3d720d733068cf6bb595b39c638e7d6b6b4f819d7e66e4faf6ae3ae9ad8eaa5cac961d42708cad8f94faf35662ba3e5faf1dc5034b631b11f31e4e3d7e950dcabc7fc27d09f4af3ea1d3756d075c5eac50b331daabebeb5c8f88b500f70fb5b218e056f5ea79d030ec79e2b3e2f0fb5f3fcbd33ce7bd3a698a52491c7ae993df5cfc9fc4dc715bda6f8763d174f69a7652d825989e83daba2fec3874a4666daac172c5b181573c17f0835ef8ed74da7e8b19b7d2f94b9d49d498e3e990a3f89bf41dc8af670b879d4972c55d9e3e3b1d0a51729bb23c67e1e68da87c6af8a9a847a742d1c7a726659a51fbbb38075918fd3a28ebc57e807c39fd9a7c3ba77c0e8f4bd16e2e02ea691cf757ebf2dc5c9e0b12dd5491903d01c0c5792cff000dfc3ff01fc21aa78334b5f13e98b6b0c9a8dd5fc491bbeb321072aee3e76c9e30aa074038af43fd98f59834bf174da169cd79343716897b782eb522cd6cdb0001206195527ae0e01afd032acae3868734be27f81f98e719d4f152e58690e9e7e6cb7fb3dfc205f07eb779e20d5a1fb26a1f689edd21594b47243e67ee9883fc5b40e6ae7c6df1e683e3bf0e6a1a6b4ecb069777b2f5dcf94a8cbf363774239fe75a9fb40e9fa83e816f159df5fd8a493e26fb161679d7fba1cfdc1ea473815c77c318b43d5753bdd28c5249242ecd3a4a8640edc658b375e78c9e4915eec4f0399ee62fc06b7d3f5df893797da4df586a1630c66257b4951954123860396e41e7d6b63f6b3f122d8dae87651cca93cd248db45cc90395c6091b4157eb8dadeb58dac78a343fd974ea8747d112e2f750496f561b68444b3367856651c7538e39c1aec3c1ff00177c3ff1b353b9d264b5ff004ab58417461bb1b97e700e3800e579f4ad626524ef7381fd97f40d4ad7c4f77a8fd9e48747960426572313c838c28ea71ea781c01d0d7abea5a2e87f1b7c39812a4d124aeb1caaa0b432212ac5770386046338ac4f8b1aa47f0a7e18b369eb3dac36fb511a0b5373f675e39318e597d71cd795fc03f145e787fe25e8f6d0dc1fecdbb7984508876895998bb145ea39392c7a0e3a9aa97734f33b093f654ba9aeae23bef13788858c2c9e54c2e8096eb0a47ef06dc1c718e38c515e97f1d25d417e1e5d0d196e1b503247e5f92caaf8dc33cb71d28a90b9ca7ed0705e5afc27d41f4c3751cd0461563b5b45ba6913a14f2d880ca476c835e23fb3c7c51bef07f89f43d36e278d7489f769a2ddf745e4480e56282d94124f397918e1460735eabe21f8a5e15f89d7fab785efa48df4b92da26fb534e16daec48c5762b820eedc318e0f22ba8f863f0b347f87f35d49630468b205f294aee68542e386249e7afe355bea0627ed7fe299b42f836b058b595bdbde5d456f3f9924b0b2464e4f95e5827cccf4078eb9af39f8036a9e19f8d76ab6561aadbdbdf44d6b7c12dd5a2054165795db0514e4f0abc9233edeb1e1af89da7f8efc6ba9687e4dc476f6f08912e47cbf3e4ab0f623d7dea9e8bf0661f865e2ab9d71ef352d423fb3b159aee732bdbe7ef0180377ca0019c9ed4476b0bc99adf132fb4df084905c493436e6ee4d9b49dbbcfa8af9b7e247ecd874dd6afb5dd27fb42e26d52569641a6dba2dd4e49dc10370a0b631e637201eb5ec9a1fc53d0fe3bdb1d0ef2cdd35198cf35bc26272be544f812efc0db9c8201209e78e0d73bfb365bf88be1ffc61d7bc37ac5c5e5f696d18bcb7320468a2663c80e58c9e9c11b476a9d823a1efbf0662d557e16e8f0f8b23b2b3d625855258609329116e912b1c6e2a38cf7c5784fed03fb386a1e0ad26e3fe111f0bf84f58d2566170fa64b0c897934ec797f38961ce79cad753fb504e6e61f0c3cd732247a6eaf15edbc70cde54934918621324e0835de7c04f1f5d7c51f0326a1a84504178b23c7711c3219238dc13940e7ef6de013eb533a7cd12e32717cc8f9a7e217ec817be07f8731f8863bad374d99a3596fb4f9653f65b6638f923908ce0138191f9578ccfe13b8f07eab241a85bdd584cc72209c7c98edb4e7073edeb5f4f7ed17afdb7893f6861e10bc6ba9ed9b457b936315c3159d43672f1e36039036b161c9af28d6e3d4175bd4345bad3ef23d07c51a64daa59acf672dd4e2e860f3720948c285c04000e383cf3f2b9a70fd3707568e92dfc8fafc9f89ab466a9e23de8fe2729a6ea6f00551f347c1c75c8f6aec3c357d15e0e3f115c1e87731da41671cd26d79d72148383f8d74ba43fd827fe25fc6bf3f949deccfd295ada1dcc5a644e3e5db83e9c66abcfa32ca08fcf3cd67da6b0c25eb8cf4c5595d4187cd9efdeb1b263d5105c68091272c7763a1e959773a9c3a6bed8f6b31e4fb5686ab7b2347b57a907201fbd584da43ec69261856c9e95504a2c993bee4bf0cb436f8c7f1974ff000fcc923594a19ee023e36a0ee7f31d2bedbf0ddb68bf08748d2f48f323459996d2dc94cbcad82792a3d8f27d2be35fd9b740bcb7fda0acf528e431a25a4e08072318182477adff001a78a3555f142dc5f5c788aeae6196596dd27bd8a1ba65fba0c48bc46bdc6ee48eb5fa1f0e528fd5bda2ddbdcfcc78aea4de2bd9df44b63d53f689fd9b756f1378c2ff00c55e13bc8ad35bba86384f9e328e4100b3139f95573850319e6b6bc14345f81377b6eb525bcd4b5694bc304aca6604805953033b3209e7a135b5e13f15ea1e24f83f0fd87515bcd4162dab7d3c3bb91dca823711d383c915f2f691a3f8bbc3a752f1a78d3528aeaf12697ecf1db5b959a640e5620c49c85c72107033d6be9a313e52c7b4fed1ff0016aea0874fb78675b792f253b33e62fc8a3276ba82037d7b571bfb375b5e6bfe3197569135636bf640564236dac8ec4e4eeeb23fbf41f5cd7a17c0ef120f8a1a2ea10df259b2c7fe8ed0c6c243082a32ace38de73c81f778ad0f89badd8fc18f005be9ba7c6d6b1ba7d9ad48e5603d173fe35a6cac847937ed23791782f5cd4f52d435bb7d1e6d474efb3e96df677f33cd192499395f4c020742735d27ecb1e00b1f0f25c788041aa5a473c2550dccbb16618cb4bb076272771e4d7a5da69ba17c5df86a825fb3eab6979098247dbb964ecc47b1f515e37fb4178c2f344f887e15f056952ae9f6f203389a1d4024c422edf2fc9c132478ebef5ac56970df43d4b5bb2f0efc72f0dda08754927b59e4f36de5b5b9685a503824152091dbd2ad781be1c69df0a34ebed4650d75342b24ab394f3268e2032101ea7fae6bc1fe07d8cb6bf11b45d434ed2f52fb2ed92c9f3e5edb750c73924e465b9c283cd7d39e31d3ae357f06ea90dac4659e5b57544076962474cf6a52959d812b23cc7e19fc7883e237c44d6c35d471f877c980e9cf28f2de572ac64055b1c8c74a2bc659aefc14da75adcdedee89707746af7763f6abf18524aa2a029db973d471de8a8bb2b948752d0f568ad74dd0b5c5f0dc77ede64b756e2fd64bb575f9a09048c8aab86c9cb2919c73c57bcfc0abbd4aebe1bd945aa42d6b7c88d10f32fd6f8c80642b34aa006cf0781c74a9fc59f0e3c3bf18fc3f18beb1b3bd86e02ba4be5862c0107a91f74e3915c0fc61f89d7be05f1141a3e8621b15d3edd2e2490490ac61071e5153cc6303ef118e78e95a44930fc57a36b1e02d4236d62c55645bc373686dde4b88a7643bc6234c4858673b0e47b9afa222d51bc65f0f639bc9ba85ef6d0398e5530cb92bdc7553fe3547c177d69e3ef0968dad482c6ea49a213c525bc8268d188c128f8191db381f4ae0fc71fb43cde1af8b5a56979b4b6d16dd6e5b569ee182ec5540c8e18f450739a71dc72d4f23f184ad6377a6d95d6a1e19b5d7a0bb81934bd47587859be7c805a2c3c8d9c10a46d27ad7d13e374ff847bc3e758f263fb54306e93ca1b89c0ce338c919accbdf85de19f1d788b47f18c365a7ddddc63ceb6bdf24333230e3071ef5c97ed17f1f7fe117f12f877c3da6dd5aadf4d7f0bea56f3065c59b6e05c1e8467ae0f14490ad726f82bf1af45f8d9a0d8e95e33d2acecf5cd9e74b14f1e6d15bcc289877fe36e085eb5ec9e0af87765f0cf4cb94d3774714d2bcc533f2a6e39200e82be4ed17c3bfdb7f183fb73c2fa15978ab40d6af2378eee7b9f262d324849579143292e3238da3b7e35f5eaf88e178adeda4bab58e7bb42b1c6ce034a40e700f2695b40380f1e1d1fe30c77563a3f89ee341d5229151eead447e61ff0063e70cac0e718ef5c6fc35fd9a24f00f813c47aa6b5a96ada96b522dc4304d73766448ed86762a46b844ce790075ef5cdeb7fb39788be1f78ba3b8d0ec741b7b5d4b545669edade4ff00476724194c19d9b80fe204726be87f115d693a6e9165a4eb52b33eb1ff0012f0e570b3b9539ce385ce3f3ae6af1728b4bb174e5cb34cf8a8f80078bbc156e5576c90aee8db1ca30e86abf861aea6b6682fa2227b76d9bf070ffe7d6bd6bc57e0a87e1278a26d237349a6cce4daca79c1fee13ea2b07c4ba22dba79b1c6a4af27031915f9266183a94aa34d6a7ec997e3a15a9a9476660dbd8b2bf43f30ed5612dd890bd3b64555d13c4b6ba85d4d0acd1b4d6edb5d075535ac970376efcbd0d79aa27a7ed10cb6d3c1cee51eb9e99a9534d4d5e65f987951f41d9bdaaade6a7f6b916de1fbf21c1f6f5ad09a4fb058c56f6d1eeb8b8710a20eaec4e00fc49aeaa145ce4a272e2310a106cf42fd963e1dff00c24bf10752d4d64686d74cb636b95006e77ec38ec3f9d733fb4669fa4e8ff12134dd2d63b8b9b5ff0049bcba5bbf32e63278d8d1fa1ce4723b57be7c3bb6d37e13787f44f0ccd281ad6ab13ce7cb19dec305d89ec0640af2cfda33e0b6bdadfc40d3754d1f5b8f49d0d64dfa922dbc7b9b60c872edc939e30723815faa65b83fabd08d33f22cd31af1189954e9b2f4392fd93bc69a80f883ac58c570bfd91636a96f15acb6d389a33938cbb009ea48504f3d6ae7ed55f0975ef114fa7df01a7df69cd73142b6725b3b4b1966197dc87a63a8c74ef5977f26ada5cf17f63788278e1b347b8779ee1249efc13feb371c2a81820670067db15f457c38d62e3c59e08d3afef23b75b89a3ce219d6e10fa1de3827d71c66bd68aec79be6739f013e12cdf0afc3b247797cb7771707705862f22dedd7a8544c9c71d4924935c37ed6b6379acdf69b6fb6e16c3633cb3ecdd02f41b1c0e70783efd2bd0fe28fc60b5f87c26b6585aef557b5927b4b5c11f682bd17774c9cf4a4f07ebfa77c60f0ea99e1cb42e8b71185608b280090a7b807f514728b5395fd9420beb2f00491dc59df5bc0d29f264bc4f25e703bac5ff2ce3ecaa79c0cf7ad6f8b3f052ebc737d0ea3a36b03c3dad4181f6c4b4499e44e328770ced3cf4c735b9f157c5d6be08f0eacd348f079cde4c4c91b3ec66e0640e7a91cd72bf023c6b7161a2e9da2eab7925f5f2c444977292a2572c582ae793853cd691b5ac66dd995fe1efc1487e11cf71a85f6a771ab5d2297324c36c502f2cdb1146067249ea6ace95fb4b4c9e26b8962b55bff000eccb0c763340a448642489371270a17af38c0ab7fb43d96a5a8fc3ed421d37ed6f793a04416f70b6ec32719de410a3d4d790d96afe1fbdb2fec7935a82e1a4b14b6962b4537689724e0ee555cb31ef9c74ed5328954f5d59f4958e9365ad6a2dab42b0dc35ca00b20219597b628aa5f0dac26d1fc23a7dacad16eb684463cb8bca5c01c613f87e9454d8a3ca7f662f1a4f77fdada0cced71268b22abca50226586552351d11570393935c87c77f0bff00c233f1365f15dc3584905e47169f1c09a7c6677959f879656396403a2f6e7ad1455440fa174311e8de0fb18f00f971aa9d881064e3900703e95e09f19be1a2cff14dee6e3ec9711ea519289247b946001874e8debd467bd1451d40f4afd9bbc58be2bf014d6f1c9712ae9372d66679d55249997963b572157d003c0af35fdaeb400facdab09d5ae26b690c70cd02cb0b9520f2d90c9d7195ce4678a28aa2a2687ecb17cb3789b5cf0ec9e6dc5c58c115cdddcb111c6b23e42c5044bc244a063ae4f5358de31b2d46d7e2e5c5d6a3ab5c5d2f87e57bad3b11ab359ef52842e40e3d8934515321a3d6ff0064af885ac78db4dd52cf55f2ae2df4794416b72d333dcdcf19669780aa72780b918ef5a7fb4fd84775e10b39a49ae2068671244d08076b8e4120fb8ec4514511225b9e31e188e4d674192df54bcb9beb7d4af85b5bbb80d2a5ecbb9cccc4f44030028cf15cd45ac5d5a6a579a5ddf94f358cad0b347f71b1c67b1a28af91e26a304e334b567d870c559eb1be8719e3dd15b4f63a95acbe4dc42771c0c07f63fe79a9bc2be3893c43a14723c7e5ccc083b785eb8a28afcf6b692b23efe9bf74e9b490ba7c2b27de623249fe55d3fc22b57d5f54d5fc48e2390e871b2dadbc9f75a5d84866f40071c73ce7b51457d16414e2f111ba3e7b882ace386972b35be1078df50f1c78cace459d95a3431f9d703cd9a3573bdd10f455ce39eb818c57b4fc4cd064f12f836f2d44cf1e50b101caefc7f096c1383df1cd1457e9963f327b9f35fc36f17f8b3c5df156eb435d27c1f6cb6d6f15adc99249ee11a204e7682aa598f3f78e3eb5f56683a65bf867c370da59dbc16b6f6a9b5228576a2fd051456886cf98f50d52eb51baf17788ade4b9b79e1bf58a049eedaee343bc29658d940424718048e6bd63e09d8cfa7f8bf596920b758a48a27491277672483c14236a81ec79a28a03a153f6aff19a784f44d0e491afa35bbbc1107b4902b83db20f0cbea0d73df0dacae35bf8968a8d1ab595b079657272a8cc7091a8e0648f998f268a2aa3b18c8f6149e2beba96dda3c88d79cf439aa517c28d1edb5f8757b787ecf756f1b22aa0011b2724b7bd14515740471a3f68dfb2f8e21d161d3dbc9d93bcd2337cc591828da3d0e73cd1451589a1ffd9, 'image/jpeg', '', '', 0, ''),
-(898, 'Dr. Vaibhav', 'E.', 'Narawade', '0000-00-00', 'Male', 'Computer Engineering', 9988776655, 'Ramrao Adik Institute of Technology', 'Ramrao Adik Institute of Technology', 'vaibhav.narawade@rait.ac.in', '2019-01-03', 'PhD', 'Computer Network, Wireless Sensor Network, Image Processing', 'Professor', '123', NULL, '', '', '', '', 0, '');
+(898, 'Dr. Vaibhav', 'E.', 'Narawade', '0000-00-00', 'Male', 'Computer Engineering', 9988776655, 'Ramrao Adik Institute of Technology', 'Ramrao Adik Institute of Technology', 'vaibhav.narawade@rait.ac.in', '2019-01-03', 'PhD', 'Computer Network, Wireless Sensor Network, Image Processing', 'Professor', '123', NULL, '', '', '', '', 0, ''),
+(1001, 'HOD', '_', 'CE', '0000-00-00', '', 'Computer Engineering', 0, '', '', '', '0000-00-00', '', '', 'hod', '123', NULL, '', '', '', '', 0, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faculty_as_resource`
+--
+
+CREATE TABLE `faculty_as_resource` (
+  `id` int(26) NOT NULL,
+  `Faculty_name` varchar(60) NOT NULL,
+  `Email` varchar(100) NOT NULL,
+  `Resource_person` varchar(60) NOT NULL,
+  `Topic_name` varchar(30) NOT NULL,
+  `Event_name` varchar(30) NOT NULL,
+  `Sponsored` varchar(100) NOT NULL,
+  `Funded` varchar(100) NOT NULL,
+  `Academic` varchar(100) NOT NULL,
+  `Level` varchar(60) NOT NULL,
+  `Venue` varchar(60) NOT NULL,
+  `Date` date NOT NULL,
+  `Other` varchar(100) NOT NULL,
+  `pdf` varchar(200) DEFAULT NULL,
+  `Sdrn` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `faculty_as_resource`
+--
+
+INSERT INTO `faculty_as_resource` (`id`, `Faculty_name`, `Email`, `Resource_person`, `Topic_name`, `Event_name`, `Sponsored`, `Funded`, `Academic`, `Level`, `Venue`, `Date`, `Other`, `pdf`, `Sdrn`) VALUES
+(123, 'Balwant Gorad', '', 'FDP', '3 Days Hands-on Session on Pyt', 'Recent Trends in Computer Scie', 'Self Finance', '', '2020-21', 'National', 'Shriram Institute of Engineering and Technology(Poly), Paniv', '2020-07-02', '', NULL, 894),
+(124, 'Mrs. Sheetal A. Ahir', '', 'Expert talk', 'Skill Enhancement Session Proj', 'Summer Internship Program 2020', 'Self Finance', '', '2020-21', 'Inhouse', 'SDG-RAIT ', '2020-08-17', '', NULL, 419),
+(125, 'Ms. Puja Padiya', '', 'Expert talk', 'Operating System Basics_ in _C', 'Computer Fundamental Sessions_', 'Self Finance', '', '2020-21', 'Inhouse', 'Training & Placement Cell RAIT, Nerul.', '2020-08-17', '', NULL, 396),
+(126, 'Puja Padiya', '', 'Expert talk', 'Operating System Basics', 'Computer Fundamental Sessions_', 'Self Finance', '', '2020-21', 'Inhouse', 'TPC of RAIT', '2020-08-17', '', NULL, 396),
+(127, 'SMITA VINIT BHOIR', '', 'Training Program', 'A Step Towards Application Dev', 'A Step Towards Application Dev', 'Self Finance', '', '2020-21', 'Inhouse', 'RAMRAO ADIK INSTITUTE OF TECHNOLOGY', '2020-09-12', '', NULL, 482),
+(128, 'SMITA VINIT BHOIR', '', 'Training Program', 'A Step Towards Application Dev', 'A Step Towards Application Dev', 'Self Finance', '', '2020-21', 'Inhouse', 'RAMRAO ADIK INSITUTE OF TECHNOLOGY', '2020-09-13', '', NULL, 482),
+(129, 'Mrs. Sheetal A.Ahir', '', 'Training Program', 'Project Modeling ', 'Skill Set Development Program ', 'Self Finance', 'NA', '2020-21', 'Inhouse', 'Ramrao Adik Institute of Technology ', '2020-09-26', '', NULL, 419),
+(130, 'Mr. Prathmesh Gunjgur', '', 'Expert talk', 'Discover MS-Word as an Enginee', 'FE Skill Development Programme', 'Self Finance', '', '2020-21', 'Inhouse', 'Institute', '2020-10-07', '', NULL, 593),
+(131, 'Namita Pulgam', '', 'Expert talk', 'Steps towards developing appli', 'FE Skill Development Programme', 'Self Finance', '', '2020-21', 'Inhouse', 'RAIT', '2020-10-08', '', NULL, 330),
+(132, 'SMITA VINIT BHOIR', '', 'Training Program', 'Become an Android App Develope', 'Become an Android App Develope', 'Self Finance', '', '2020-21', 'Inhouse', 'RAMRAO ADIK INSTITUTE OF TECHNOLOGY', '2020-10-10', '', NULL, 482),
+(133, 'SMITA VINIT BHOIR', '', 'Training Program', 'Become an Android App Develope', 'Become an Android App Develope', 'Self Finance', '', '2020-21', 'Inhouse', 'RAMRAO ADIK INSITUTE OF TECHNOLOGY', '2020-10-11', '', NULL, 482),
+(134, 'Dr. Sangita Chaudhari', '', 'Expert talk', 'Demystifying Machine Learning ', 'Dr. Sangita Chaudhari', 'Funded', 'NA', '2020-21', 'National', 'IEEE WIE AG Bomabay Section, IEEE DBCE SB WIE AG Goa and IEE', '2020-11-07', '', NULL, 896),
+(135, 'Dr. Sangita Chaudhari', '', 'Expert talk', 'Data Analytics using Orange', 'One week STTP on \"Current Tren', 'Funded', 'NA (For Expert talk funding is not essential)', '2020-21', 'State', 'Vidyalankar School of Information Technology, Wadala, Mumbai', '2020-11-25', '', NULL, 896),
+(136, 'Tabassum A. Maktum', '', 'Expert talk', 'Overview of Security Issues in', 'Webinar', 'Self Finance', '', '2020-21', 'National', 'Ramrao Adik Institute of Technology', '2020-11-25', '', NULL, 812),
+(137, 'Tushar H. Ghorpade', '', 'FDP', 'Data Mining Introduction and u', 'Five days Faculty Development ', 'Self Finance', '', '2020-21', 'National', 'Reva University, Bengaluru, India', '2021-02-17', '', NULL, 411),
+(138, 'Rajashree Shedge', '', 'FDP', 'Python/R for Data Science, ML ', 'FDP on \"Python/R for Data Scie', '', '', '2020-21', 'National', 'Sharad Institute of Technology, Polytechnic, Kolhapur', '2021-02-22', '', NULL, 407),
+(139, 'Balwant Gorad', '', 'FDP', 'Step towards data science - AI', 'The National level One week Fa', 'Self Finance', '', '2020-21', 'National', 'Sharad Institutte of Technology, Ichalkaranji, Kolhapur', '2021-02-24', '', NULL, 894),
+(140, 'Balwant Gorad', '', 'FDP', 'A Step Towards Data Science - ', 'The National level One week Fa', 'Self Finance', '', '2020-21', 'National', 'SIT Ichalkaranji kolhapur', '2021-02-24', '', NULL, 894),
+(141, 'Balwant Gorad', '', 'FDP', 'Machine Learning Using python ', 'The National level One week Fa', 'Self Finance', '', '2020-21', 'National', 'SIT Ichalkaranji Kolhapur', '2021-02-25', '', NULL, 894),
+(142, 'Rajashree Shedge', '', 'Expert talk', 'Computational Intelligence- Un', 'Expert session on Computationa', '', '', '2020-21', 'Inhouse', 'Department of Computer Engineering, RAIT', '2021-03-06', '', NULL, 407),
+(143, 'Bharti Joshi', '', 'Expert talk', 'Creating Google Form', 'Orientation Program', 'Self Finance', '', '2020-21', 'Inhouse', 'DY Patil Ayurveda College', '2021-03-17', '', NULL, 878),
+(144, 'SMITA VINIT BHOIR', '', 'Training Program', 'Android App Development using ', 'Android App Development using ', 'Self Finance', '', '2020-21', 'Inhouse', 'RAMRAO ADIK INSTITUTE OF TECHNOLOGY', '2021-03-20', '', NULL, 482),
+(145, 'SMITA VINIT BHOIR', '', 'Training Program', 'Android App Development using ', 'Android App Development using ', 'Self Finance', '', '2020-21', 'Inhouse', 'RAMRAO ADIK INSTITUTE  OF TECHNOLOGY', '2021-03-21', '', NULL, 482),
+(146, 'Puja Padiya', '', 'Reviewer', 'Survey On: Electric Vehicle Ch', 'ICCICT-2021', 'Self Finance', '', '2020-21', 'International', 'Institute - SPIT, Mumbai', '2021-04-16', '', NULL, 396),
+(147, 'Rashmi Dhumal', '', 'Reviewer', 'International Conference', 'ICAITR-2021 ', '', '', '2020-21', 'International', 'Vidyalankar Institute of Technology, Wadala', '2021-04-30', '', NULL, 811),
+(148, 'Dr. Shilpa Shinde', '', 'Reviewer', '4th International Conference o', '4th International Conference o', 'Self Finance', 'no', '2020-21', 'International', 'K. J. Somaiya Institute of Engineering and Information Techn', '2021-05-07', '', NULL, 752),
+(149, 'Dr. Sangita Chaudhari', '', 'Expert talk', 'Data Analytics and Visualizati', 'Workshop', 'Funded', '', '2020-21', 'National', 'KC College, HSNC University, Mumbai', '2021-01-23', '', NULL, 896),
+(150, 'Dr. Sangita Chaudhari', '', 'Expert talk', 'Geospatial Analytics- Research', 'STTP on “Artificial Intelligen', 'Self Finance', '', '2020-21', 'National', 'Amity University, Mumbai', '2021-01-13', '', NULL, 896),
+(151, 'Balwant Gorad', '', 'Expert talk', 'How Real Time Predictions are ', 'RAIT LIve Webinar  Series', 'Self Finance', 'NA', '2020-21', 'National', 'RAIT Navi Mumbai', '0000-00-00', '', NULL, 894),
+(152, 'Aditi Chhabria', '', 'Reviewer', 'International Conference on Co', 'ICCICT21', '', '', '2020-21', 'International', 'Sardar Patel Institute of Technology ', '2021-06-25', '', NULL, 374),
+(153, 'Dr. Vanita Mane', '', 'Expert talk', ' A Step towards Application De', 'Skill Enhancement Session', 'Self Finance', '', '2020-21', 'Inhouse', ' Ramrao Adik  Institute of Technology ', '2021-09-11', '', NULL, 295),
+(154, 'Dr. Vidhate Amarsinh', '', 'Expert talk', 'Demystifying Computing Trends ', 'Students orientation Program', 'Self Finance', '0', '2020-21', 'Inhouse', 'D.Y.Patil Deemed to be University School of medicine', '2021-01-28', '', NULL, 393),
+(155, 'Puja Padiya', '', 'Reviewer', 'Total 5 papers reviewed based ', 'International Conference on In', 'Self Finance', '', '2020-21', 'International', 'Department of Applied Electronics & Instrumentation Engineer', '2021-05-22', '', NULL, 396),
+(156, 'Dr. Vanita Mane', '', 'Reviewer', 'ANGULAR PHOTOMETRIC ANALYSIS O', 'Asian Journal of Advanced Rese', 'Self Finance', '', '2020-21', 'International', 'Asian Journal of Advanced Research and Reports', '2020-09-04', '', NULL, 295),
+(157, 'Dr. Vanita Mane', '', 'Reviewer', '\"Evolution of Dark Web Threat ', 'IEEE Access', 'Self Finance', '', '2020-21', 'International', 'IEEE Access', '2020-09-07', '', NULL, 295),
+(158, 'Dr. Vanita Mane', '', 'Reviewer', 'International Conference on Na', 'IEEE Technically Co-Sponsored ', 'Self Finance', '', '2020-21', 'International', '\"Fr. C. Rodrigues Institute of Technology Vashi, Navi Mumbai', '2021-01-15', '', NULL, 295),
+(159, 'Dr. Vanita Mane', '', 'Reviewer', 'International Conference on Co', 'ICCICT21', 'Self Finance', '', '2020-21', 'International', 'Sardar Patel Institute of Technology ', '2021-06-30', '', NULL, 295),
+(160, 'Rashmi Dhumal', '', 'Training Program', 'Hosting Applications on AWS', 'Skill Enhancement Session', '', '', '2020-21', 'State', 'Ramrao Adik Institute of Technology', '2021-06-30', '', NULL, 811),
+(161, 'Rajashree Shedge', '', 'Expert talk', 'NLP Applications in Indian Reg', 'NLP Applications using Deep Le', '', '', '2020-21', 'Inhouse', 'RAIT', '2021-04-15', '', NULL, 407),
+(162, 'Dr. Vidhate Amarsinh', '', 'Conference Session Chair', 'second International Conferenc', 'second International Conferenc', 'Self Finance', '', '2020-21', 'International', 'Ramrao Adik Institute of Technology', '2021-07-14', '', NULL, 393),
+(163, 'Dr. Vidhate Amarsinh', '', 'Conference Session Chair', 'first International Conference', 'first International Conference', 'Self Finance', '', '2020-21', 'International', 'Ramrao Adik Institute of Technology', '2020-06-27', '', NULL, 393),
+(164, 'Dr. Dhananjay Dakhane', '', 'Expert talk', 'Secure communication for Milit', 'Webinar', 'Self Finance', '0', '2020-21', 'International', 'RAIT', '2020-07-29', '', NULL, 888),
+(165, 'Preet Chandan Kaur', '', 'Expert talk', 'NLP Applications - RNN ', 'Inhouse', 'Self Finance', '', '2020-21', 'Inhouse', 'RAIT', '2021-04-15', '', NULL, 699),
+(166, 'Tabassum A. Maktum', '', 'Expert talk', 'Hosting Applications on AWS', 'Skill Enhancement Session', 'Self Finance', 'NA', '2020-21', 'State', 'Ramrao Adik Institute of Technology', '2021-06-30', '', NULL, 812),
+(167, 'Ms Pallavi H. Chitte', '', 'Expert talk', 'GIT & GITHUB', 'SDG Skill Development Session', 'Self Finance', '', '2020-21', 'State', 'Ramrao Adik Institute of Technology, Nerul', '2021-07-05', '', NULL, 672),
+(168, 'Mrs. Siddhi Kadu', '', 'Expert talk', 'NLP Applications - LSTM', 'INHOUSE', '', '', '2020-21', 'Inhouse', 'RAIT', '2021-04-15', '', NULL, 770);
 
 -- --------------------------------------------------------
 
@@ -418,6 +648,103 @@ INSERT INTO `journal` (`id`, `sdrn`, `faculty_name`, `author1`, `author2`, `auth
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `medicals`
+--
+
+CREATE TABLE `medicals` (
+  `id` int(20) NOT NULL,
+  `Faculty_Name` varchar(50) NOT NULL,
+  `AIAPGET_Appered` varchar(50) NOT NULL,
+  `AIAPGET_Date` date NOT NULL,
+  `AIAPGET_Score` varchar(50) NOT NULL,
+  `NEET_SS_Appered` varchar(50) NOT NULL,
+  `NEET_SS_Date` date NOT NULL,
+  `NEET_SS_Score` varchar(50) NOT NULL,
+  `Exam_Name` varchar(50) NOT NULL,
+  `Exam_Appered` varchar(50) NOT NULL,
+  `Date_Of_Exam` date DEFAULT NULL,
+  `Exam_Score` varchar(50) NOT NULL,
+  `PDF` varchar(100) NOT NULL,
+  `sdrn` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `medicals`
+--
+
+INSERT INTO `medicals` (`id`, `Faculty_Name`, `AIAPGET_Appered`, `AIAPGET_Date`, `AIAPGET_Score`, `NEET_SS_Appered`, `NEET_SS_Date`, `NEET_SS_Score`, `Exam_Name`, `Exam_Appered`, `Date_Of_Exam`, `Exam_Score`, `PDF`, `sdrn`) VALUES
+(10, 'Leena R Ragha', '1', '2021-09-01', '120', '1', '2021-05-20', '220', '', '', NULL, '', '', '811'),
+(11, 'Amarsinh A Vidhate', '0', '2021-06-24', '345', '1', '2021-08-04', '231', '', '', NULL, '', '', '811'),
+(12, 'Vanita M Mane', '1', '0000-00-00', '232', '1', '0000-00-00', '555', '', '', NULL, '', '', '0010'),
+(13, 'Shetal A Ahir', '1', '0000-00-00', '77', '1', '0000-00-00', '128', '', '', NULL, '', 'upload_files/exams/333-280.pdf', '0021'),
+(14, 'Leena R Ragha', '', '0000-00-00', '', '', '0000-00-00', '', 'cat', '', '0000-00-00', '', '', '0001'),
+(15, 'Leena R Ragha', '', '0000-00-00', '', '', '0000-00-00', '', 'cat', '', '0001-01-01', '60', '', '0001'),
+(16, 'Leena R Ragha', '', '0000-00-00', '', '', '0000-00-00', '', 'neet', '', '0001-01-01', '550', '', '0001'),
+(17, 'Leena R Ragha', '', '0000-00-00', '', '', '0000-00-00', '', 'jee', '1', '0001-01-01', '120', '', '0001'),
+(19, 'Leena R Ragha', '', '0000-00-00', '', '', '0000-00-00', '', 'other', '', '0000-00-00', '500', '', '0001');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orientation`
+--
+
+CREATE TABLE `orientation` (
+  `Srno` int(11) NOT NULL,
+  `SDRN` int(10) NOT NULL,
+  `Name` varchar(50) NOT NULL,
+  `University` varchar(50) NOT NULL,
+  `Subject` varchar(50) NOT NULL,
+  `Semester` varchar(10) NOT NULL,
+  `Venue` varchar(80) NOT NULL,
+  `Date` date NOT NULL,
+  `uploads` varchar(80) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orientation`
+--
+
+INSERT INTO `orientation` (`Srno`, `SDRN`, `Name`, `University`, `Subject`, `Semester`, `Venue`, `Date`, `uploads`) VALUES
+(1, 150, 'Dr. Ragha Leena R.', 'University of Mumbai', 'Orientation on AI and SC', 'VII', 'RAIT on behalf of Mumbai University', '2019-07-09', ''),
+(2, 393, 'Dr. Vidhate Amarsinh A.', 'University of Mumbai', 'Mobile Communication & Computing', 'VII', 'Shah Anchor Kutchhi College of Engineering, Chembur, Mumbai', '2019-07-11', ''),
+(3, 393, 'Dr. Vidhate Amarsinh A.', 'University of Mumbai', 'Mobile Application Development Lab', 'VII', 'Shah Anchor Kutchhi College of Engineering, Chembur, Mumbai', '2019-07-11', ''),
+(4, 393, 'Dr. Vidhate Amarsinh A.', 'University of Mumbai', 'Ad-hoc Wireless Network of BE Computer Engineering', 'VIII', 'K.J. Somaiyya institute of engineering and information Technology, Sion, Mumbai', '2020-01-16', ''),
+(5, 393, 'Dr. Vidhate Amarsinh A.', 'University of Mumbai', 'Computational Lab-II of BE Computer Engineering of', 'VIII', 'K.J. Somaiyya institute of engineering and information Technology, Sion, Mumbai', '2020-01-16', ''),
+(6, 898, 'Dr. NarawadeVaibhav E.', 'University of Mumbai', 'Advanced Computer Network', 'VI (CS DLO', 'VESIT, Mumbai', '2020-01-15', ''),
+(7, 898, 'Dr. NarawadeVaibhav E.', 'University of Mumbai', 'Syllabus Setting', 'VIII', 'Online DBATU University', '2020-05-20', ''),
+(8, 878, 'Dr. Joshi Bharti A.', 'University of Mumbai', 'Orientation on MIS', 'VII', 'Pillai College of Engineering, Panvel', '2020-07-01', ''),
+(9, 896, 'Dr. Chaudhari Sangita S.', 'University of Mumbai', 'HPC ', 'VII(IT)', 'Terna Engineering College, Nerul', '2020-01-16', ''),
+(10, 821, 'Dr. Sharma Neeraj K.', 'University of Mumbai', 'Orientation AI &SC ', 'VII(CE)', 'RAIT', '2020-07-09', ''),
+(11, 407, 'Mrs. Shedge Rajashree A.', 'University of Mumbai', 'Orientation of NLP', 'VIII', 'Shah Anchor Kutchhi College of Engineering, Chembur, Mumbai', '2020-01-08', ''),
+(12, 396, 'Mrs. Padiya Puja Y.', 'University of Mumbai', 'Mobile Communication & Computing', 'VII', 'Shah Anchor Kutchhi College of Engineering, Chembur, Mumbai', '2020-07-11', ''),
+(13, 396, 'Mrs. Padiya Puja Y.', 'University of Mumbai', 'Mobile Application Development Lab', 'VII', 'Shah Anchor Kutchhi College of Engineering, Chembur, Mumbai', '2020-07-11', ''),
+(14, 396, 'Mrs. Padiya Puja Y.', 'University of Mumbai', 'Ad-hoc Wireless Network of BE Computer Engineering', 'VIII', 'K.J. Somaiyya institute of engineering and information Technology, Sion, Mumbai', '2020-01-16', ''),
+(15, 396, 'Mrs. Padiya Puja Y.', 'University of Mumbai', 'Computational Lab-II of BE Computer Engineering of', 'VIII', 'K.J. Somaiyya institute of engineering and information Technology, Sion, Mumbai', '2020-01-16', ''),
+(16, 396, 'Mrs. Padiya Puja Y.', 'University of Mumbai', 'Distributed Computing ', 'VIII', 'Vivekanand Institute of Technology', '2020-01-15', ''),
+(17, 396, 'Mrs. Padiya Puja Y.', 'University of Mumbai', 'Distributed Computing Lab', 'VIII', 'Vivekanand Institute of Technology', '2020-01-15', ''),
+(18, 396, 'Mrs. Padiya Puja Y.', 'University of Mumbai', 'HPC ', 'VII(IT)', 'Terna Engineering College, Nerul', '2020-01-16', ''),
+(19, 374, 'Mrs. Chhabria Aditi S.', 'University of Mumbai', 'Big Data Analytics', 'VII', 'DBIT,Mumbai', '2019-07-15', ''),
+(20, 374, 'Mrs. Chhabria Aditi S.', 'University of Mumbai', 'Human Machine Interaction', 'VIII', 'TSEC, Mumbai', '2020-01-11', ''),
+(21, 812, 'Mrs. Maktum Tabassum A.', 'University of Mumbai', 'ASSDF', 'VII', 'D. J. Sangvi COE', '2019-07-12', ''),
+(22, 807, 'Mr. Chikkareddi Vishwanath S.', 'University of Mumbai', 'Ad-hoc Wireless Network of BE Computer Engineering', 'VIII', 'K.J. Somaiyya institute of engineering and information Technology, Sion, Mumbai', '2020-01-16', ''),
+(23, 807, 'Mr. Chikkareddi Vishwanath S.', 'University of Mumbai', 'Computational Lab-II of BE Computer Engineering of', 'VIII', 'K.J. Somaiyya institute of engineering and information Technology, Sion, Mumbai', '2021-01-16', ''),
+(24, 411, 'Mr. Ghorpade Tushar H.', 'University of Mumbai', 'BDA', 'VII', 'DBIT,Mumbai', '2019-07-15', ''),
+(25, 893, 'Mrs. Sumithra T.V', 'University of Mumbai', 'Orientation on AI and SC', 'VII', 'RAIT on behalf of Mumbai University', '2019-07-09', ''),
+(26, 894, 'Mr. Gorad Balwant J.', 'University of Mumbai', 'Big Data Analytics', 'VI', 'DBIT, Kurla', '2019-07-15', ''),
+(27, 650, 'Mrs. Alte Bhavna A.', 'University of Mumbai', 'Mobile Communication & Computing', 'VII', 'Shah Anchor Kutchhi College of Engineering, Chembur, Mumbai', '2019-07-11', ''),
+(28, 650, 'Mrs. Alte Bhavna A.', 'University of Mumbai', 'Mobile Application Development Lab', 'VII', 'Shah Anchor Kutchhi College of Engineering, Chembur, Mumbai', '2019-07-11', ''),
+(29, 650, 'Mrs. Alte Bhavna A.', 'University of Mumbai', 'Distributed Computing ', 'VIII', 'Vivekanand Institute of Technology', '2020-01-15', ''),
+(30, 650, 'Mrs. Alte Bhavna A.', 'University of Mumbai', 'Distributed Computing Lab', 'VIII', 'Vivekanand Institute of Technology', '2020-01-15', ''),
+(31, 593, 'Mr. GunjgurPrathmesh N.', 'University of Mumbai', 'Mobile Communication & Computing', 'VII', 'Shah Anchor Kutchhi College of Engineering, Chembur, Mumbai', '2019-07-11', ''),
+(32, 593, 'Mr. GunjgurPrathmesh N.', 'University of Mumbai', 'Mobile Application Development Lab', 'VII', 'Shah Anchor Kutchhi College of Engineering, Chembur, Mumbai', '2019-07-11', ''),
+(33, 638, 'Mrs. Ekta K. Sarda', 'University of Mumbai', 'Orientation on DSIP', 'VII', 'Rajiv Gandhi Institute of Technology, Andhrei', '2019-07-07', ''),
+(34, 603, 'Ms. Saxena Harsha A.', 'University of Mumbai', 'Distributed Computing ', 'VIII', 'Vivekanand Institute of Technology', '2020-01-15', ''),
+(35, 603, 'Ms. Saxena Harsha A.', 'University of Mumbai', 'Distributed Computing Lab', 'VIII', 'Vivekanand Institute of Technology', '2020-01-15', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `patent`
 --
 
@@ -449,8 +776,7 @@ CREATE TABLE `patent` (
 INSERT INTO `patent` (`id`, `sdrn`, `faculty_name`, `author1`, `author2`, `author3`, `author4`, `designation`, `patent`, `title`, `application_no`, `status`, `reg_amount`, `amount_funded`, `reg_date`, `opt1`, `opt2`, `opt3`) VALUES
 (1, '687', 'Mrs. Sumithra T.V\r\n', 'Mrs. Sumithra T.V\r\n', '', '', '', 'Assistant Professor\r\n', '2020-08-17', 'Multilevel context based search in chat engines for hybrid business models.\n', '11459/2020-CO/SW\r\n', 'Published', 500, 0, '2020-10-22', '', '', ''),
 (2, '699', 'Preetchandan Kaur', 'Preet Chandan Kaur', 'Dr. Chaudhari Sangita S.', 'Esha Kalokhe', 'Shehal Khedekar, Prakarsha Dahat', 'Assistant Professor', '2020-11-01', 'PREEMPTIVE DIAGNOSIS AND STAGE IDENTIFIER OF CHRONIC KIDNEY DISEASE ', '17337/2020-CO/SW ', 'Published', 500, 0, '2021-03-02', '', '', ''),
-(3, '482', 'Mrs. Bhoir Smita V.\r\n', 'Dr. Leena Ragha\r\n', '', '', '', 'Assistant Professor\r\n', '2020-10-16', 'Transcript System\r\n', '15968/2020-CO/SW\r\n', 'Published', 500, 0, '2021-03-24', '', '', ''),
-(7, '896', 'Dr.Sangeeta S. Chaudhari', 'Mrs. Sangita Chaudhari', '', '', '', 'Professor', '2021-09-03', 'Multilevel chat engines ', '11459/2020-CO/SW', 'Published', 1500, 0, '2021-09-01', 'UG', '', '');
+(3, '482', 'Mrs. Bhoir Smita V.\r\n', 'Dr. Leena Ragha\r\n', '', '', '', 'Assistant Professor\r\n', '2020-10-16', 'Transcript System\r\n', '15968/2020-CO/SW\r\n', 'Published', 500, 0, '2021-03-24', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -479,9 +805,227 @@ INSERT INTO `rd` (`id`, `sdrn`, `Password`, `Email`, `First_name`, `Contact_no`,
 (9, 'verify1', '123', 'preramane@gmail.com', 'Prachi', '0', '', ''),
 (10, 'hod1', 'hod@123', '', '', '', '', '');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `syllabus`
+--
+
+CREATE TABLE `syllabus` (
+  `Srno` int(11) NOT NULL,
+  `SDRN` int(11) NOT NULL,
+  `Name` varchar(30) NOT NULL,
+  `University` varchar(50) NOT NULL,
+  `Subject` varchar(50) NOT NULL,
+  `Semester` varchar(11) NOT NULL,
+  `Venue` varchar(80) NOT NULL,
+  `Date` date NOT NULL,
+  `uploads` varchar(80) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `syllabus`
+--
+
+INSERT INTO `syllabus` (`Srno`, `SDRN`, `Name`, `University`, `Subject`, `Semester`, `Venue`, `Date`, `uploads`) VALUES
+(1, 150, 'Dr. Ragha Leena R.', 'D.Y.patil Deemed to be University', 'Board Of Studies (Syllabus  Setting and Verificati', 'III', 'Online', '2019-05-11', ''),
+(2, 396, 'Mrs. Padiya Puja Y.', 'D Y Patil Deemed to be University', 'Computer NEtworks', 'IV', 'Online - Ramaro Adik Institute of Technology', '2020-01-01', ''),
+(3, 295, 'Dr. Mane Vanita M.', 'University of Mumbai', 'Digital Forensic (ECCDLO_6013)', 'VI', 'Pillai HOC College of Engineering and Technology, Rasayani', '2020-01-01', ''),
+(4, 407, 'Mrs. Shedge Rajashree A.', 'DYPU', 'SBL-1 & Mini Project', 'III', 'RAIT(online)', '2020-01-01', ''),
+(5, 411, 'Mr. Ghorpade Tushar H.', 'D.Y.Patil Deemed to be university', 'Database Management System', 'IV', 'Ramrao Adik Institute of Technology', '2020-01-01', ''),
+(6, 393, 'Dr. Vidhate Amarsinh A.', 'Punyashlok Ahilyadevi Holkar Solapur University, S', 'BoS Meeting for syallbus setting', 'III', 'online', '2020-01-01', ''),
+(7, 393, 'Dr. Vidhate Amarsinh A.', 'punyashlok Ahilyadevi Hotkar solapur University, s', 'Board of Studies in Information Technology of Walc', 'III', 'Online', '2020-01-01', ''),
+(8, 393, 'Dr. Vidhate Amarsinh A.', 'D.Y.patil Deemed to be University', 'Board Of Studies (Syllabus  Setting and Verificati', 'III', 'Online', '2020-01-01', ''),
+(9, 898, 'Dr. NarawadeVaibhav E.', 'Dr. BATU, Lonere', 'Computer Engineering', 'VII', 'Online', '2020-01-01', ''),
+(10, 898, 'Dr. NarawadeVaibhav E.', 'University of Mumbai', 'Bsc_Computer Science ', 'VII', 'Online', '2020-01-01', ''),
+(11, 898, 'Dr. NarawadeVaibhav E.', 'University of Mumbai', 'Information Technology', 'VII', 'Online', '2020-01-01', ''),
+(12, 898, 'Dr. NarawadeVaibhav E.', 'University of Mumbai', 'Information Technology', 'VII', 'Online', '2020-01-01', ''),
+(13, 396, 'Mrs. Padiya Puja Y.', 'D Y Patil Deemed to be University', 'Operating System and Computer Networks', 'IV', 'Online', '2020-01-01', ''),
+(14, 812, 'Mrs. Maktum Tabassum A.', 'D Y Patil Deemed to be University', 'Theoretical Computer Science', 'IV', 'Online', '2020-01-01', ''),
+(15, 150, 'Dr. Ragha Leena R.', 'Mumbai University ', 'BOS Information Technology ', 'NA', '', '2020-01-01', ''),
+(16, 150, 'Dr. Ragha Leena R.', 'Mumbai University ', 'Syllabus revision workshop at Datta Meghe College ', 'NA', 'Datta Meghe College of Engineering,Airoli', '2020-01-01', ''),
+(17, 150, 'Dr. Ragha Leena R.', 'Mumbai University ', 'Chairman and Paper Setter', 'ME Sem-1(AO', 'Mumbai University', '2020-01-01', ''),
+(18, 150, 'Dr. Ragha Leena R.', 'Mumbai University ', 'Chairman and Paper Setter', 'ME Sem-2(Ad', 'Mumbai University', '2020-01-01', ''),
+(19, 150, 'Dr. Ragha Leena R.', 'Mumbai University ', 'Chairman and Paper Setter', 'TE Sem-5(Mu', 'Mumbai University', '2020-01-01', ''),
+(20, 393, 'Dr. Vidhate Amarsinh A.', 'Mumbai University ', 'paper setter', 'BE - Sem-VI', 'Mumbai University', '2020-01-01', ''),
+(21, 393, 'Dr. Vidhate Amarsinh A.', 'Mumbai University ', ' Chairman & paper setter', 'BE - Sem-VI', 'Mumbai University', '2020-01-01', ''),
+(22, 393, 'Dr. Vidhate Amarsinh A.', 'Mumbai University ', 'paper setter', 'ME (Comp. E', 'Mumbai University', '2020-01-01', ''),
+(23, 393, 'Dr. Vidhate Amarsinh A.', 'Mumbai University ', 'paper setter', 'T.E.(COMPUT', 'Mumbai University', '2020-01-01', ''),
+(24, 393, 'Dr. Vidhate Amarsinh A.', 'Mumbai University ', 'paper setter', 'BE - Sem-VI', 'Mumbai University', '2020-01-01', ''),
+(25, 393, 'Dr. Vidhate Amarsinh A.', 'Mumbai University ', 'paper setter', 'BE - Sem-VI', 'Mumbai University', '2020-01-01', ''),
+(26, 393, 'Dr. Vidhate Amarsinh A.', 'Mumbai University ', 'paper setter', 'B.E.(COMPUT', 'Mumbai University', '2020-01-01', ''),
+(27, 393, 'Dr. Vidhate Amarsinh A.', 'Mumbai University ', 'paper setter', 'T.E.(COMPUT', 'Mumbai University', '2020-01-01', ''),
+(28, 898, 'Dr. NarawadeVaibhav E.', 'Mumbai University ', 'Member, BOS Information Technology ', '', '', '2020-01-01', ''),
+(29, 898, 'Dr. NarawadeVaibhav E.', 'Mumbai University ', 'paper setter', 'ME (Comp Ne', 'Mumbai University', '2020-01-01', ''),
+(30, 898, 'Dr. NarawadeVaibhav E.', '', 'Member, BOS Computer Science', '', '', '2020-01-01', ''),
+(31, 898, 'Dr. NarawadeVaibhav E.', 'Mumbai University', 'Convenor - Java Programming Lab', 'Sem - III', 'Mumbai University', '2020-01-01', ''),
+(32, 898, 'Dr. NarawadeVaibhav E.', 'Dr. BATU, Lonere', 'Syllabus Committe Member', 'B. Tech fin', 'Dr. BATU, Lonere', '2020-01-01', ''),
+(33, 898, 'Dr. NarawadeVaibhav E.', 'DBATU , Lonere', 'Syllabus Settings', 'VIII', 'Online', '2020-01-01', ''),
+(34, 898, 'Dr. NarawadeVaibhav E.', 'Mumbai University', 'Syllabus Setting', 'IV, VI, VII', 'online', '2020-01-01', ''),
+(35, 896, 'Dr. Chaudhari Sangita S.', 'AICTE Curriculum', 'C Programming', 'II', 'LTCOE', '2020-01-01', ''),
+(36, 874, 'Dr. Barve Amit K.', 'Mumbai University', 'Multimedia System (Paper Setting)', 'III', 'Mumbai University', '2020-01-01', ''),
+(37, 295, 'Mrs. Mane Vanita M.', 'Mumbai University', 'Analysis of algorithm and Analysis of algorithm La', 'IV', 'Universal College of Engineering, Kaman Bhivandi road, Kaman village, Vasai.', '2020-01-01', ''),
+(38, 295, 'Mrs. Mane Vanita M.', 'Mumbai University', 'Discrete Structures and Automata Theory', 'IV', 'ECS. Fr. CRCE', '2020-01-01', ''),
+(39, 295, 'Mrs. Mane Vanita M.', 'University of Mumbai', 'Discrete Structures and Automata Theory', '4th', 'Dept of Electronics and Computer Science Engineering,Fr. Conceicao Rodrigues Col', '2020-01-01', ''),
+(40, 811, 'Mrs. Dhumal Rashmi A.', 'Mumbai University', 'Discrete Structure and Graph Theory', 'III', 'VESIT, Chembur', '2020-01-01', ''),
+(41, 811, 'Mrs. Dhumal Rashmi A.', 'university of Mumbai', 'Discrete Structure and GraphvTheory', '3rd', 'VESIT, Chembur', '2020-01-01', ''),
+(42, 374, 'Mrs. Chhabria Aditi S.', 'University of Mumbai', 'Data structures ', '3rd', 'Pillai College of Engineering', '2020-01-01', ''),
+(43, 811, 'Mrs.Rashmi Dhumal', 'asd', 'asd', '3', 'Fr. Conceicao Rodrigues College of Engineering, Bandra', '2021-09-16', 'uploads/811_Mrs.Rashmi Dhumal_asd_s_2021-09-16_updated.pdf');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `workshop`
+--
+
+CREATE TABLE `workshop` (
+  `Srno` int(11) NOT NULL,
+  `SDRN` int(11) NOT NULL,
+  `Name` varchar(30) NOT NULL,
+  `criteria` varchar(16) NOT NULL,
+  `Name_workshop` varchar(5) NOT NULL,
+  `sponsor` varchar(4) NOT NULL,
+  `venue` varchar(80) NOT NULL,
+  `sdate` date NOT NULL,
+  `edate` date NOT NULL,
+  `ndays` int(11) NOT NULL,
+  `organiser` varchar(28) NOT NULL,
+  `org_type` varchar(8) NOT NULL,
+  `sfunding` varchar(21) NOT NULL,
+  `ramount` int(11) NOT NULL,
+  `amount_funded` int(11) NOT NULL,
+  `TA` int(11) NOT NULL,
+  `uploads` varchar(80) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `workshop`
+--
+
+INSERT INTO `workshop` (`Srno`, `SDRN`, `Name`, `criteria`, `Name_workshop`, `sponsor`, `venue`, `sdate`, `edate`, `ndays`, `organiser`, `org_type`, `sfunding`, `ramount`, `amount_funded`, `TA`, `uploads`) VALUES
+(17, 896, 'Dr. Chaudhari Sangita S.', 'FDP', 'High ', 'IEEE', 'RAIT', '2019-11-11', '2019-11-16', 6, 'RAIT', 'National', 'NA', 0, 0, 0, ''),
+(18, 896, 'Dr. Chaudhari Sangita S.', 'FDP', 'Block', 'AICT', 'online', '2019-07-29', '2019-10-18', 84, 'online', 'National', '1100', 0, 0, 0, ''),
+(19, 896, 'Dr. Chaudhari Sangita S.', 'FDP', 'Block', 'ISTE', 'RAIT', '2019-12-09', '2019-12-14', 6, 'RAIT', 'National', '1500', 0, 0, 0, ''),
+(20, 888, 'Dr. Dakhane Dhanajay M.', 'FDP', 'High ', 'IEEE', 'RAIT', '2019-11-11', '2019-11-16', 6, 'RAIT', 'National', 'NA', 0, 0, 0, ''),
+(21, 888, 'Dr. Dakhane Dhanajay M.', 'FDP', 'Machi', 'NIL', 'Dept of CSE, RGIT, Adheri', '2019-12-16', '2019-12-20', 5, 'Dept of CSE, RGIT, Adheri', 'National', 'NA', 0, 0, 0, ''),
+(22, 888, 'Dr. Dakhane Dhanajay M.', 'FDP', 'Rubri', 'NIL', 'RAIT', '2019-10-17', '2019-10-17', 1, 'RAIT', 'National', 'NIL', 0, 0, 0, ''),
+(23, 888, 'Dr. Dakhane Dhanajay M.', 'FDP', 'Data ', 'PMMM', 'RAIT', '2019-10-09', '2019-10-14', 7, 'RAIT', 'National', 'NIL', 0, 0, 0, ''),
+(24, 888, 'Dr. Dakhane Dhanajay M.', 'FDP', 'Block', 'ISTE', 'RAIT', '2019-12-09', '2019-12-14', 6, 'RAIT', 'National', '1500', 0, 0, 0, ''),
+(25, 878, 'Dr. Joshi Bharti A.', 'STTP', 'STTP ', 'NIL', 'Pillai College of Engineering, Panvel', '2019-07-01', '2019-07-05', 5, 'Pillai College of Engineerin', 'National', '1000', 0, 0, 0, ''),
+(26, 878, 'Dr. Joshi Bharti A.', 'FDP', 'Data ', 'PMMM', 'RAIT', '2019-10-09', '2019-10-14', 7, 'RAIT', 'National', 'NIL', 0, 0, 0, ''),
+(27, 878, 'Dr. Joshi Bharti A.', 'FDP', 'High ', 'IEEE', 'RAIT', '2019-11-11', '2019-11-16', 6, 'RAIT', 'National', 'NA', 0, 0, 0, ''),
+(28, 898, 'Dr. NarawadeVaibhav E.', 'Workshop', 'Solar', 'NIL', 'RAIT', '2019-10-02', '2019-10-02', 1, 'RAIT', 'National', 'NIL', 0, 0, 0, ''),
+(29, 898, 'Dr. NarawadeVaibhav E.', 'FDP', 'High ', 'IEEE', 'RAIT', '2019-11-11', '2019-11-16', 6, 'RAIT', 'National', '500', 0, 0, 0, ''),
+(30, 898, 'Dr. NarawadeVaibhav E.', 'FDP', 'Machi', 'NIL', 'Rajiv Gandhi Institute of Technology', '2019-12-16', '2019-12-20', 5, 'Rajiv Gandhi Institute of Te', 'National', '2000', 0, 0, 0, ''),
+(31, 898, 'Dr. NarawadeVaibhav E.', 'FDP', 'Rubri', 'NIL', 'RAIT', '2019-10-17', '2019-10-17', 1, 'RAIT', 'National', 'NIL', 0, 0, 0, ''),
+(32, 898, 'Dr. NarawadeVaibhav E.', 'FDP', 'Data ', 'PMMM', 'RAIT', '2019-10-09', '2019-10-14', 7, 'RAIT', 'National', 'NIL', 0, 0, 0, ''),
+(33, 898, 'Dr. NarawadeVaibhav E.', 'FDP', 'Block', 'ISTE', 'RAIT', '2019-12-09', '2019-12-14', 6, 'RAIT', 'National', '1500', 0, 0, 0, ''),
+(34, 150, 'Dr. Ragha Leena R.', 'UBA', 'Unnat', 'NIL', 'IIT,Bombay', '2019-09-13', '2019-09-13', 1, 'IIT,Bombay', 'National', 'NA', 0, 0, 0, ''),
+(35, 150, 'Dr. Ragha Leena R.', 'FDP', 'TCS R', 'TCS', 'RAIT', '2019-08-16', '2019-08-16', 1, 'RAIT', 'National', 'NA', 0, 0, 0, ''),
+(36, 821, 'Dr. Sharma Neeraj K.', 'FDP', 'High ', 'IEEE', 'RAIT', '2019-11-11', '2019-11-16', 6, 'RAIT', 'National', '500', 0, 0, 0, ''),
+(37, 752, 'Dr. Shinde Shilpa S.', 'FDP', 'High ', 'IEEE', 'RAIT', '2019-11-11', '2019-11-16', 6, 'RAIT', 'National', '500', 0, 0, 0, ''),
+(38, 393, 'Dr. Vidhate Amarsinh A.', 'FDP', 'High ', 'IEEE', 'RAIT', '2019-11-11', '2019-11-16', 6, 'RAIT', 'National', '500', 0, 0, 0, ''),
+(39, 393, 'Dr. Vidhate Amarsinh A.', 'FDP', 'TCS R', 'TCS', 'RAIT', '2019-08-16', '2019-08-16', 1, 'RAIT', 'Local', 'NA', 0, 0, 0, ''),
+(40, 393, 'Dr. Vidhate Amarsinh A.', 'FDP', 'Block', 'ISTE', 'RAIT', '2019-12-09', '2019-12-14', 6, 'RAIT', 'National', '1500', 0, 0, 0, ''),
+(41, 807, 'Mr. Chikkareddi Vishwanath S.', 'FDP', 'Cyber', 'AICT', 'Atherva college of Engg', '2019-09-03', '2019-09-08', 6, 'Atherva college of Engg', 'National', 'NA', 0, 0, 0, ''),
+(42, 807, 'Mr. Chikkareddi Vishwanath S.', 'STTP', 'Secur', 'AICT', 'RAIT', '2019-06-10', '2019-06-21', 14, 'RAIT', 'National', '200', 0, 0, 0, ''),
+(43, 807, 'Mr. Chikkareddi Vishwanath S.', 'FDP', 'High ', 'IEEE', 'RAIT', '2019-11-11', '2019-11-16', 5, 'RAIT', 'National', '1500', 0, 0, 0, ''),
+(44, 411, 'Mr. Ghorpade Tushar H.', 'FDP', 'Data ', 'PMMM', 'RAIT', '2019-10-09', '2019-10-14', 6, 'RAIT', 'National', 'NIL', 0, 0, 0, ''),
+(45, 894, 'Mr. Gorad Balwant J.', 'FDP', 'Data ', 'PMMM', 'RAIT', '2019-10-09', '2019-10-14', 6, 'RAIT', 'National', 'NIL', 0, 0, 0, ''),
+(46, 894, 'Mr. Gorad Balwant J.', 'FDP', 'High ', 'IEEE', 'RAIT', '2019-11-11', '2019-11-16', 5, 'RAIT', 'National', '1500', 0, 0, 0, ''),
+(47, 894, 'Mr. Gorad Balwant J.', 'FDP', 'Data ', 'AICT', 'CDAC, Khargar', '2019-11-18', '2019-11-22', 6, 'CDAC, Khargar', 'National', 'NIL', 0, 0, 0, ''),
+(48, 593, 'Mr. Gunjgur Prathmesh N.', 'FDP', 'High ', 'IEEE', 'RAIT', '2019-11-11', '2019-11-16', 5, 'RAIT', 'National', '1500', 0, 0, 0, ''),
+(49, 593, 'Mr. Gunjgur Prathmesh N.', 'Training Program', 'IT In', 'TCS', 'RAIT', '2019-09-20', '2019-09-20', 1, 'RAIT', 'Local', 'NA', 0, 0, 0, ''),
+(50, 593, 'Mr. Gunjgur Prathmesh N.', 'Training Program', 'Machi', 'TCS', 'RAIT', '2019-09-20', '2019-09-20', 1, 'RAIT', 'Local', 'NA', 0, 0, 0, ''),
+(51, 593, 'Mr. Gunjgur Prathmesh N.', 'Training Program', 'Artif', 'TCS', 'RAIT', '2019-09-19', '2019-09-19', 1, 'RAIT', 'Local', 'NA', 0, 0, 0, ''),
+(52, 593, 'Mr. Gunjgur Prathmesh N.', 'Training Program', 'Block', 'TCS', 'RAIT', '2019-09-19', '2019-09-19', 1, 'RAIT', 'Local', 'NA', 0, 0, 0, ''),
+(53, 593, 'Mr. Gunjgur Prathmesh N.', 'FDP', 'TCS R', 'TCS', 'RAIT', '2019-08-16', '2019-08-16', 1, 'RAIT', 'Local', 'NA', 0, 0, 0, ''),
+(54, 593, 'Mr. Gunjgur Prathmesh N.', 'Training Program', 'Agile', 'TCS', 'RAIT', '2019-09-19', '2019-09-19', 1, 'RAIT', 'Local', 'NA', 0, 0, 0, ''),
+(55, 593, 'Mr. Gunjgur Prathmesh N.', 'Training Program', 'Inter', 'NIL', 'RAIT', '2019-12-02', '2019-12-14', 12, 'RAIT', 'Local', 'NA', 0, 0, 0, ''),
+(56, 593, 'Mr. Gunjgur Prathmesh N.', 'Training Program', 'Inter', 'NIL', 'RAIT', '2019-12-02', '2019-12-14', 12, 'RAIT', 'Local', 'NA', 0, 0, 0, ''),
+(57, 593, 'Mr. Gunjgur Prathmesh N.', 'Training Program', 'Inter', 'NIL', 'RAIT', '2019-12-16', '2019-12-28', 12, 'RAIT', 'Local', 'NA', 0, 0, 0, ''),
+(58, 593, 'Mr. Gunjgur Prathmesh N.', 'Training Program', 'Inter', 'NIL', 'RAIT', '2019-12-16', '2019-12-28', 12, 'RAIT', 'Local', 'NA', 0, 0, 0, ''),
+(59, 419, 'Mrs. Ahir Sheetal A.', '', 'TCS R', 'NIL', 'RAIT', '2019-08-16', '2019-08-16', 0, 'RAIT', 'National', 'NA', 0, 0, 0, ''),
+(60, 419, 'Mrs. Ahir Sheetal A.', 'FDP', 'Data ', 'NIL', 'Ramrao Adik Institute of Technology', '2019-10-09', '2019-10-14', 6, 'Ramrao Adik Institute of Tec', 'National', 'NA', 0, 0, 0, ''),
+(61, 650, 'Mrs. Alte Bhavana A.', 'FDP', 'High ', 'IEEE', 'RAIT', '2019-11-11', '2019-11-16', 6, 'RAIT', 'National', '500', 0, 0, 0, ''),
+(62, 650, 'Mrs. Alte Bhavana A.', 'Workshop', 'Andro', 'NIL', 'RAIT,Navi Mumbai', '2019-08-03', '2019-08-03', 1, 'RAIT,Navi Mumbai', 'National', '200', 0, 0, 0, ''),
+(63, 576, 'Mrs. Bharne Smita D.', 'Workshop', 'Andro', 'NIL', 'RAIT,Navi Mumbai', '2019-08-03', '2019-08-03', 1, 'RAIT,Navi Mumbai', 'National', '500', 0, 0, 0, ''),
+(64, 576, 'Mrs. Bharne Smita D.', 'FDP', 'TCS R', 'TCS', 'RAIT', '2019-08-16', '2019-08-16', 1, 'RAIT', 'National', 'NA', 0, 0, 0, ''),
+(65, 576, 'Mrs. Bharne Smita D.', 'FDP', 'Data ', 'PMMM', 'RAIT', '2019-10-09', '2019-10-14', 6, 'RAIT', 'National', 'NIL', 0, 0, 0, ''),
+(66, 482, 'Mrs. Bhoir Smita V.', 'FDP', 'Data ', 'PMMM', 'RAIT', '2019-10-09', '2019-10-14', 6, 'RAIT', 'National', 'NIL', 0, 0, 0, ''),
+(67, 874, 'Dr. Barve Amit K.', 'FDP', 'High ', 'IEEE', 'RAIT', '2019-11-11', '2019-11-16', 6, 'RAIT', 'National', 'NA', 0, 0, 0, ''),
+(68, 896, 'Dr. Chaudhari Sangita S.', 'FDP', 'High ', 'IEEE', 'RAIT', '2019-11-11', '2019-11-16', 6, 'RAIT', 'National', 'NA', 0, 0, 0, ''),
+(69, 896, 'Dr. Chaudhari Sangita S.', 'FDP', 'Block', 'AICT', 'online', '2019-07-29', '2019-10-18', 84, 'online', 'National', '1100', 0, 0, 0, ''),
+(70, 896, 'Dr. Chaudhari Sangita S.', 'FDP', 'Block', 'ISTE', 'RAIT', '2019-12-09', '2019-12-14', 6, 'RAIT', 'National', '1500', 0, 0, 0, ''),
+(71, 888, 'Dr. Dakhane Dhanajay M.', 'FDP', 'High ', 'IEEE', 'RAIT', '2019-11-11', '2019-11-16', 6, 'RAIT', 'National', 'NA', 0, 0, 0, ''),
+(72, 888, 'Dr. Dakhane Dhanajay M.', 'FDP', 'Machi', 'NIL', 'Dept of CSE, RGIT, Adheri', '2019-12-16', '2019-12-20', 5, 'Dept of CSE, RGIT, Adheri', 'National', 'NA', 0, 0, 0, ''),
+(73, 888, 'Dr. Dakhane Dhanajay M.', 'FDP', 'Rubri', 'NIL', 'RAIT', '2019-10-17', '2019-10-17', 1, 'RAIT', 'National', 'NIL', 0, 0, 0, ''),
+(74, 888, 'Dr. Dakhane Dhanajay M.', 'FDP', 'Data ', 'PMMM', 'RAIT', '2019-10-09', '2019-10-14', 7, 'RAIT', 'National', 'NIL', 0, 0, 0, ''),
+(75, 888, 'Dr. Dakhane Dhanajay M.', 'FDP', 'Block', 'ISTE', 'RAIT', '2019-12-09', '2019-12-14', 6, 'RAIT', 'National', '1500', 0, 0, 0, ''),
+(76, 878, 'Dr. Joshi Bharti A.', 'STTP', 'STTP ', 'NIL', 'Pillai College of Engineering, Panvel', '2019-07-01', '2019-07-05', 5, 'Pillai College of Engineerin', 'National', '1000', 0, 0, 0, ''),
+(77, 878, 'Dr. Joshi Bharti A.', 'FDP', 'Data ', 'PMMM', 'RAIT', '2019-10-09', '2019-10-14', 7, 'RAIT', 'National', 'NIL', 0, 0, 0, ''),
+(78, 878, 'Dr. Joshi Bharti A.', 'FDP', 'High ', 'IEEE', 'RAIT', '2019-11-11', '2019-11-16', 6, 'RAIT', 'National', 'NA', 0, 0, 0, ''),
+(79, 898, 'Dr. NarawadeVaibhav E.', 'Workshop', 'Solar', 'NIL', 'RAIT', '2019-10-02', '2019-10-02', 1, 'RAIT', 'National', 'NIL', 0, 0, 0, ''),
+(80, 898, 'Dr. NarawadeVaibhav E.', 'FDP', 'High ', 'IEEE', 'RAIT', '2019-11-11', '2019-11-16', 6, 'RAIT', 'National', '500', 0, 0, 0, ''),
+(81, 898, 'Dr. NarawadeVaibhav E.', 'FDP', 'Machi', 'NIL', 'Rajiv Gandhi Institute of Technology', '2019-12-16', '2019-12-20', 5, 'Rajiv Gandhi Institute of Te', 'National', '2000', 0, 0, 0, ''),
+(82, 898, 'Dr. NarawadeVaibhav E.', 'FDP', 'Rubri', 'NIL', 'RAIT', '2019-10-17', '2019-10-17', 1, 'RAIT', 'National', 'NIL', 0, 0, 0, ''),
+(83, 898, 'Dr. NarawadeVaibhav E.', 'FDP', 'Data ', 'PMMM', 'RAIT', '2019-10-09', '2019-10-14', 7, 'RAIT', 'National', 'NIL', 0, 0, 0, ''),
+(84, 898, 'Dr. NarawadeVaibhav E.', 'FDP', 'Block', 'ISTE', 'RAIT', '2019-12-09', '2019-12-14', 6, 'RAIT', 'National', '1500', 0, 0, 0, ''),
+(85, 150, 'Dr. Ragha Leena R.', 'UBA', 'Unnat', 'NIL', 'IIT,Bombay', '2019-09-13', '2019-09-13', 1, 'IIT,Bombay', 'National', 'NA', 0, 0, 0, ''),
+(86, 150, 'Dr. Ragha Leena R.', 'FDP', 'TCS R', 'TCS', 'RAIT', '2019-08-16', '2019-08-16', 1, 'RAIT', 'National', 'NA', 0, 0, 0, ''),
+(87, 821, 'Dr. Sharma Neeraj K.', 'FDP', 'High ', 'IEEE', 'RAIT', '2019-11-11', '2019-11-16', 6, 'RAIT', 'National', '500', 0, 0, 0, ''),
+(88, 752, 'Dr. Shinde Shilpa S.', 'FDP', 'High ', 'IEEE', 'RAIT', '2019-11-11', '2019-11-16', 6, 'RAIT', 'National', '500', 0, 0, 0, ''),
+(89, 393, 'Dr. Vidhate Amarsinh A.', 'FDP', 'High ', 'IEEE', 'RAIT', '2019-11-11', '2019-11-16', 6, 'RAIT', 'National', '500', 0, 0, 0, ''),
+(90, 393, 'Dr. Vidhate Amarsinh A.', 'FDP', 'TCS R', 'TCS', 'RAIT', '2019-08-16', '2019-08-16', 1, 'RAIT', 'Local', 'NA', 0, 0, 0, ''),
+(91, 393, 'Dr. Vidhate Amarsinh A.', 'FDP', 'Block', 'ISTE', 'RAIT', '2019-12-09', '2019-12-14', 6, 'RAIT', 'National', '1500', 0, 0, 0, ''),
+(92, 807, 'Mr. Chikkareddi Vishwanath S.', 'FDP', 'Cyber', 'AICT', 'Atherva college of Engg', '2019-09-03', '2019-09-08', 6, 'Atherva college of Engg', 'National', 'NA', 0, 0, 0, ''),
+(93, 807, 'Mr. Chikkareddi Vishwanath S.', 'STTP', 'Secur', 'AICT', 'RAIT', '2019-06-10', '2019-06-21', 14, 'RAIT', 'National', '200', 0, 0, 0, ''),
+(94, 807, 'Mr. Chikkareddi Vishwanath S.', 'FDP', 'High ', 'IEEE', 'RAIT', '2019-11-11', '2019-11-16', 5, 'RAIT', 'National', '1500', 0, 0, 0, ''),
+(95, 411, 'Mr. Ghorpade Tushar H.', 'FDP', 'Data ', 'PMMM', 'RAIT', '2019-10-09', '2019-10-14', 6, 'RAIT', 'National', 'NIL', 0, 0, 0, ''),
+(96, 894, 'Mr. Gorad Balwant J.', 'FDP', 'Data ', 'PMMM', 'RAIT', '2019-10-09', '2019-10-14', 6, 'RAIT', 'National', 'NIL', 0, 0, 0, ''),
+(97, 894, 'Mr. Gorad Balwant J.', 'FDP', 'High ', 'IEEE', 'RAIT', '2019-11-11', '2019-11-16', 5, 'RAIT', 'National', '1500', 0, 0, 0, ''),
+(98, 894, 'Mr. Gorad Balwant J.', 'FDP', 'Data ', 'AICT', 'CDAC, Khargar', '2019-11-18', '2019-11-22', 6, 'CDAC, Khargar', 'National', 'NIL', 0, 0, 0, ''),
+(99, 593, 'Mr. Gunjgur Prathmesh N.', 'FDP', 'High ', 'IEEE', 'RAIT', '2019-11-11', '2019-11-16', 5, 'RAIT', 'National', '1500', 0, 0, 0, ''),
+(100, 593, 'Mr. Gunjgur Prathmesh N.', 'Training Program', 'IT In', 'TCS', 'RAIT', '2019-09-20', '2019-09-20', 1, 'RAIT', 'Local', 'NA', 0, 0, 0, ''),
+(101, 593, 'Mr. Gunjgur Prathmesh N.', 'Training Program', 'Machi', 'TCS', 'RAIT', '2019-09-20', '2019-09-20', 1, 'RAIT', 'Local', 'NA', 0, 0, 0, ''),
+(102, 593, 'Mr. Gunjgur Prathmesh N.', 'Training Program', 'Artif', 'TCS', 'RAIT', '2019-09-19', '2019-09-19', 1, 'RAIT', 'Local', 'NA', 0, 0, 0, ''),
+(103, 593, 'Mr. Gunjgur Prathmesh N.', 'Training Program', 'Block', 'TCS', 'RAIT', '2019-09-19', '2019-09-19', 1, 'RAIT', 'Local', 'NA', 0, 0, 0, ''),
+(104, 593, 'Mr. Gunjgur Prathmesh N.', 'FDP', 'TCS R', 'TCS', 'RAIT', '2019-08-16', '2019-08-16', 1, 'RAIT', 'Local', 'NA', 0, 0, 0, ''),
+(105, 593, 'Mr. Gunjgur Prathmesh N.', 'Training Program', 'Agile', 'TCS', 'RAIT', '2019-09-19', '2019-09-19', 1, 'RAIT', 'Local', 'NA', 0, 0, 0, ''),
+(106, 593, 'Mr. Gunjgur Prathmesh N.', 'Training Program', 'Inter', 'NIL', 'RAIT', '2019-12-02', '2019-12-14', 12, 'RAIT', 'Local', 'NA', 0, 0, 0, ''),
+(107, 593, 'Mr. Gunjgur Prathmesh N.', 'Training Program', 'Inter', 'NIL', 'RAIT', '2019-12-02', '2019-12-14', 12, 'RAIT', 'Local', 'NA', 0, 0, 0, ''),
+(108, 593, 'Mr. Gunjgur Prathmesh N.', 'Training Program', 'Inter', 'NIL', 'RAIT', '2019-12-16', '2019-12-28', 12, 'RAIT', 'Local', 'NA', 0, 0, 0, ''),
+(109, 593, 'Mr. Gunjgur Prathmesh N.', 'Training Program', 'Inter', 'NIL', 'RAIT', '2019-12-16', '2019-12-28', 12, 'RAIT', 'Local', 'NA', 0, 0, 0, ''),
+(110, 419, 'Mrs. Ahir Sheetal A.', '', 'TCS R', 'NIL', 'RAIT', '2019-08-16', '2019-08-16', 0, 'RAIT', 'National', 'NA', 0, 0, 0, ''),
+(111, 419, 'Mrs. Ahir Sheetal A.', 'FDP', 'Data ', 'NIL', 'Ramrao Adik Institute of Technology', '2019-10-09', '2019-10-14', 6, 'Ramrao Adik Institute of Tec', 'National', 'NA', 0, 0, 0, ''),
+(112, 650, 'Mrs. Alte Bhavana A.', 'FDP', 'High ', 'IEEE', 'RAIT', '2019-11-11', '2019-11-16', 6, 'RAIT', 'National', '500', 0, 0, 0, ''),
+(113, 650, 'Mrs. Alte Bhavana A.', 'Workshop', 'Andro', 'NIL', 'RAIT,Navi Mumbai', '2019-08-03', '2019-08-03', 1, 'RAIT,Navi Mumbai', 'National', '200', 0, 0, 0, ''),
+(114, 576, 'Mrs. Bharne Smita D.', 'Workshop', 'Andro', 'NIL', 'RAIT,Navi Mumbai', '2019-08-03', '2019-08-03', 1, 'RAIT,Navi Mumbai', 'National', '500', 0, 0, 0, ''),
+(115, 576, 'Mrs. Bharne Smita D.', 'FDP', 'TCS R', 'TCS', 'RAIT', '2019-08-16', '2019-08-16', 1, 'RAIT', 'National', 'NA', 0, 0, 0, ''),
+(116, 576, 'Mrs. Bharne Smita D.', 'FDP', 'Data ', 'PMMM', 'RAIT', '2019-10-09', '2019-10-14', 6, 'RAIT', 'National', 'NIL', 0, 0, 0, ''),
+(117, 482, 'Mrs. Bhoir Smita V.', 'FDP', 'Data ', 'PMMM', 'RAIT', '2019-10-09', '2019-10-14', 6, 'RAIT', 'National', 'NIL', 0, 0, 0, ''),
+(118, 482, 'Mrs. Bhoir Smita V.', 'FDP', 'TCS R', '', 'RAIT', '2019-08-16', '2019-08-16', 1, 'RAIT', 'National', 'NA', 0, 0, 0, ''),
+(119, 528, 'Mrs. Bodhe Swarupa', 'Workshop', 'Andro', 'NIL', 'RAIT,Navi Mumbai', '2019-08-03', '2019-08-03', 1, 'RAIT,Navi Mumbai', 'National', '200', 0, 0, 0, ''),
+(120, 528, 'Mrs. Bodhe Swarupa', 'FDP', 'Data ', 'NIL', 'Ramrao Adik Institute of Technology', '2019-10-09', '2019-10-14', 6, 'Ramrao Adik Institute of Tec', 'National', 'NA', 0, 0, 0, ''),
+(121, 374, 'Mrs. Chhabria Aditi S.', 'FDP', 'TCS R', 'NIL', 'RAIT', '2019-08-16', '2019-08-16', 1, 'RAIT', 'National', 'NA', 0, 0, 0, ''),
+(122, 374, 'Mrs. Chhabria Aditi S.', 'FDP', 'Intro', 'NPTE', 'RAIT', '2019-07-29', '2019-09-29', 56, 'RAIT', 'National', '1100', 0, 0, 0, ''),
+(123, 374, 'Mrs. Chhabria Aditi S.', 'STTP', 'Block', 'AICT', 'RAIT', '2019-12-09', '2019-12-14', 6, 'RAIT', 'National', '1500', 0, 0, 0, ''),
+(124, 672, 'Mrs. Chitte Pallavi H.', 'FDP', 'Data ', 'PMMM', 'RAIT', '2019-10-09', '2019-10-14', 6, 'RAIT', 'National', 'NIL', 0, 0, 0, ''),
+(125, 672, 'Mrs. Chitte Pallavi H.', 'FDP', 'High ', 'IEEE', 'RAIT', '2019-11-11', '2019-11-16', 6, 'RAIT', 'National', 'NIL', 0, 0, 0, ''),
+(126, 672, 'Mrs. Chitte Pallavi H.', 'Workshop', 'Andro', 'NIL', 'RAIT,Navi Mumbai', '2019-08-03', '2019-08-03', 1, 'RAIT,Navi Mumbai', 'National', '200', 0, 0, 0, ''),
+(127, 811, 'Mrs. Dhumal Rashmi A.', 'FDP', 'High ', 'IEEE', 'RAIT', '2019-11-11', '2019-11-16', 6, 'RAIT', 'National', 'NIL', 0, 0, 0, ''),
+(128, 811, 'Mrs. Dhumal Rashmi A.', 'FDP', 'Cloud', 'MHRD', 'Online NPTEL course from IIT KHARAGPUR', '2019-08-26', '2019-10-18', 56, 'Online NPTEL course from IIT', 'National', '1100', 0, 0, 0, ''),
+(129, 638, 'Mrs. Ekta K. Sarda', 'FDP', 'Data ', 'NIL', 'Ramrao Adik Institute of Technology', '2019-10-09', '2019-10-14', 6, 'Ramrao Adik Institute of Tec', 'National', 'NA', 0, 0, 0, '');
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `awards`
+--
+ALTER TABLE `awards`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `book_chapter`
@@ -496,6 +1040,12 @@ ALTER TABLE `book_chapter`
 ALTER TABLE `book_publication`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `book_name` (`book_name`,`isbn_no`);
+
+--
+-- Indexes for table `competitive_exam`
+--
+ALTER TABLE `competitive_exam`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `conference`
@@ -539,6 +1089,18 @@ ALTER TABLE `journal`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `medicals`
+--
+ALTER TABLE `medicals`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orientation`
+--
+ALTER TABLE `orientation`
+  ADD PRIMARY KEY (`Srno`);
+
+--
 -- Indexes for table `patent`
 --
 ALTER TABLE `patent`
@@ -552,20 +1114,44 @@ ALTER TABLE `rd`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `syllabus`
+--
+ALTER TABLE `syllabus`
+  ADD PRIMARY KEY (`Srno`);
+
+--
+-- Indexes for table `workshop`
+--
+ALTER TABLE `workshop`
+  ADD PRIMARY KEY (`Srno`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `awards`
+--
+ALTER TABLE `awards`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `book_chapter`
 --
 ALTER TABLE `book_chapter`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `book_publication`
 --
 ALTER TABLE `book_publication`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `competitive_exam`
+--
+ALTER TABLE `competitive_exam`
+  MODIFY `id` int(26) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `conference`
@@ -604,16 +1190,40 @@ ALTER TABLE `journal`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT for table `medicals`
+--
+ALTER TABLE `medicals`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `orientation`
+--
+ALTER TABLE `orientation`
+  MODIFY `Srno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+
+--
 -- AUTO_INCREMENT for table `patent`
 --
 ALTER TABLE `patent`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `rd`
 --
 ALTER TABLE `rd`
   MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `syllabus`
+--
+ALTER TABLE `syllabus`
+  MODIFY `Srno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+
+--
+-- AUTO_INCREMENT for table `workshop`
+--
+ALTER TABLE `workshop`
+  MODIFY `Srno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
 
 --
 -- Constraints for dumped tables

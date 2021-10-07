@@ -7,7 +7,7 @@ define('MB', 1048576);
 
 
 
-$con = mysqli_connect('localhost', 'root', '','faculty');
+$con = mysqli_connect('localhost', 'root', '','test');
 
 // get the post records
 // $name1=$_SESSION['firstname'] ." ". $_SESSION['middlename'] ." ". $_SESSION['thirdname'];

@@ -3,35 +3,30 @@
 $conn = mysqli_connect("localhost", "root", "", "test");
 if (isset($_SESSION['sdrn'])){
     $sdrn = $_SESSION['sdrn'];
+    $faculty_name = $_SESSION['full_name'];
 }
-$sdrn=150;
 $i=0;
-$output="<h4>";
-$sql =  "SELECT * from book_publication where sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP')" ; 
+$output="<h5>";
+$sql =  "SELECT * FROM book_publication" ; 
 $result = mysqli_query($conn, $sql); 
 while($row = mysqli_fetch_array($result)){
   $i=$i+1;
   $authors=implode(", ",array_filter([$row["faculty_name"],$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
   $output .= "[".$i."]  ".$authors.', "'.$row["book_name"].'", '.$row["publisher_name"].", ".$row["isbn_no"].", ".$row["year"].", ".$row["opt1"]. ". </br></br>";    
 }
-$output.="</h4>";
+$output.="</h5>";
  if(isset($_POST["gen_report"])){
   $i=0;
    $output="<h4 class='text-center'>Reports showing  ";
    $filter_query="";
-  $select="SELECT * from book_publication where sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP')";
+  $select="SELECT * FROM book_publication ";
    if(isset($_POST["date_from"]) &&$_POST["date_to"] && $_POST["date_from"]!="" && $_POST["date_to"]!=""){
      $from=date('Y-m-d',strtotime($_POST['date_from']));
        $to=date('Y-m-d',strtotime($_POST['date_to']));
        $filter_query.="AND year between '$from' and '$to'";
         $output.="from ".$from." to ".$to;
    }
-   if(isset($_POST["fac_name"]) && $_POST["fac_name"]!=""){
-     $fac_name=mysqli_escape_string($conn,$_POST["fac_name"]);
-     $filter_query.="AND (faculty_name LIKE '%$fac_name%' OR author1 LIKE '%$fac_name%' OR author2 LIKE '%$fac_name%' OR author3 LIKE '%$fac_name%' OR author4 LIKE '%$fac_name%')";
-     $output.=" for ".$fac_name; 
-    }
-    $output.="</h4><h4>";
+    $output.="</h4><h5>";
      $sql =   $select.$filter_query; 
      $result = mysqli_query($conn, $sql);  
      while($row = mysqli_fetch_array($result)){
@@ -39,7 +34,7 @@ $output.="</h4>";
       $authors=implode(", ",array_filter([$row["faculty_name"],$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
       $output .= "[".$i."]  ".$authors.', "'.$row["book_name"].'", '.$row["publisher_name"].", ".$row["isbn_no"].", ".$row["year"].", ".$row["opt1"]. ". </br></br>";    
     }
-    $output.='</h4>';
+    $output.='</h5>';
  }
 
 ?>
@@ -73,24 +68,7 @@ $output.="</h4>";
                 <label>To
                 <input type="date" name="date_to" class="form-control">
                 </label>
-                <label>Name of faculty
-                <input type="text" list="faculty_names" autocomplete="off" name="fac_name" class="form-control">
-                </label>
-                <datalist id="faculty_names">
-                  <?php 
-                    $sql="SELECT * from book_publication";
-                    $result1 = mysqli_query($conn, $sql);
-                    while($row = mysqli_fetch_array($result1)){?>
-                      '<option value="<?php echo $row['faculty_name']?>"></option>';
-                      '<option value="<?php echo $row["author1"]?>"></option>';
-                      '<option value="<?php echo $row["author2"]?>"></option>';
-                      '<option value="<?php echo $row["author3"]?>"></option>';
-                      '<option value="<?php echo $row["author4"]?>"></option>';
-                  <?php
-                    }
-                    ?>
-                  
-                  </datalist></br>
+                </br>
                   <button type="submit" name="gen_report" class="btn btn-danger">Generate report</button>
             </div>
             </form>

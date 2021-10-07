@@ -2,21 +2,14 @@
 	@session_start();
 	if (isset($_SESSION['sdrn'])){
 		$sdrn = $_SESSION['sdrn'];
+		$faculty_name = $_SESSION['full_name'];
 	}
-	$sdrn='811';
+
 	// Database Connection 
 	$conn = mysqli_connect("localhost", "root", "","test");
 	if ($conn->connect_error)  {
 		die("Connection failed: " . $conn->connect_error);
 	}
-
-	// Fetching Faculty Name From SDRN 
-	$sql = "SELECT CONCAT(First_name,' ',Last_name) FROM faculty WHERE Sdrn = '$sdrn' ";
-	$query = mysqli_query($conn, $sql) or die("Query Unsuccessful");
-	while ($row = mysqli_fetch_array($query)) {
-		$faculty_name = $row[0];
-	}
-
 
 	$book_chapter=array();
 	$book_publications=array();
@@ -24,42 +17,42 @@
 	$conference=array();
 	$copyright=array();
 	$journal=array();
-	$query = "SELECT COUNT(*) FROM book_chapter WHERE sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP')";	
+	$query = "SELECT COUNT(*) FROM book_chapter " ; 	
     $result = mysqli_query($conn, $query);
 		if(mysqli_num_rows($result) > 0) {
 			while ($row = @mysqli_fetch_array($result)) {
 				array_push($book_chapter,$row[0]);
 			}
 		}
-    $query = "SELECT COUNT(*) FROM book_publication WHERE sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP') ";
+    $query = "SELECT COUNT(*) FROM book_publication " ; 	
 		$result = mysqli_query($conn, $query);
 		if(mysqli_num_rows($result) > 0) {
 			while ($row = @mysqli_fetch_array($result)) {
 				array_push($book_publications,$row[0]);
 			}
 		} 
-    $query = "SELECT COUNT(*) FROM patent WHERE sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP')";
+    $query = "SELECT COUNT(*) FROM patent " ; 	
 		$result = mysqli_query($conn, $query);
 		if(mysqli_num_rows($result) > 0) {
 			while ($row = @mysqli_fetch_array($result)) {
 				array_push($patent,$row[0]);
 			}
 		} 	
-    $query = "SELECT COUNT(*) FROM conference WHERE sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP')";
+    $query = "SELECT COUNT(*) FROM conference " ; 	
 		$result = mysqli_query($conn, $query);
 		if(mysqli_num_rows($result) > 0) {
 			while ($row = @mysqli_fetch_array($result)) {
 				array_push($conference,$row[0]);
 			}
 		} 
-    $query = "SELECT COUNT(*) FROM copyright WHERE sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP')";
+    $query = "SELECT COUNT(*) FROM copyright " ; 	
 		$result = mysqli_query($conn, $query);
 		if(mysqli_num_rows($result) > 0) {
 			while ($row = @mysqli_fetch_array($result)) {
 				array_push($copyright,$row[0]);
 			}
 		} 
-    $query = "SELECT COUNT(*) FROM journal WHERE sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP')";
+    $query = "SELECT COUNT(*) FROM journal " ; 	
 		$result = mysqli_query($conn, $query);
 		if(mysqli_num_rows($result) > 0) {
 			while ($row = @mysqli_fetch_array($result)) {
@@ -80,7 +73,7 @@
 	var myChart = new Chart(ctx, {
         type: 'doughnut',
     data: {
-        labels: ["book_chapter", "book_publications","patent","conference","copyright","journal"],
+        labels: ["Book Chapter", "Book Publications","Patent","Conference","Copyright","Journal"],
         datasets: [
         {
             data: [book_chapter,book_publications,patent,conference,copyright,journal],
@@ -116,7 +109,7 @@ $copyright=array();
 $journal=array();
 $xaxis=array();
 for($i=4; $i>=0; $i--){
-$query = "SELECT COUNT(*),YEAR(now())-$i FROM book_chapter WHERE sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP') AND YEAR(publication_year)=YEAR(now())-$i";	
+$query = "SELECT COUNT(*),YEAR(now())-$i FROM book_chapter where YEAR(publication_year)=YEAR(now())-$i";	
 $result = mysqli_query($conn, $query);
 	if(mysqli_num_rows($result) > 0) {
 		while ($row = @mysqli_fetch_array($result)) {
@@ -126,7 +119,7 @@ $result = mysqli_query($conn, $query);
 	}
 }
 for($i=4; $i>=0; $i--){
-$query = "SELECT COUNT(*) FROM book_publication WHERE sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP') AND YEAR(year)=YEAR(now())-$i";
+$query = "SELECT COUNT(*) FROM book_publication where YEAR(year)=YEAR(now())-$i";
 	$result = mysqli_query($conn, $query);
 	if(mysqli_num_rows($result) > 0) {
 		while ($row = @mysqli_fetch_array($result)) {
@@ -135,7 +128,7 @@ $query = "SELECT COUNT(*) FROM book_publication WHERE sdrn IN (SELECT Sdrn FROM 
 	} 
 }
 for($i=4; $i>=0; $i--){
-$query = "SELECT COUNT(*) FROM patent WHERE sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP') AND YEAR(patent)=YEAR(now())-$i";
+$query = "SELECT COUNT(*) FROM patent where YEAR(patent)=YEAR(now())-$i";
 	$result = mysqli_query($conn, $query);
 	if(mysqli_num_rows($result) > 0) {
 		while ($row = @mysqli_fetch_array($result)) {
@@ -144,7 +137,7 @@ $query = "SELECT COUNT(*) FROM patent WHERE sdrn IN (SELECT Sdrn FROM faculty WH
 	} 
 }
 for($i=4; $i>=0; $i--){	
-$query = "SELECT COUNT(*) FROM conference WHERE sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP') AND YEAR(con_date)=YEAR(now())-$i";
+$query = "SELECT COUNT(*) FROM conference where YEAR(con_date)=YEAR(now())-$i";
 	$result = mysqli_query($conn, $query);
 	if(mysqli_num_rows($result) > 0) {
 		while ($row = @mysqli_fetch_array($result)) {
@@ -153,7 +146,7 @@ $query = "SELECT COUNT(*) FROM conference WHERE sdrn IN (SELECT Sdrn FROM facult
 	} 
 }
 for($i=4; $i>=0; $i--){
-$query = "SELECT COUNT(*) FROM copyright WHERE sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP') AND YEAR(reg_date)=YEAR(now())-$i";
+$query = "SELECT COUNT(*) FROM copyright where YEAR(reg_date)=YEAR(now())-$i";
 	$result = mysqli_query($conn, $query);
 	if(mysqli_num_rows($result) > 0) {
 		while ($row = @mysqli_fetch_array($result)) {
@@ -162,7 +155,7 @@ $query = "SELECT COUNT(*) FROM copyright WHERE sdrn IN (SELECT Sdrn FROM faculty
 	} 
 }
 for($i=4; $i>=0; $i--){
-$query = "SELECT COUNT(*) FROM journal WHERE sdrn IN (SELECT Sdrn FROM faculty WHERE Department='COMP') AND YEAR(publication_date)=YEAR(now())-$i";
+$query = "SELECT COUNT(*) FROM journal where YEAR(publication_date)=YEAR(now())-$i";
 	$result = mysqli_query($conn, $query);
 	if(mysqli_num_rows($result) > 0) {
 		while ($row = @mysqli_fetch_array($result)) {
@@ -191,27 +184,27 @@ var myChart = new Chart(ctx, {
     labels:xaxis,
     datasets: [{
       label: 'Chapter',
-      backgroundColor: "#caf270",
+      backgroundColor: "#d625b5",
       data: book_chapter,
     }, {
       label: 'Publications',
-      backgroundColor: "#45c490",
+      backgroundColor: "#ff2391",
       data: book_publications,
     }, {
       label: 'Patent',
-      backgroundColor: "#2aba95",
+      backgroundColor: "#ff5767",
       data: patent,
     }, {
       label: 'Conference',
-      backgroundColor: "#009897",
+      backgroundColor: "#ff913b",
       data:conference,
     },{
       label: 'Copyright',
-      backgroundColor: "#077687",
+      backgroundColor: "#ffc900",
       data:copyright,
     },{
       label: 'Journal',
-      backgroundColor: "#2e5468",
+      backgroundColor: "#f7eb00",
       data:journal,
     }],
   },
@@ -248,5 +241,175 @@ options: {
 });
 
 
+
+</script>
+
+<!-- faculty Participation -->
+<?php
+$link = mysqli_connect("localhost", "root", "","test");
+if ($link->connect_error)  {
+	die("Connection failed: " . $link->connect_error);
+}
+$workshop=array();
+$syllabussetting=array();
+$orientation=array();
+$xaxis=array();
+for($i=4; $i>=0; $i--){
+$query = "SELECT COUNT(*),YEAR(now())-$i FROM workshop where YEAR(sdate)=YEAR(now())-$i";	
+$result = mysqli_query($link, $query);
+	if(mysqli_num_rows($result) > 0) {
+		while ($row = @mysqli_fetch_array($result)) {
+			array_push($workshop,$row[0]);
+			array_push($xaxis,$row[1]);
+		}
+	}
+}
+for($i=4; $i>=0; $i--){
+$query = "SELECT COUNT(*) FROM syllabus where YEAR(Date)=YEAR(now())-$i";
+	$result = mysqli_query($link, $query);
+	if(mysqli_num_rows($result) > 0) {
+		while ($row = @mysqli_fetch_array($result)) {
+			array_push($syllabussetting,$row[0]);
+		}
+	} 
+}
+for($i=4; $i>=0; $i--){
+$query = "SELECT COUNT(*) FROM orientation where YEAR(date)=YEAR(now())-$i";
+	$result = mysqli_query($link, $query);
+	if(mysqli_num_rows($result) > 0) {
+		while ($row = @mysqli_fetch_array($result)) {
+			array_push($orientation,$row[0]);
+		}
+	} 
+}
+
+?>
+<script>
+var ctx = document.getElementById("chart_faculty_part_1").getContext('2d');
+	var workshop = [<?php echo join(',',$workshop); ?>];
+	var syllabussetting = [<?php echo join(',',$syllabussetting); ?>];
+	var orientation = [<?php echo join(',',$orientation); ?>];
+	var xaxis = [<?php echo join(',',$xaxis); ?>];
+	for(var i=0;i<xaxis.length;i++){
+		xaxis[i]="YEAR: "+xaxis[i];
+	}
+var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels:xaxis,
+    datasets: [{
+      label: 'Workshop',
+      backgroundColor: "#d60000",
+      data: workshop,
+    }, {
+      label: 'Syllabus Setting',
+      backgroundColor: "#e4008a",
+      data:syllabussetting,
+    },{
+      label: 'Orientation',
+      backgroundColor: "#5159fc",
+      data:orientation,
+    }],
+  },
+options: {
+	title:{
+		display:true,
+		text:"Participation Past 5 years",
+	},
+    tooltips: {
+      displayColors: true,
+      callbacks:{
+        mode: 'x',
+      },
+    },
+    scales: {
+      xAxes: [{
+        stacked: true,
+        gridLines: {
+          display: false,
+        }
+      }],
+      yAxes: [{
+        stacked: true,
+        ticks: {
+          beginAtZero: true,
+        },
+        type: 'linear',
+      }]
+    },
+    responsive: true,
+    maintainAspectRatio: true,
+    legend: { position: 'bottom' },
+  }
+});
+
+</script>
+<?php
+$workshop=array();
+$syllabussetting=array();
+$orientation=array();
+
+$query = "SELECT COUNT(*) FROM workshop  " ; 	
+$result = mysqli_query($link, $query);
+	if(mysqli_num_rows($result) > 0) {
+		while ($row = @mysqli_fetch_array($result)) {
+			array_push($workshop,$row[0]);
+		}
+	}
+$query = "SELECT COUNT(*) FROM syllabus" ; 	
+	$result = mysqli_query($link, $query);
+	if(mysqli_num_rows($result) > 0) {
+		while ($row = @mysqli_fetch_array($result)) {
+			array_push($syllabussetting,$row[0]);
+		}
+	} 
+$query = "SELECT COUNT(*) FROM orientation  " ; 	
+	$result = mysqli_query($link, $query);
+	if(mysqli_num_rows($result) > 0) {
+		while ($row = @mysqli_fetch_array($result)) {
+			array_push($orientation,$row[0]);
+		}
+	} 	
+?>
+<script>
+var ctx = document.getElementById("chart_faculty_part_2").getContext('2d');
+var workshop = [<?php echo join(',',$workshop); ?>];
+	var syllabussetting = [<?php echo join(',',$syllabussetting); ?>];
+	var orientation = [<?php echo join(',',$orientation); ?>];
+var myChart = new Chart(ctx, {
+        type: 'doughnut',
+    data: {
+        labels: ["Workshop", "Syllabus Setting","Orientation"],
+        datasets: [
+        {
+            data: [workshop,syllabussetting,orientation],
+            backgroundColor: [
+                "#007f5c",
+                "#7a9f2a",
+               "#ffa600",
+            ]
+        }]
+    },
+    options: {
+		plugins: {
+		datalabels: {
+			display: true,
+			align: 'bottom',
+			backgroundColor: '#ccc',
+			borderRadius: 3,
+			font: {
+			size: 18,
+			}
+		}},
+        title: {
+            display: true,
+            text: 'Participation'
+        },
+		responsive: true,
+		maintainAspectRatio: true,
+		legend: { position: 'right' },
+		
+	},
+	});
 
 </script>
