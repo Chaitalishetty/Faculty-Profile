@@ -114,14 +114,12 @@ if (isset($_SESSION['sdrn'])){
                 <tr>
                 <th>Sr No</th>
                     <th>Faculty Name</th>
-                    <th>Topic</th>
-                    <th>Subject</th>
                     <th>Workshop Type</th>
-                    <th>Speaker Name</th>
-                    <th>Speaker Designation</th>
-                    <th>Organiser</th>
-                    <th>No. of days</th>
+                    <th>Activity</th>
+                    <th>Class</th>
+                    <th>Sem</th>
                     <th>Date</th>
+                    <th>No. of days</th>
                     
                     <!-- <th>Doc</th> -->
 
@@ -150,21 +148,19 @@ if (isset($_SESSION['sdrn'])){
                         $filter_query.="AND date between '$from' and '$to'";
                     }
                 }
-                $query = " SELECT * FROM schedule WHERE faculty_sdrn= '$sdrn' ".$filter_query."";
+                $query = " SELECT * FROM organized WHERE faculty_sdrn= '$sdrn' ".$filter_query."";
                 $query_run = mysqli_query($link, $query);
                 $srno=1;
                 while ($row = mysqli_fetch_array($query_run)) {
                     echo "<tr>";
                     echo "<td>" . $srno . "</td>";
                     echo "<td>" . $row['faculty_name'] . "</td>";
-                    echo "<td>" . $row['topic'] . "</td>";
-                    echo "<td>" . $row['subject'] . "</td>";
-                    echo "<td>" . $row['schedule_type'] . "</td>";
-                    echo "<td>" . $row['speaker_name'] . "</td>";
-                    echo "<td>" . $row['speaker_designation'] . "</td>";
-                    echo "<td>" . $row['organized_by'] . "</td>";
-                    echo "<td>" . $row['no_of_days'] . "</td>";
+                    echo "<td>" . $row['type_of_organize'] . "</td>";
+                    echo "<td>" . $row['type_of_activity'] . "</td>";
+                    echo "<td>" . $row['class'] . "</td>";
+                    echo "<td>" . $row['sem'] . "</td>";
                     echo "<td>" . $row['date'] . "</td>";
+                    echo "<td>" . $row['no_of_days'] . "</td>";
                     
                     //echo "<td><a href='" . $doc . "'><img src='images/doc.png' style='width:20px'></td></a>";
                     echo "</tr>";
