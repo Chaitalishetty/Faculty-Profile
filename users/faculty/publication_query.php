@@ -278,13 +278,13 @@ if (isset($_SESSION['sdrn'])){
     $faculty_name = $_SESSION['full_name'];
 }
 $i15=0;
-$sql15 =  "select * from organized where Sdrn='$sdrn'" ; 
+$sql15 =  "select * from organized where faculty_sdrn='$sdrn'" ; 
 $result15 = mysqli_query($link_tool, $sql15);
 if(mysqli_num_rows($result15)!=0){
   $output15="<br><p class='heading'><b>WORKSHOPS ORGANIZED</b></p><p class='con'>";
 while($row = mysqli_fetch_array($result15)){
   $i15=$i15+1;
- $output15 .="[" .$i15."] ".$row['criteria']." ( ".$row['Name_workshop']." ) ,".$row['sponsor'].", ".$row['venue'].", ".$row['sdate']." , ".$row['edate'].", ".$row['ndays'].", ".$row['organiser'].", ".$row['org_type'].", ".$row['sfunding'].", ".$row['ramount'].", ".$row['amount_funded'].".<br><br>";  
+ $output15 .="[" .$i15."] ".$row['type_of_organize']." ( ".$row['type_of_activity']." ) ,".$row['class'].", ".$row['sem'].", ".$row['date']." , ".$row['time'].", ".$row['no_of_days'].".<br><br>";  
 }
 
 $output15.="</p>";
