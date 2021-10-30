@@ -23,7 +23,7 @@ $output.="</h5>";
    if(isset($_POST["date_from"]) &&$_POST["date_to"] && $_POST["date_from"]!="" && $_POST["date_to"]!=""){
      $from=date('Y-m-d',strtotime($_POST['date_from']));
        $to=date('Y-m-d',strtotime($_POST['date_to']));
-       $filter_query.="AND publication_date between '$from' and '$to'";
+       $filter_query.=" WHERE publication_date between '$from' and '$to'";
         $output.="from ".$from." to ".$to;
    }
     $output.="</h4><h5>";

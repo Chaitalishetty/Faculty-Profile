@@ -12,7 +12,7 @@ $result = mysqli_query($conn, $sql);
 while($row = mysqli_fetch_array($result)){
   $i=$i+1;
   $authors=implode(", ",array_filter([$row["faculty_name"],$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
-  $output .= "[".$i."]  ".$authors.', '.$row["copyright"].', "'.$row["title"].'", '.$row["opt1"]. ". </br></br>";     
+  $output .= "[".$i."]  ".$authors.', '.$row["copyright"].', "'.$row["title"].'", '.$row["reg_date"].','.$row["opt1"]. ". </br></br>";     
 }
 $output.="</h5>";
  if(isset($_POST["gen_report"])){
@@ -23,7 +23,7 @@ $output.="</h5>";
    if(isset($_POST["date_from"]) &&$_POST["date_to"] && $_POST["date_from"]!="" && $_POST["date_to"]!=""){
      $from=date('Y-m-d',strtotime($_POST['date_from']));
        $to=date('Y-m-d',strtotime($_POST['date_to']));
-       $filter_query.="AND reg_date between '$from' and '$to'";
+       $filter_query.="WHERE reg_date between '$from' and '$to'";
         $output.="from ".$from." to ".$to;
    }
     $output.="</h4><h5>";
@@ -32,7 +32,7 @@ $output.="</h5>";
      while($row = mysqli_fetch_array($result)){
        $i=$i+1;
        $authors=implode(", ",array_filter([$row["faculty_name"],$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
-      $output .= "[".$i."]  ".$authors.', '.$row["copyright"].', "'.$row["title"].'", '.$row["opt1"]. ". </br></br>";     
+      $output .= "[".$i."]  ".$authors.', '.$row["copyright"].', "'.$row["title"].'",'.$row["reg_date"].', '.$row["opt1"]. ". </br></br>";     
     }
     $output.='</h5>';
  }

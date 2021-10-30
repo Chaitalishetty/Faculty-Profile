@@ -14,7 +14,7 @@ if(mysqli_num_rows($result1)!=0){
   $output1="<p class='heading'><b>BOOK CHAPTER</b></p><p class='con'>";
 while($row = mysqli_fetch_array($result1)){
   $i1=$i1+1;
-  $authors=implode(", ",array_filter([$row["faculty_name"],$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
+  $authors=implode(", ",array_filter([$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
  $output1 .= "[".$i1."]  ".$authors.', "'.$row["chapter_name"].'" in '.$row["book_name"].", ".$row["publisher_name"].", ".$row["publication_year"].". </br></br>";  
 }
 
@@ -32,7 +32,7 @@ if(mysqli_num_rows($result2)!=0){
   $output2="<p class='heading'><b>BOOK PUBLICATION</b></p><p class='con'>";
 while($row = mysqli_fetch_array($result2)){
   $i2=$i2+1;
-  $authors=implode(", ",array_filter([$row["faculty_name"],$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
+  $authors=implode(", ",array_filter([$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
   $output2 .= "[".$i2."]  ".$authors.', "'.$row["book_name"].'", '.$row["publisher_name"].", ".$row["isbn_no"].", ".$row["year"].", ".$row["opt1"]. ". </br></br>";    
 }
 $output2.="</p>";
@@ -49,7 +49,7 @@ if(mysqli_num_rows($result3)!=0){
   $output3="<p class='heading'><b>JOURNAL</b></p><p class='con'>";
 while($row = mysqli_fetch_array($result3)){
   $i3=$i3+1;
-  $authors=implode(", ",array_filter([$row["faculty_name"],$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
+  $authors=implode(", ",array_filter([$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
   $output3 .= "[".$i3."]  ".$authors.', "'.$row["title"].'", '.$row["journal_name"].', '.$row["volume_no"].", ".$row["publication_date"].", ".$row["opt1"] .". </br></br>";  
 }
 $output3.="</p>";
@@ -66,7 +66,7 @@ if(mysqli_num_rows($result4)!=0){
   $output4="<br><p class='heading'><b>COPYRIGHT</b></p><p class='con'>";
 while($row = mysqli_fetch_array($result4)){
   $i4=$i4+1;
-  $authors=implode(", ",array_filter([$row["faculty_name"],$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
+  $authors=implode(", ",array_filter([$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
   $output4 .= "[".$i4."]  ".$authors.', '.$row["copyright"].', "'.$row["title"].'", '.$row["opt1"]. ". </br></br>";     
 }
 $output4.="</p>";
@@ -83,7 +83,7 @@ if(mysqli_num_rows($result5)!=0){
   $output5="<br><p class='heading'><b>PATENT</b></p><p class='con'>";
   while($row = mysqli_fetch_array($result5)){
     $i=$i+1;
-    $authors=implode(", ",array_filter([$row["faculty_name"],$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
+    $authors=implode(", ",array_filter([$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
     $output5 .= "[".$i5."]  ".$authors.', '.$row["patent"].', "'.$row["title"].'", '.$row["opt1"]. ". </br></br>";     
   }
   $output5.="</p>";
@@ -100,7 +100,7 @@ if(mysqli_num_rows($result6)!=0){
   $output6="<br><p class='heading'><b>CONFERENCE</b></p><p class='con'>";
 while($row = mysqli_fetch_array($result6)){
   $i6=$i6+1;
-  $authors=implode(", ",array_filter([$row["faculty_name"],$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
+  $authors=implode(", ",array_filter([$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
   $output6 .= "[".$i6."]  ".$authors.', "'.$row["paper_title"].'", '.$row["con_name"].', '.$row["con_place"].", ".$row["con_date"].", ".$row["indexed_in"].", ".$row["opt1"] .". </br></br>";  
 }
 $output6.="</p>";

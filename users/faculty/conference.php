@@ -12,7 +12,7 @@ $sql =  "SELECT * FROM conference where (sdrn = '$sdrn' OR faculty_name LIKE '%$
 $result = mysqli_query($conn, $sql); 
 while($row = mysqli_fetch_array($result)){
   $i=$i+1;
-  $authors=implode(", ",array_filter([$row["faculty_name"],$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
+  $authors=implode(", ",array_filter([$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
   $output .= "[".$i."]  ".$authors.', "'.$row["paper_title"].'", '.$row["con_name"].', '.$row["con_place"].", ".$row["con_date"].", ".$row["indexed_in"].", ".$row["opt1"] .". </br></br>";  
 }
 $output.="</h5>";
@@ -32,7 +32,7 @@ $output.="</h5>";
      $result = mysqli_query($conn, $sql);  
      while($row = mysqli_fetch_array($result)){
        $i=$i+1;
-       $authors=implode(", ",array_filter([$row["faculty_name"],$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
+       $authors=implode(", ",array_filter([$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
   $output .= "[".$i."]  ".$authors.', "'.$row["paper_title"].'", '.$row["con_name"].', '.$row["con_place"].", ".$row["con_date"].", ".$row["indexed_in"].", ".$row["opt1"] .". </br></br>";  
  
     }

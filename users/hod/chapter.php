@@ -12,7 +12,7 @@ $sql =  "SELECT * FROM book_chapter" ;
 $result = mysqli_query($conn, $sql);
 while($row = mysqli_fetch_array($result)){
   $i=$i+1;
-  $authors=implode(", ",array_filter([$row["faculty_name"],$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
+  $authors=implode(", ",array_filter([$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
  $output .= "[".$i."]  ".$authors.', "'.$row["chapter_name"].'" in '.$row["book_name"].", ".$row["publisher_name"].", ".$row["publication_year"].". </br></br>";  
 }
 $output.="</h5>";
@@ -24,15 +24,15 @@ $output.="</h5>";
    if(isset($_POST["date_from"]) &&$_POST["date_to"] && $_POST["date_from"]!="" && $_POST["date_to"]!=""){
      $from=date('Y-m-d',strtotime($_POST['date_from']));
        $to=date('Y-m-d',strtotime($_POST['date_to']));
-       $filter_query.="AND publication_year between '$from' and '$to'";
+       $filter_query.="WHERE publication_year between '$from' and '$to'";
         $output.="from ".$from." to ".$to;
    }
     $output.="</h4><h5>";
      $sql =   $select.$filter_query; 
-     $result = mysqli_query($conn, $sql);  
+     $result = mysqli_query($conn, $sql); 
      while($row = mysqli_fetch_array($result)){
        $i=$i+1;
-       $authors=implode(", ",array_filter([$row["faculty_name"],$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
+       $authors=implode(", ",array_filter([$row["author1"],$row["author2"],$row["author3"],$row["author4"]]));
        $output .= "[".$i."]  ".$authors.', "'.$row["chapter_name"].'" in '.$row["book_name"].", ".$row["publisher_name"].", ".$row["publication_year"].". </br></br>";    
     }
     $output.='</h5>';

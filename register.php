@@ -286,7 +286,7 @@
           <div class="row">
             <div class="form-group col-sm-3">
               <label>Date Of Joining:</label>
-              <input type="date" class="form-control" name="date_of_joining" id="date_of_joining" onchange="calculate_doj(this.value);" value="<? echo date("d/m/Y", strtotime("-20 years")); ?>" required />
+              <input type="date" class="form-control" name="date_of_joining" id="date_of_joining" onchange="calculate_doj(this.value);" value="<? echo date('d/m/Y', strtotime('-20 years')); ?>" required />
             </div>
             <div class="form-group col-sm-3">
               <label>Rait Experience</label>
@@ -298,7 +298,7 @@
             </div>
             <div class="form-group col-sm-3">
               <label>Industry Experience</label>
-              <input type="text" class="form-control" name="industry_experience" id="industry_experience" Placeholder="Industry Experience(Yrs)" required />
+              <input type="text" class="form-control" name="industry_experience" id="industry_experience" Placeholder="Industry Experience(Yrs)" />
             </div>
           </div>
 
