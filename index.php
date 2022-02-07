@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css\font-awesome.min.css">
     <!-- Bootstrap css  -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css\bootstrap.min.css">
+    <link rel="stylesheet" href="css\login.css">
     <title>Login</title>
 </head>
 
@@ -18,7 +18,7 @@
     <?php
         if(isset($_POST['btn-signin'])){
             // error_reporting(0);
-            require "backend/include/conn.php";
+            require "include\conn.php";
 
             $Sdrn = mysqli_real_escape_string($conn, $_POST['Sdrn']);
             $Password = mysqli_real_escape_string($conn, $_POST['Password']);
@@ -49,6 +49,9 @@
                     case 'principal':
                         header("location:users/principal/home.php");
                         exit();
+                    case 'verification':
+                        header("location:users/verification_team/home.php");
+                        exit();
                     default:
                         echo '
                         <script type="text/javascript">
@@ -76,11 +79,11 @@
             <div class="col-sm-6 col-md-7 " id="leftside">
                 <div class="row">
                     <a href="">
-                        <img src="include/images/dylogo.png" alt="Dy Patil" class="img-fluid p-3 p-md-4">
+                        <img src="include\images\dylogo.png" alt="Dy Patil" class="img-fluid p-3 p-md-4">
                     </a>
                 </div>
                 <div class="col" id="backgroundimg">
-                    <img src="include/images/blue.svg" class="img-fluid p-5 .d-md-none .d-lg-block" alt="">
+                    <img src="include\images\blue.svg" class="img-fluid p-5 .d-md-none .d-lg-block" alt="">
                 </div>
             </div>
             <!-- rightside -->

@@ -1,7 +1,7 @@
 <?php
     session_start();
     error_reporting(0);
-    require "include/conn.php";
+    require "../include/conn.php";
 
     $Sdrn = mysqli_real_escape_string($conn, $_POST['sdrn_no']);
     $full_name = mysqli_real_escape_string($conn, $_POST['full_name']);

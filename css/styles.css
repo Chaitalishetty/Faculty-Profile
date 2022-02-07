@@ -12,7 +12,7 @@
 }
 .dashboard{
     display: inline-flex;
-    width: 100vw;
+    width: 100%;
 }
 .nav_dashboard{
     position: fixed;
@@ -80,7 +80,7 @@
 }
 .dashboard_container{
     position: relative;
-  display: inline-block;
+    display: inline-block;
     width: 83%;
     margin-left: 16.8%;
 }
@@ -139,4 +139,8 @@
         margin: 0;
         width: 100vw;
     }
+}
+
+.bg-navbar{
+    background-color: var(--dy_red);
 }
